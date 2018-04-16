@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>	
+		<Chapter name = "P002.bin" c1 = "Chrom" c2 = "Lissa" c3 = "Frederick" cb1 = "3896" cb2 = "4128" cb3 = "4360" c1i = "" c1i2 = "Effective" c2i = "Iron" c3i = "Silver"/>
+		<Chapter name = "001.bin" c1 = "Sully" c2 = "Virion" c3 = "" cb1 = "2968" cb2 = "3200" cb3 = "0" c1i = "Bronze" c1i2 = "" c2i = "Iron" c3i = ""/>
+		<Chapter name = "002.bin" c1 = "Miriel" c2 = "Stahl" c3 = "Vaike" cb1 = "10136" cb2 = "1784" cb3 = "1552" c1i = "Bronze" c1i2 = "" c2i = "Bronze" c3i = "Iron"/>
+		<Chapter name = "003.bin" c1 = "Kellam" c2 = "Sumia" c3 = "" cb1 = "9904" cb2 = "10136" cb3 = "0" c1i = "Iron" c1i2 = "Range" c2i = "Iron" c3i = ""/>
+		<Chapter name = "004.bin" c1 = "Lon'qu" c2 = "" c3 = "" cb1 = "3872" cb2 = "0" cb3 = "0" c1i = "Killer" c1i2 = "" c2i = "" c3i = ""/>
+		<Chapter name = "005.bin" c1 = "Ricken" c2 = "Maribelle" c3 = "" cb1 = "10608" cb2 = "10840" cb3 = "0" c1i = "Effective" c1i2 = "" c2i = "Steel" c3i = ""/>
+		<Chapter name = "006.bin" c1 = "Panne" c2 = "Gaius" c3 = "" cb1 = "8512" cb2 = "2944" cb3 = "0" c1i = "BStone" c1i2 = "" c2i = "Iron" c3i = ""/>
+		<Chapter name = "007.bin" c1 = "Cordelia" c2 = "" c3 = "" cb1 = "12784" cb2 = "0" cb3 = "0" c1i = "Steel" c1i2 = "Range" c2i = "" c3i = ""/>
+		<Chapter name = "008.bin" c1 = "Nowi" c2 = "Gregor" c3 = "" cb1 = "9928" cb2 = "10160" cb3 = "0" c1i = "DStone" c1i2 = "" c2i = "Steel" c3i = ""/>
+		<Chapter name = "009.bin" c1 = "Libra" c2 = "Tharja" c3 = "" cb1 = "12344" cb2 = "9096" cb3 = "0" c1i = "Killer" c1i2 = "Killer" c1i3 = "Steel" c2i = "Steel" c2i2 = "Range" c3i = ""/>
+		<Chapter name = "011.bin" c1 = "Olivia" c2 = "" c3 = "" cb1 = "8544" cb2 = "0" cb3 = "0" c1i = "Iron" c1i2 = "" c2i = "" c3i = ""/>
+		<Chapter name = "012.bin" c1 = "Cherche" c2 = "" c3 = "" cb1 = "18512" cb2 = "0" cb3 = "0" c1i = "Effective" c1i2 = "Steel" c2i = "" c3i = ""/>
+		<Chapter name = "013.bin" c1 = "Henry" c2 = "Lucina" c3 = "" cb1 = "10008" cb2 = "10240" cb3 = "0" c1i = "Killer" c1i2 = "Steel" c1i3 = "" c2i = "" c2i2 = "Effective" c3i = ""/>
+		<Chapter name = "015.bin" c1 = "Say'ri" c2 = "" c3 = "" cb1 = "19354" cb2 = "0" cb3 = "0" c1i = "" c1i2 = "" c2i = "" c3i = ""/>
+		<Chapter name = "023.bin" c1 = "Basilio" c2 = "Flavia" c3 = "" cb1 = "13296" cb2 = "13528" cb3 = "0" c1i = "Silver" c1i2 = "Silver" c1i3 = "Effective" c2i = "Silver" c2i2 = "Special" c3i = ""/>
+		<Chapter name = "X001.bin" c1 = "Donnel" c2 = "" c3 = "" cb1 = "9208" cb2 = "0" cb3 = "0" c1i = "Bronze" c1i2 = "" c2i = "" c3i = ""/>
+		<Chapter name = "X004.bin" c1 = "Anna" c2 = "" c3 = "" cb1 = "11040" cb2 = "0" cb3 = "0" c1i = "Steel" c1i2 = "Iron" c2i = "" c3i = ""/>
+		<Chapter name = "X005.bin" c1 = "Owain" c2 = "" c3 = "" cb1 = "11424" cb2 = "0" cb3 = "0" c1i = "Steel" c1i2 = "" c2i = "" c3i = ""/>
+		<Chapter name = "X006.bin" c1 = "Inigo" c2 = "" c3 = "" cb1 = "13592" cb2 = "0" cb3 = "0" c1i = "Steel" c1i2 = "" c2i = "" c3i = ""/>
+		<Chapter name = "X007.bin" c1 = "Brady" c2 = "" c3 = "" cb1 = "11504" cb2 = "0" cb3 = "0" c1i = "Steel" c1i2 = "" c2i = "" c3i = ""/>
+		<Chapter name = "X008.bin" c1 = "Kjelle" c2 = "" c3 = "" cb1 = "12312" cb2 = "0" cb3 = "0" c1i = "Steel" c1i2 = "" c2i = "" c3i = ""/>
+		<Chapter name = "X009.bin" c1 = "Cynthia" c2 = "" c3 = "" cb1 = "5008" cb2 = "0" cb3 = "0" c1i = "Steel" c1i2 = "" c2i = "" c3i = ""/>
+		<Chapter name = "X010.bin" c1 = "Severa" c2 = "" c3 = "" cb1 = "12134" cb2 = "0" cb3 = "0" c1i = "Steel" c1i2 = "" c2i = "" c3i = ""/>
+		<Chapter name = "X011.bin" c1 = "Gerome" c2 = "" c3 = "" cb1 = "12272" cb2 = "0" cb3 = "0" c1i = "Steel" c1i2 = "" c2i = "" c3i = ""/>
+		<Chapter name = "X013.bin" c1 = "Yarne" c2 = "" c3 = "" cb1 = "3480" cb2 = "0" cb3 = "0" c1i = "BStone" c1i2 = "" c2i = "" c3i = ""/>
+		<Chapter name = "X014.bin" c1 = "Laurent" c2 = "" c3 = "" cb1 = "11672" cb2 = "0" cb3 = "0" c1i = "Effective" c1i2 = "" c2i = "" c3i = ""/>
+		<Chapter name = "X015.bin" c1 = "Noire" c2 = "" c3 = "" cb1 = "17304" cb2 = "0" cb3 = "0" c1i = "Steel" c1i2 = "" c2i = "" c3i = ""/>
+		<Chapter name = "X016.bin" c1 = "Nah" c2 = "" c3 = "" cb1 = "14520" cb2 = "0" cb3 = "0" c1i = "DStone" c1i2 = "" c2i = "" c3i = ""/>
+		<Chapter name = "X017.bin" c1 = "Tiki" c2 = "" c3 = "" cb1 = "5992" cb2 = "0" cb3 = "0" c1i = "DStone+" c1i2 = "" c2i = "" c3i = ""/>
+		<Chapter name = "X018.bin" c1 = "Gangrel" c2 = "" c3 = "" cb1 = "9416" cb2 = "0" cb3 = "0" c1i = "Magic" c1i2 = "" c2i = "" c3i = ""/>
+		<Chapter name = "X019.bin" c1 = "Walhart" c2 = "" c3 = "" cb1 = "10656" cb2 = "0" cb3 = "0" c1i = "Legend" c1i2 = "" c2i = "" c3i = ""/>
+		<Chapter name = "X020.bin" c1 = "Emmeryn" c2 = "" c3 = "" cb1 = "15448" cb2 = "0" cb3 = "0" c1i = "" c1i2 = "" c2i = "" c3i = ""/>
+		<Chapter name = "X021.bin" c1 = "Yen'fay" c2 = "" c3 = "" cb1 = "12896" cb2 = "0" cb3 = "0" c1i = "Killer" c1i2 = "" c2i = "" c3i = ""/>
+		<Chapter name = "X022.bin" c1 = "Aversa" c2 = "" c3 = "" cb1 = "7328" cb2 = "0" cb3 = "0" c1i = "Silver" c1i2 = "Effective" c2i = "" c3i = ""/>
+		<Chapter name = "X023.bin" c1 = "Priam" c2 = "" c3 = "" cb1 = "18720" cb2 = "0" cb3 = "0" c1i = "Legend" c1i2 = "Special" c2i = "" c3i = ""/>
+</root>
