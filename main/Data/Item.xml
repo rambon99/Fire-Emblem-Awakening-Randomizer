@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>	
-	<Item name = "Wyrmslayer" itype = "Effective" wtype = "Sword" hiid = "4949445F8368838983538393834C8389815B00"/>
+	<Item name = "Armorslayer" itype = "Effective" wtype = "Sword" hiid = "4949445F8341815B837D815B834C8389815B00"/>
 	<Item name = "Beast" itype = "Effective" wtype = "Lance" hiid = "4949445F8372815B83588367834C8389815B00"/>
 	<Item name = "Hammer" itype = "Effective" wtype = "Axe" hiid = "4949445F836E8393837D815B00"/>
 	<Item name = "Underdog" itype = "Effective" wtype = "Bow" hiid = "4949445F89BA998E8FE382CC8B7C00"/>
@@ -35,7 +35,7 @@
 	<Item name = "Bolganone" itype = "Silver" wtype = "Tome" hiid = "4949445F837B838B834B836D839300"/>
 	<Item name = "Waste" itype = "Silver" wtype = "Dark" hiid = "4949445F8343838B00"/>
 	<Item name = "Recover" itype = "Silver" wtype = "Staff" hiid = "4949445F838A834A836F815B00"/>
-	<Item name = "Armorslayer" itype = "Range" wtype = "Sword" hiid = "4949445F8341815B837D815B834C8389815B00"/>
+	<Item name = "Wyrmslayer" itype = "Range" wtype = "Sword" hiid = "4949445F8368838983538393834C8389815B00"/>
 	<Item name = "Javelin" itype = "Range" wtype = "Lance" hiid = "4949445F8EE8918400"/>
 	<Item name = "Hand" itype = "Range" wtype = "Axe" hiid = "4949445F8EE8958000"/>
 	<Item name = "Towering Bow" itype = "Range" wtype = "Bow" hiid = "4949445F8BC992B782CC8B7C00"/>
@@ -55,7 +55,7 @@
 	<Item name = "Innes" itype = "Magic" wtype = "Bow" hiid = "4949445F8371815B836A8341835882CC93498B7C00"/>
 	<Item name = "Superior" itype = "Magic" wtype = "Tome" hiid = "4949445F96828E4582B582CC978B00"/>
 	<Item name = "Waste" itype = "Magic" wtype = "Dark" hiid = "4949445F8343838B00"/>
-	<Item name = "Fortify" itype = "Magic" wtype = "Dark" hiid = "4949445F838A8355815B837500"/>
+	<Item name = "Fortify" itype = "Magic" wtype = "Staff" hiid = "4949445F838A8355815B837500"/>
 	<Item name = "Ragnell" itype = "Legend" wtype = "Sword" hiid = "4949445F8389834F836C838B00"/>
 	<Item name = "Gradivus" itype = "Legend" wtype = "Lance" hiid = "4949445F834F8389836683428345835800"/>
 	<Item name = "Helswath" itype = "Legend" wtype = "Axe" hiid = "4949445F8358838F83938360834A00"/>

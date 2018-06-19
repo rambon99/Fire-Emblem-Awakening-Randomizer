@@ -55,6 +55,7 @@ public class CharacterShuffler{
 			//System.out.println(updated.get(y).isPromoted());
 			c.get(y).setActual(updated.get(y).getName());
 			c.get(y).setPromoted(updated.get(y).isPromoted());
+			c.get(y).setPpid(updated.get(y).getPpid());
 			//System.out.println(c.get(y).getName());
 			//System.out.println(c.get(y).isPromoted());
 		}

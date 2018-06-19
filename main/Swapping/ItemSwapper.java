@@ -203,6 +203,10 @@ public class ItemSwapper{
 						chap.replace(12832, 12840, "010D010D");
 					}
 				}
+				if (c.get(y).getActual().equals("Henry")){
+					chap.replace(10056, 10064, "09130913"); //0913
+					
+				}
 				
 				//System.out.println(c.get(y).getName());
 				//System.out.println(c.get(y).isPromoted());
@@ -292,6 +296,45 @@ public class ItemSwapper{
 					pa = p.substring(p.length() - 2, p.length())+ p.substring(p.length() - 4, p.length() - 2);
 					chap.replace(block1 + 56 , block1 + 60, pa);
 					size = size + (w1.length()/2);
+					
+					if (c.get(y).getActual().equals("Tiki")){  ///ADD TIKI'S ITEM
+						StringBuilder script = new StringBuilder();
+						int ssize = 0;
+						ssize = bin.getScript(script, "X017.cmb", ssize);
+						
+						String table = script.substring(66, 68) + script.substring(64, 66);
+						int enc = Integer.parseInt(table, 16);
+						
+						String ad11t = "000" + Integer.toHexString(ssize - enc);
+						String ad11 = ad11t.substring(ad11t.length()-4, ad11t.length());
+						String ad12 = ad11.substring(ad11.length() - 2, ad11.length()) + ad11.substring(ad11.length() - 4, ad11.length() - 2);
+						
+						int tind = script.indexOf("4949445f905e97b390ce00")/2;
+						
+						String ad21t = "000" + Integer.toHexString(tind - enc);
+						String ad21 = ad21t.substring(ad21t.length()-4, ad21t.length());
+						String ad22 = ad21.substring(ad21.length() - 2, ad21.length()) + ad21.substring(ad21.length() - 4, ad21.length() - 2);
+						int sind1 = script.indexOf("d1" + ad21.toLowerCase()) + 2;
+						int sind2 = script.indexOf(ad22.toLowerCase()+"0000");
+						
+						while (sind1 != -1 || sind2 != -1){
+							if (sind1 != -1){
+								script.replace(sind1, sind1 + 4, ad11);
+								sind1 = script.indexOf(ad21.toLowerCase());
+				
+							}
+							if (sind2 != -1){
+								script.replace(sind2, sind2 + 4, ad12);
+								sind2 = script.indexOf(ad22.toLowerCase());
+				
+							}
+						}
+						script.append(w1);
+						ssize = ssize + (w1.length()/2);
+						bin.writeScript(script, "X017.cmb");
+
+					}
+					
 					z = 0;
 				}
 				if(!c1i[1].equals("")){      ////FIRST IVENTORY ITEM 2

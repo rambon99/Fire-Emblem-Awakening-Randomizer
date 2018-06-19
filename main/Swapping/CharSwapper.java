@@ -48,7 +48,7 @@ public class CharSwapper{
 				while (!c.get(y2).getName().equals(c.get(y).getActual())){
 					y2 = y2 + 1;
 				}
-				//System.out.println(c.get(y).getName());
+				
 				String fid1 = c.get(y).getFid();
 				String nfid1 = fid1.substring(2,4)+fid1.substring(0,2);
 				int ind1 = stat.lastIndexOf(("00" + nfid1.toLowerCase() + "0000")) + 2;
@@ -59,22 +59,30 @@ public class CharSwapper{
 				stat.replace(ind1 + 114, ind1 + 116, tstat.substring(ind2 + 114, ind2 + 116));
 				stat.replace(ind1 + 96, ind1 + 100, tstat.substring(ind2 + 96, ind2 + 100));
 				stat.replace(ind1 + 120, ind1 + 140, tstat.substring(ind2 + 120, ind2 + 140));
+				
+				//if (!c.get(y).getPpid().equals("")){
+				//	stat.replace(ind1 + 240, ind1 + 248, c.get(y).getPpid());
+				//}
 				if (c. get(y).getName().equals("Chrom")){
 					stat.delete(ind1 - 24, ind1 - 22);
 					stat.insert(ind1 - 24, "00");
 				}
 				if (c.get(y).getActual().equals("Chrom")){
-					stat.insert(ind1 - 24, "22");
-					stat.delete(ind1 - 10, ind1 - 8);
+					stat.replace(ind1 - 24, ind1 - 22, "22");
 				}
+				
 				//System.out.println("Crash");
 				chap.append(c.get(y).getHpid());
+				
 				String p = "0" + Integer.toHexString(size - 32);
 				String pa = p.substring(p.length() - 2, p.length())+ p.substring(p.length() - 4, p.length() - 2);
-				chap.replace(block, block + 4, pa);
+				//System.out.println(pa);
+				//System.out.println(chap);
+				chap.replace(block, block + 4, pa); ///this line
+				
 				size = size + (c.get(y).getHpid().length()/2);
 				
-				if (c.get(y).getActual().matches("Kellam|Libra|Say'ri|Anna|Gangrel") || !c.get(y).getPpid().equals("")){ //Say'ri, Anna|Gangrel
+				if (c.get(y).getActual().matches("Kellam|Libra|Say'ri|Anna|Gangrel|Tiki") || !c.get(y).getPpid().equals("")){ //Say'ri, Anna|Gangrel
 					script.fixScript(c.get(y), c.get(y2), ch.get(x));
 					script.fixScript(c.get(0), c.get(z), ch.get(x));
 				}
@@ -112,7 +120,7 @@ public class CharSwapper{
 				chap.replace(block, block + 4, pa);
 				size = size + (c.get(y).getHpid().length()/2);
 				
-				if (c.get(y).getActual().matches("Gaius|Tharja")){
+				if (c.get(y).getActual().matches("Sumia|Gaius|Tharja")){
 					script.fixScript(c.get(y), c.get(y2), ch.get(x));
 					script.fixScript(c.get(0), c.get(z), ch.get(x));
 				}
@@ -150,6 +158,7 @@ public class CharSwapper{
 				chap.replace(block, block + 4, pa);
 				size = size + (c.get(y).getHpid().length()/2);
 			}
+			
 			String end = "0" + Integer.toHexString(size);
 			String enda = end.substring(end.length() - 2,end.length())+ end.substring(end.length() - 4, end.length() - 2) + "0";
 			chap.replace(0, 5, enda);
@@ -157,6 +166,7 @@ public class CharSwapper{
 		}
 		System.out.println("End Char Swapper");
 		bin.writeStatic(stat);
+		script.forceChromReplacement(c.get(0));
 		System.out.println("Write main");
 	}
 	
@@ -183,7 +193,7 @@ public class CharSwapper{
 		String ad21 = ad21t.substring(ad21t.length()-4, ad21t.length());
 		//System.out.println(size);
 		String ad22 = ad21.substring(ad21.length() - 2, ad21.length()) + ad21.substring(ad21.length() - 4, ad21.length() - 2);
-		int ind1 = cstring.indexOf("d1" + ad21.toLowerCase()) + 2;
+		int ind1 = cstring.indexOf("1d" + ad21.toLowerCase() + "47") + 2;
 		int ind2 = cstring.indexOf(ad22.toLowerCase()+"0000");
 		//System.out.println(ad11);
 		//System.out.println(ad12);
@@ -200,7 +210,10 @@ public class CharSwapper{
 				//System.out.println(cstring.substring(ind1, ind1+4));
 				cstring.replace(ind1, ind1 + 4, ad11);
 				//System.out.println(cstring.substring(ind1, ind1+4));
-				ind1 = cstring.indexOf(ad21.toLowerCase());
+				ind1 = cstring.indexOf("1d" + ad21.toLowerCase() + "47");
+				if (ind1 != -1){
+					ind1 = ind1 + 2;
+				}
 				
 			}
 			
@@ -208,7 +221,7 @@ public class CharSwapper{
 				//System.out.println(cstring.substring(ind2, ind2+4));
 				cstring.replace(ind2, ind2 + 4, ad12);
 				//System.out.println(cstring.substring(ind2, ind2+4));
-				ind2 = cstring.indexOf(ad22.toLowerCase());
+				ind2 = cstring.indexOf(ad22.toLowerCase()+"0000");
 				
 			}
 		}
@@ -225,7 +238,7 @@ public class CharSwapper{
 			String ad41t = "000" + Integer.toHexString(tind2 - enc);
 			String ad41 = ad41t.substring(ad41t.length()-4, ad41t.length());
 			String ad42 = ad41.substring(ad41.length() - 2, ad41.length()) + ad41.substring(ad41.length() - 4, ad41.length() - 2);
-			int ind3 = cstring.indexOf("d1" + ad41.toLowerCase()) + 2;
+			int ind3 = cstring.indexOf("1d" + ad41.toLowerCase() + "47") + 2;
 			int ind4 = cstring.indexOf(ad42.toLowerCase() + "0000");
 			
 			//System.out.println(ad31);
@@ -240,14 +253,17 @@ public class CharSwapper{
 					//System.out.println(cstring.substring(ind3, ind3+4));
 					cstring.replace(ind3, ind3 + 4, ad31);
 					//System.out.println(cstring.substring(ind3, ind3+4));
-					ind3 = cstring.indexOf(ad41.toLowerCase());	
+					ind3 = cstring.indexOf("1d" + ad41.toLowerCase() + "47");
+					if (ind3 != -1){
+						ind3 = ind3 + 2;
+					}					
 				}
 				
 				if (ind4 != -1){
 					//System.out.println(cstring.substring(ind4, ind4+4));
 					cstring.replace(ind4, ind4 + 4, ad32);
 					//System.out.println(cstring.substring(ind4, ind4+4));
-					ind4 = cstring.indexOf(ad42.toLowerCase());
+					ind4 = cstring.indexOf(ad42.toLowerCase() + "0000");
 				}
 			}
 			cstring.append(nname1);
@@ -257,7 +273,73 @@ public class CharSwapper{
 		//	cstring.replace(4790, 4794, "0A19")
 			//cstring.replace(5062, 5066, "0276")
 		//}
+		cstring.replace(0, 6, "636d62");
 		script.writeScript(cstring, cname);
+	}
+	
+	public void forceChromReplacement(ACharacter c){
+		System.out.println("Chrom replace begin");
+		for (int x = 1; x < 27; x++){
+			String cname = String.format("%03d", x) + ".bin";
+			int size = 0;
+			StringBuilder chp = new StringBuilder();
+			BinFiles bin = new BinFiles();
+			size = bin.getDispos(chp, cname, size);
+			
+			int ind1 = chp.indexOf("5049445f834e838d838000")/2 - 32;
+			String a1 = String.format("%04x", ind1);
+			String na1 = a1.substring(2,4)+ a1.substring(0,2);
+			int ind2 = size - 32;
+			String a2 = String.format("%04x", ind2);
+			String na2 = a2.substring(2,4)+ a2.substring(0,2);
+			int nind1 = chp.indexOf(na1.toLowerCase() + "0000");
+			System.out.println(cname);
+			//System.out.println(ind1);
+			//System.out.println(ind2);
+			//System.out.println(nind1);
+			//System.out.println(a1);
+			//System.out.println(na1);
+			//System.out.println(a2);
+			System.out.println(c.getHpid());
+			while (nind1 != -1){
+				chp.replace(nind1, nind1 + 4, na2);
+				nind1 = chp.indexOf(na1.toLowerCase() + "0000");
+			}
+			String hpid = c.getHpid();
+			//System.out.println(chp);
+			chp.append(hpid);
+			//System.out.println(chp);
+			size = size + (c.getHpid().length()/2);
+			String end = "0" + Integer.toHexString(size);
+			String enda = end.substring(end.length() - 2,end.length())+ end.substring(end.length() - 4, end.length() - 2) + "0";
+			chp.replace(0, 5, enda);
+			bin.writeDispos(chp, cname);
+			if (x < 24){
+				String cnamex = "X" + String.format("%03d", x) + ".bin";
+				int sizex = 0;
+				StringBuilder chpx = new StringBuilder();
+				sizex = bin.getDispos(chpx, cnamex, sizex);
+			
+				int ind1x = chpx.indexOf("5049445f834e838d838000")/2 - 32;
+				String a1x = String.format("%04x", ind1x);
+				String na1x = a1x.substring(2,4)+ a1x.substring(0,2);
+				int ind2x = sizex - 32;
+				String a2x = String.format("%04x", ind2x);
+				String na2x = a2x.substring(2,4)+ a2x.substring(0,2);
+				int nind1x = chpx.indexOf(na1x.toLowerCase() + "0000");
+				while (nind1x != -1){
+					chpx.replace(nind1x, nind1x + 4, na2x);
+					nind1x = chpx.indexOf(na1x.toLowerCase() + "0000");
+				}
+				chpx.append(c.getHpid());
+				sizex = sizex + (c.getHpid().length()/2);
+				String endx = "0" + Integer.toHexString(sizex);
+				String endax = endx.substring(endx.length() - 2,endx.length())+ endx.substring(endx.length() - 4, endx.length() - 2) + "0";
+				chpx.replace(0, 5, endax);
+				bin.writeDispos(chpx, cnamex);
+			}
+		}
+		System.out.println("Chrom replace end");
 	}
 	
 }
