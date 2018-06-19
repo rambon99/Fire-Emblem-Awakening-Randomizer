@@ -22,6 +22,7 @@ import main.Randomizer.CharacterShuffler;
 import main.Swapping.CharSwapper;
 import main.Output.TextFile;
 import main.Program.GUI;
+import main.Program.FileChecker;
 
 public class Main{
 	
@@ -53,11 +54,17 @@ public class Main{
 		
 		if (chb){
 			chs.swapChars(c, statc, ch);
+			if (!clb){
+				cs.adjustClasses(c, cl, statc);
+			}
 		}
+		System.out.println("Chars Swapped");
 		if (clb){
 			cs.swapClasses(c, cl, statc);
 		}
+		System.out.println("Classes Swapped");
 		is.swapItems(c, cl, statc, ch);
+		System.out.println("Items Swapped");
 		
 		tf.makeTextFile(c);
 		System.out.println("End main");

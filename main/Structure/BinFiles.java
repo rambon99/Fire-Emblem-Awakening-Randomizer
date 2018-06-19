@@ -123,4 +123,55 @@ public class BinFiles{
 			System.out.println("dispos write");
 		}
 		}
+
+	public int getScript(StringBuilder str, String cname, int size){
+		try{
+		GUI folder = new GUI();
+		File currentDir = main.Program.GUI.folder;
+		//System.out.println(currentDir + "romfs/data/dispos/" + cname);
+		File file = new File(currentDir, ("/scripts/" + cname));
+		FileInputStream fis = new FileInputStream(file);
+		DataInputStream din1 = new DataInputStream(fis);
+		//DataInputStream din2 = new DataInputStream(fis);
+		
+	
+		byte[] bytes = new byte[(int) file.length()]; 
+		
+		size = bytes.length;
+		
+		fis.read(bytes);
+		StringBuilder bsize = new StringBuilder();
+
+		for (int x = 0; x < bytes.length; x++) {
+			//String str  = Integer.toHexString((b & 0xff)+256).substring(1);
+			str.append(Integer.toHexString((bytes[x] & 0xff)+256).substring(1));	
+		}
+		return size;
+		//System.out.println(str);
+		}
+		catch (Exception e){
+			System.out.println("script");
+			return 0;
+		}
+	}
+	
+		public void writeScript(StringBuilder str, String cname){
+		try{
+		int len = str.length();
+		byte[] data = new byte[len / 2];
+		for (int i = 0; i < len; i += 2) {
+			data[i / 2] = (byte) ((Character.digit(str.charAt(i), 16) << 4)
+								+ Character.digit(str.charAt(i+1), 16));
+		}
+		GUI folder = new GUI();
+		File currentDir = main.Program.GUI.folder;
+		File file = new File(currentDir, ("/scripts/" + cname));
+		FileOutputStream fooStream = new FileOutputStream(file, false);
+		fooStream.write(data);
+		fooStream.close();
+				}
+		catch (Exception e){
+			System.out.println("script write");
+		}
+		}
 }

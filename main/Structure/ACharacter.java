@@ -3,7 +3,7 @@ package main.Structure;
 import java.util.Random;
 import java.util.Arrays;
 
-public class ACharacter {
+public class ACharacter implements Cloneable{
 	private String name;
 	private String pid;
 	private String ppid;
@@ -19,6 +19,11 @@ public class ACharacter {
 	{
 		
 	}
+	
+	@Override
+    public Object clone() throws CloneNotSupportedException{
+      return super.clone();
+    }
 	
 	public void setName(String name){
 		this.name = name;

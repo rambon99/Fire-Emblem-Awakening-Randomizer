@@ -14,7 +14,6 @@
 		<Class name = "Barbarian" gender = "m" cid = "BBAF" promoted = "0" base ="" og = "Pegasus Knight" wa = "Axe" wb = "" wc = ""/>
 		<Class name = "Pegasus Knight" gender = "f" cid = "BBBA" promoted = "0" base ="" og = "Barbarian" wa = "Lance" wb = "" wc = ""/>
 		<Class name = "Troubadour" gender = "f" cid = "BBCF" promoted = "0" base ="" og = "Fighter" wa = "Staff" wb = "" wc = ""/>
-		<Class name = "Great Knight" gender = "m" cid = "BBF1" promoted = "1" base ="Cavalier" og = "Great Knight" wa = "Lance" wb = "Sword" wc = "Axe"/>
 		<Class name = "Knight" gender = "m" cid = "BC28" promoted = "0" base ="" og = "Knight" wa = "Lance" wb = "" wc = ""/>
 		<Class name = "Wyvern Rider" gender = "m" cid = "BC3D" promoted = "0" base ="" og = "Wyvern Rider" wa = "Axe" wb = "" wc = ""/>
 		<Class name = "Knight" gender = "f" cid = "BC52" promoted = "0" base ="" og = "Knight" wa = "Lance" wb = "" wc = ""/>
@@ -38,12 +37,9 @@
 		<Class name = "Warrior" gender = "m" cid = "C0EF" promoted = "1" base ="Fighter" og = "Valkyrie" wa = "Axe" wb = "Bow" wc = ""/>
 		<Class name = "Hero" gender = "f" cid = "C133" promoted = "1" base ="Mercenary" og = "Hero" wa = "Sword" wb = "Axe" wc = ""/>
 		<Class name = "Villager" gender = "m" cid = "C169" promoted = "0" base ="" og = "" wa = "Lance" wb = "" wc = ""/>
-		<Class name = "Trickster" gender = "f" cid = "C195" promoted = "1" base ="Thief" og = "Trickster" wa = "Sword" wb = "Staff" wc = ""/>
-		<Class name = "Trickster" gender = "m" cid = "C3F3" promoted = "1" base ="Thief" og = "Trickster" wa = "Sword" wb = "Staff" wc = ""/>
 		<Class name = "Conqueror" gender = "m" cid = "C43B" promoted = "0" base ="" og = "" wa = "Axe" wb = "Lance" wc = "Sword"/>
 		<Class name = "Sage" gender = "f" cid = "C483" promoted = "1" base ="Mage" og = "Sage" wa = "Tome" wb = "Staff" wc = ""/>
 		<Class name = "Swordmaster" gender = "m" cid = "C4B7" promoted = "1" base ="Myrmidon" og = "Swordmaster" wa = "Sword" wb = "" wc = ""/>
-		<Class name = "Dark Flier" gender = "f" cid = "C4F5" promoted = "1" base ="Pegasus Knight" og = "Warrior" wa = "Lance" wb = "Tome" wc = ""/>
 		<Class name = "Hero" gender = "m" cid = "C537" promoted = "1" base ="Mercenary" og = "Hero" wa = "Sword" wb = "Axe" wc = ""/>
 		<Class name = "Lodestar" gender = "m" cid = "C55C" promoted = "0" base ="" og = "" wa = "Sword" wb = "" wc = ""/>
 		<Class name = "Merchant" gender = "f" cid = "C592" promoted = "0" base ="" og = "" wa = "Lance" wb = "" wc = ""/> 
@@ -53,17 +49,21 @@
 		<Class name = "Grandmaster" gender = "f" cid = "C5EA" promoted = "1" base ="Tactician" og = "Grandmaster" wa = "Tome" wb = "Sword" wc = ""/>
 		<Class name = "Paladin" gender = "m" cid = "C5F7" promoted = "1" base ="Cavalier" og = "Paladin" wa = "Lance" wb = "Sword" wc = ""/>
 		<Class name = "Paladin" gender = "f" cid = "C608" promoted = "1" base ="Cavalier" og = "Paladin" wa = "Lance" wb = "Sword" wc = ""/>
+		<Class name = "Great Knight" gender = "m" cid = "BBF1" promoted = "1" base ="Cavalier" og = "Great Knight" wa = "Lance" wb = "Sword" wc = "Axe"/>
 		<Class name = "Great Knight" gender = "f" cid = "C619" promoted = "1" base ="Cavalier" og = "Great Knight" wa = "Lance" wb = "Sword" wc = "Axe"/>
 		<Class name = "General" gender = "m" cid = "C62E" promoted = "1" base ="Knight" og = "General" wa = "Lance" wb = "Axe" wc = ""/>
 		<Class name = "General" gender = "f" cid = "C63F" promoted = "1" base ="Knight" og = "General" wa = "Lance" wb = "Axe" wc = ""/>
 		<Class name = "Berserker" gender = "m" cid = "C650" promoted = "1" base ="Barbarian" og = "Falcon Knight" wa = "Axe" wb = "" wc = ""/>
-		<Class name = "Bow Knight" gender = "m" cid = "C663" promoted = "1" base ="Archer" og = "Bow Knight" wa = "Bow" wb = "Sword" wc = ""/>
-		<Class name = "Bow Knight" gender = "f" cid = "C674" promoted = "1" base ="Archer" og = "Bow Knight" wa = "Bow" wb = "Sword" wc = ""/>
 		<Class name = "Sniper" gender = "m" cid = "C685" promoted = "1" base ="Archer" og = "Sniper" wa = "Bow" wb = "" wc = ""/>
 		<Class name = "Sniper" gender = "f" cid = "C696" promoted = "1" base ="Archer" og = "Sniper" wa = "Bow" wb = "" wc = ""/>
+		<Class name = "Bow Knight" gender = "m" cid = "C663" promoted = "1" base ="Archer" og = "Bow Knight" wa = "Bow" wb = "Sword" wc = ""/>
+		<Class name = "Bow Knight" gender = "f" cid = "C674" promoted = "1" base ="Archer" og = "Bow Knight" wa = "Bow" wb = "Sword" wc = ""/>
 		<Class name = "Assassin" gender = "m" cid = "C6A7" promoted = "1" base ="Thief" og = "Assassin" wa = "Sword" wb = "Bow" wc = ""/>
 		<Class name = "Assassin" gender = "f" cid = "C6B6" promoted = "1" base ="Thief" og = "Assassin" wa = "Sword" wb = "Bow" wc = ""/>
+		<Class name = "Trickster" gender = "f" cid = "C195" promoted = "1" base ="Thief" og = "Trickster" wa = "Sword" wb = "Staff" wc = ""/>
+		<Class name = "Trickster" gender = "m" cid = "C3F3" promoted = "1" base ="Thief" og = "Trickster" wa = "Sword" wb = "Staff" wc = ""/>
 		<Class name = "Falcon Knight" gender = "f" cid = "C6C5" promoted = "1" base ="Pegasus Knight" og = "Warrior" wa = "Lance" wb = "Staff" wc = ""/>
+		<Class name = "Dark Flier" gender = "f" cid = "C4F5" promoted = "1" base ="Pegasus Knight" og = "Warrior" wa = "Lance" wb = "Tome" wc = ""/>
 		<Class name = "Wyvern Lord" gender = "m" cid = "C6D6" promoted = "1" base ="Wyvern Rider" og = "Wyvern Lord" wa = "Axe" wb = "Lance" wc = ""/>
 		<Class name = "Wyvern Lord" gender = "f" cid = "C6F3" promoted = "1" base ="Wyvern Rider" og = "Wyvern Lord" wa = "Axe" wb = "Lance" wc = ""/>
 		<Class name = "Griffon Rider" gender = "m" cid = "C70A" promoted = "1" base ="Wyvern Rider" og = "Griffon Rider" wa = "Axe" wb = "" wc = ""/>

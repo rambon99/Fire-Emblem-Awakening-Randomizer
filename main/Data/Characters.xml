@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>	
-		<Character name = "Chrom" gender = "male" cid = "B7F9" promoted = "0" parent = "" list ="1" fid = "BAE0" hpid = "5049445F834E838D838000"/>
-		<Character name = "Lissa" gender = "female" cid = "B804" promoted = "0" parent = "" list ="2" fid = "BB6B" hpid = "5049445F838A835900"/>
-		<Character name = "Frederick" gender = "male" cid = "B80D" promoted = "1" parent = "" list ="3" fid="BBE2" hpid = "5049445F8374838C8366838A834E00"/>
-		<Character name = "Virion" gender = "male" cid = "B81C" promoted = "0" parent = "" list ="4" fid="BC7C" hpid = "5049445F839483428349815B838B00"/>
-		<Character name = "Sully" gender = "female" cid = "B82B" promoted = "0" parent = "" list ="5" fid="BCC7" hpid = "5049445F835C838F838C00"/>
-		<Character name = "Vaike" gender = "male" cid = "B836" promoted = "0" parent = "" list ="6" fid="BCF7" hpid = "5049445F839483468343834E00"/>
-		<Character name = "Stahl" gender = "male" cid = "B843" promoted = "0" parent = "" list ="7" fid="BD4E" hpid = "5049445F835C815B838B00"/>
-		<Character name = "Miriel" gender = "female" cid = "B84E" promoted = "0" parent = "" list ="8" fid="BD73" hpid = "5049445F837E838A8347838B00"/>
-		<Character name = "Kellam" gender = "male" cid = "B85B" promoted = "0" parent = "" list ="9" fid="BDC4" hpid = "5049445F834A8389838000"/>
-		<Character name = "Sumia" gender = "female" cid = "B866" promoted = "0" parent = "" list ="10" fid="BDE9" hpid = "5049445F8358837E834100"/>
-		<Character name = "Lon'qu" gender = "male" cid = "B871" promoted = "0" parent = "" list ="11" fid="BE0E" hpid = "5049445F838D8393834E815B00"/>
-		<Character name = "Ricken" gender = "male" cid = "B87E" promoted = "0" parent = "" list ="12" fid="BE39" hpid = "5049445F838A8371836700"/>
-		<Character name = "Maribelle" gender = "female" cid = "B889" promoted = "0" parent = "" list ="13" fid="BE5E" hpid = "5049445F837D838A83418378838B00"/>
-		<Character name = "Panne" gender = "female" cid = "B898" promoted = "0" parent = "" list ="14" fid="BE8F" hpid = "5049445F8378838B83788362836700"/>
-		<Character name = "Gaius" gender = "male" cid = "B8A7" promoted = "0" parent = "" list ="15" fid="BEDA" hpid = "5049445F834B8343834100"/>
-		<Character name = "Cordelia" gender = "female" cid = "B8B2" promoted = "0" parent = "" list ="16" fid="BEFF" hpid = "5049445F836583428341838200"/>
-		<Character name = "Gregor" gender = "male" cid = "B8BF" promoted = "0" parent = "" list ="17" fid="BF2A" hpid = "5049445F834F838C835300"/>
-		<Character name = "Nowi" gender = "female" cid = "B8CA" promoted = "0" parent = "" list ="18" fid="BF5A" hpid = "5049445F836D836D00"/>
-		<Character name = "Libra" gender = "male" cid = "B8D3" promoted = "1" parent = "" list ="19" fid="BF8A" hpid = "5049445F838A8378838900"/>
-		<Character name = "Tharja" gender = "female" cid = "B8DE" promoted = "0" parent = "" list ="20" fid="BFC2" hpid = "5049445F8354815B838A838300"/>
-		<Character name = "Olivia" gender = "female" cid = "B8EB" promoted = "0" parent = "" list ="21" fid="BFED" hpid = "5049445F8349838A83948342834700"/>
-		<Character name = "Cherche" gender = "female" cid = "B8FA" promoted = "0" parent = "" list ="22" fid="C02B" hpid = "5049445F835A838B8357838500"/>
-		<Character name = "Henry" gender = "male" cid = "B907" promoted = "0" parent = "" list ="23" fid="C056" hpid = "5049445F83778393838A815B00"/>
-		<Character name = "Say'ri" gender = "female" cid = "B91F" promoted = "1" parent = "" list ="24" fid="C0A6" hpid = "5049445F83548343838A00"/>
-		<Character name = "Basilio" gender = "male" cid = "B9A2" promoted = "1" parent = "" list ="25" fid="C0E0" hpid = "5049445F836F8357815B838A834900"/>
-		<Character name = "Flavia" gender = "female" cid = "B939" promoted = "1" parent = "" list ="26" fid="C124" hpid = "5049445F8374838983948342834100"/>
-		<Character name = "Donnel" gender = "male" cid = "b948" promoted = "0" parent = "" list ="27" fid="C160" hpid = "5049445F8368836A00"/>
-		<Character name = "Anna" gender = "female" cid = "B951" promoted = "1" parent = "" list ="28" fid="C18A" hpid = "5049445F83418393836900"/>
-		<Character name = "Tiki" gender = "female" cid = "BA01" promoted = "0" parent = "" list ="29" fid="C3C5" hpid = "5049445F8360834C00"/>
-		<Character name = "Gangrel" gender = "male" cid = "BA0A" promoted = "1" parent = "" list ="30" fid="C3E4" hpid = "5049445F834D83838393838C838B00"/>
-		<Character name = "Walhart" gender = "male" cid = "BA19" promoted = "0" parent = "" list ="31" fid="C42A" hpid = "5049445F83948340838B836E838B836700"/>
-		<Character name = "Emmeryn" gender = "female" cid = "BA2A" promoted = "1" parent = "" list ="32" fid="C476" hpid = "5049445F83478381838A836900"/>
-		<Character name = "Yen'fay" gender = "male" cid = "BA37" promoted = "1" parent = "" list ="33" fid="C4AC" hpid = "5049445F838C8393836E00"/>
-		<Character name = "Aversa" gender = "female" cid = "BA42" promoted = "1" parent = "" list ="34" fid="C4E6" hpid = "5049445F83438393836F815B835800"/>
-		<Character name = "Priam" gender = "male" cid = "BA51" promoted = "1" parent = "" list ="35" fid="C52C" hpid = "5049445F8370838A835800"/>
-		<Character name = "Lucina" gender = "female" cid = "B914" promoted = "0" parent = "B7F9" list ="36" fid="C081" hpid = "5049445F837D838B835800"/>
-		<Character name = "Owain" gender = "male" cid = "B95C" promoted = "0" parent = "B804" list ="37" fid="C1C4" hpid = "5049445F8345815B836800"/>
-		<Character name = "Inigo" gender = "male" cid = "B967" promoted = "0" parent = "B8EB" list ="38" fid="C1E9" hpid = "5049445F83418359815B838B00"/>
-		<Character name = "Brady" gender = "male" cid = "B974" promoted = "0" parent = "B889" list ="39" fid="C214" hpid = "5049445F8375838C8366834200"/>
-		<Character name = "Kjelle" gender = "female" cid = "B981" promoted = "0" parent = "B82B" list ="40" fid="C23F" hpid = "5049445F836683578346838B00"/>
-		<Character name = "Cynthia" gender = "female" cid = "B98E" promoted = "0" parent = "B866" list ="41" fid="C26A" hpid = "5049445F835683938356834100"/>
-		<Character name = "Severa" gender = "female" cid = "B99B" promoted = "0" parent = "B8B2" list ="42" fid="C295" hpid = "5049445F835A838C836900"/>
-		<Character name = "Gerome" gender = "male" cid = "B9A6" promoted = "0" parent = "B8FA" list ="43" fid="C2BA" hpid = "5049445F83578346838D815B838000"/>
-		<Character name = "Morgan" gender = "male" cid = "B9B5" promoted = "0" parent = "B7D5" list ="44" fid="C2EB" hpid = "5049445F837D815B834E926A00"/>
-		<Character name = "Morgan" gender = "female" cid = "B9C2" promoted = "0" parent = "B7C4" list ="45" fid="C312" hpid = "5049445F837D815B834E8F9700"/>
-		<Character name = "Yarne" gender = "male" cid = "B9CF" promoted = "0" parent = "B898" list ="46" fid="C31F" hpid = "5049445F8356838383938375838C815B00"/>
-		<Character name = "Laurent" gender = "male" cid = "B9E0" promoted = "0" parent = "B84E" list ="47" fid="C356" hpid = "5049445F838D8389839300"/>
-		<Character name = "Noire" gender = "female" cid = "B9EB" promoted = "0" parent = "B8DE" list ="48" fid="C37B" hpid = "5049445F836D838F815B838B00"/>
-		<Character name = "Nah" gender = "female" cid = "B9F8" promoted = "0" parent = "B8CA" list ="49" fid="C3A6" hpid = "5049445F8393839300"/>		
+		<Character name = "Chrom" gender = "male" cid = "B7F9" promoted = "0" parent = "" list ="1" fid = "BAE0" hpid = "5049445F834E838D838000" class = "Lord"/>
+		<Character name = "Lissa" gender = "female" cid = "B804" promoted = "0" parent = "" list ="2" fid = "BB6B" hpid = "5049445F838A835900" class = "Cleric"/>
+		<Character name = "Frederick" gender = "male" cid = "B80D" promoted = "1" parent = "" list ="3" fid="BBE2" hpid = "5049445F8374838C8366838A834E00" class = "Great Knight"/>
+		<Character name = "Virion" gender = "male" cid = "B81C" promoted = "0" parent = "" list ="4" fid="BC7C" hpid = "5049445F839483428349815B838B00" class = "Archer"/>
+		<Character name = "Sully" gender = "female" cid = "B82B" promoted = "0" parent = "" list ="5" fid="BCC7" hpid = "5049445F835C838F838C00" class = "Cavalier"/>
+		<Character name = "Vaike" gender = "male" cid = "B836" promoted = "0" parent = "" list ="6" fid="BCF7" hpid = "5049445F839483468343834E00" class = "Fighter"/>
+		<Character name = "Stahl" gender = "male" cid = "B843" promoted = "0" parent = "" list ="7" fid="BD4E" hpid = "5049445F835C815B838B00" class = "Cavalier"/>
+		<Character name = "Miriel" gender = "female" cid = "B84E" promoted = "0" parent = "" list ="8" fid="BD73" hpid = "5049445F837E838A8347838B00" class = "Mage"/>
+		<Character name = "Kellam" gender = "male" cid = "B85B" promoted = "0" parent = "" list ="9" fid="BDC4" hpid = "5049445F834A8389838000" class = "Knight"/>
+		<Character name = "Sumia" gender = "female" cid = "B866" promoted = "0" parent = "" list ="10" fid="BDE9" hpid = "5049445F8358837E834100" class = "Pegasus Knight"/>
+		<Character name = "Lon'qu" gender = "male" cid = "B871" promoted = "0" parent = "" list ="11" fid="BE0E" hpid = "5049445F838D8393834E815B00" class = "Myrmidon"/>
+		<Character name = "Ricken" gender = "male" cid = "B87E" promoted = "0" parent = "" list ="12" fid="BE39" hpid = "5049445F838A8371836700" class = "Mage"/>
+		<Character name = "Maribelle" gender = "female" cid = "B889" promoted = "0" parent = "" list ="13" fid="BE5E" hpid = "5049445F837D838A83418378838B00" class = "Troubadour"/>
+		<Character name = "Panne" gender = "female" cid = "B898" promoted = "0" parent = "" list ="14" fid="BE8F" hpid = "5049445F8378838B83788362836700" class = "Taguel"/>
+		<Character name = "Gaius" gender = "male" cid = "B8A7" promoted = "0" parent = "" list ="15" fid="BEDA" hpid = "5049445F834B8343834100" class = "Thief"/>
+		<Character name = "Cordelia" gender = "female" cid = "B8B2" promoted = "0" parent = "" list ="16" fid="BEFF" hpid = "5049445F836583428341838200" class = "Pegasus Knight"/>
+		<Character name = "Gregor" gender = "male" cid = "B8BF" promoted = "0" parent = "" list ="17" fid="BF2A" hpid = "5049445F834F838C835300" class = "Mercenary"/>
+		<Character name = "Nowi" gender = "female" cid = "B8CA" promoted = "0" parent = "" list ="18" fid="BF5A" hpid = "5049445F836D836D00" class = "Manakete"/>
+		<Character name = "Libra" gender = "male" cid = "B8D3" promoted = "1" parent = "" list ="19" fid="BF8A" hpid = "5049445F838A8378838900" class = "War Monk"/>
+		<Character name = "Tharja" gender = "female" cid = "B8DE" promoted = "0" parent = "" list ="20" fid="BFC2" hpid = "5049445F8354815B838A838300" class = "Dark Mage"/>
+		<Character name = "Olivia" gender = "female" cid = "B8EB" promoted = "0" parent = "" list ="21" fid="BFED" hpid = "5049445F8349838A83948342834700" class = "Dancer"/>
+		<Character name = "Cherche" gender = "female" cid = "B8FA" promoted = "0" parent = "" list ="22" fid="C02B" hpid = "5049445F835A838B8357838500" class = "Wyvern Rider"/>
+		<Character name = "Henry" gender = "male" cid = "B907" promoted = "0" parent = "" list ="23" fid="C056" hpid = "5049445F83778393838A815B00" class = "Dark Mage"/>
+		<Character name = "Say'ri" gender = "female" cid = "B91F" promoted = "1" parent = "" list ="24" fid="C0A6" hpid = "5049445F83548343838A00" class = "Swordmaster"/>
+		<Character name = "Basilio" gender = "male" cid = "B9A2" promoted = "1" parent = "" list ="25" fid="C0E0" hpid = "5049445F836F8357815B838A834900" class = "Warrior"/>
+		<Character name = "Flavia" gender = "female" cid = "B939" promoted = "1" parent = "" list ="26" fid="C124" hpid = "5049445F8374838983948342834100" class = "Hero"/>
+		<Character name = "Donnel" gender = "male" cid = "b948" promoted = "0" parent = "" list ="27" fid="C160" hpid = "5049445F8368836A00" class = "Villager"/>
+		<Character name = "Anna" gender = "female" cid = "B951" promoted = "1" parent = "" list ="28" fid="C18A" hpid = "5049445F83418393836900" class = "Trickster"/>
+		<Character name = "Tiki" gender = "female" cid = "BA01" promoted = "0" parent = "" list ="29" fid="C3C5" hpid = "5049445F8360834C00" class = "Manakete"/>
+		<Character name = "Gangrel" gender = "male" cid = "BA0A" promoted = "1" parent = "" list ="30" fid="C3E4" hpid = "5049445F834D83838393838C838B00" class = "Trickster"/>
+		<Character name = "Walhart" gender = "male" cid = "BA19" promoted = "0" parent = "" list ="31" fid="C42A" hpid = "5049445F83948340838B836E838B836700" class = "Conqueror"/>
+		<Character name = "Emmeryn" gender = "female" cid = "BA2A" promoted = "1" parent = "" list ="32" fid="C476" hpid = "5049445F83478381838A836900" class = "Sage"/>
+		<Character name = "Yen'fay" gender = "male" cid = "BA37" promoted = "1" parent = "" list ="33" fid="C4AC" hpid = "5049445F838C8393836E00" class = "Swordmaster"/>
+		<Character name = "Aversa" gender = "female" cid = "BA42" promoted = "1" parent = "" list ="34" fid="C4E6" hpid = "5049445F83438393836F815B835800" class = "Dark Flier"/>
+		<Character name = "Priam" gender = "male" cid = "BA51" promoted = "1" parent = "" list ="35" fid="C52C" hpid = "5049445F8370838A835800" class = "Hero"/>
+		<Character name = "Lucina" gender = "female" cid = "B914" promoted = "0" parent = "B7F9" list ="36" fid="C081" hpid = "5049445F837D838B835800" class = "Lord"/>
+		<Character name = "Owain" gender = "male" cid = "B95C" promoted = "0" parent = "B804" list ="37" fid="C1C4" hpid = "5049445F8345815B836800" class = "Myrmidon"/>
+		<Character name = "Inigo" gender = "male" cid = "B967" promoted = "0" parent = "B8EB" list ="38" fid="C1E9" hpid = "5049445F83418359815B838B00" class = "Mercenary"/>
+		<Character name = "Brady" gender = "male" cid = "B974" promoted = "0" parent = "B889" list ="39" fid="C214" hpid = "5049445F8375838C8366834200" class = "Priest"/>
+		<Character name = "Kjelle" gender = "female" cid = "B981" promoted = "0" parent = "B82B" list ="40" fid="C23F" hpid = "5049445F836683578346838B00" class = "Knight"/>
+		<Character name = "Cynthia" gender = "female" cid = "B98E" promoted = "0" parent = "B866" list ="41" fid="C26A" hpid = "5049445F835683938356834100" class = "Pegasus Knight"/>
+		<Character name = "Severa" gender = "female" cid = "B99B" promoted = "0" parent = "B8B2" list ="42" fid="C295" hpid = "5049445F835A838C836900" class = "Mercenary"/>
+		<Character name = "Gerome" gender = "male" cid = "B9A6" promoted = "0" parent = "B8FA" list ="43" fid="C2BA" hpid = "5049445F83578346838D815B838000" class = "Wyvern Rider"/>
+		<Character name = "Morgan" gender = "male" cid = "B9B5" promoted = "0" parent = "B7D5" list ="44" fid="C2EB" hpid = "5049445F837D815B834E926A00" class = "Tactician"/>
+		<Character name = "Morgan" gender = "female" cid = "B9C2" promoted = "0" parent = "B7C4" list ="45" fid="C312" hpid = "5049445F837D815B834E8F9700" class = "Tactician"/>
+		<Character name = "Yarne" gender = "male" cid = "B9CF" promoted = "0" parent = "B898" list ="46" fid="C31F" hpid = "5049445F8356838383938375838C815B00" class = "Taguel"/>
+		<Character name = "Laurent" gender = "male" cid = "B9E0" promoted = "0" parent = "B84E" list ="47" fid="C356" hpid = "5049445F838D8389839300" class = "Mage"/>
+		<Character name = "Noire" gender = "female" cid = "B9EB" promoted = "0" parent = "B8DE" list ="48" fid="C37B" hpid = "5049445F836D838F815B838B00" class = "Archer"/>
+		<Character name = "Nah" gender = "female" cid = "B9F8" promoted = "0" parent = "B8CA" list ="49" fid="C3A6" hpid = "5049445F8393839300" class = "Manakete"/>		
 </root>

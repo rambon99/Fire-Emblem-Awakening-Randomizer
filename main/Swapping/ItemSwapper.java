@@ -32,7 +32,7 @@ public class ItemSwapper{
 		ItemSwapper is = new ItemSwapper();
 		
 		for (int x = 0; x < 35; x++){ //35
-			String[] c1i = ch.get(x).getC1i();
+			String[] c1i = ch.get(x).getC1i();  ///CRASHES ON X18
 			String[] c2i = ch.get(x).getC2i();
 			String c3i = ch.get(x).getC3i();
 			
@@ -47,6 +47,8 @@ public class ItemSwapper{
 			
 			int y = 0;
 			int y2 = 0;
+			
+			
 			
 			if (!ch.get(x).getC1().equals("")){                         ///WEAPON RANKS C1
 				while (!c.get(y).getActual().equals(ch.get(x).getC1())){
@@ -160,7 +162,7 @@ public class ItemSwapper{
 			Node nNode = nList.item(0);
 			Element eElement = (Element) nNode;
 			
-			//System.out.println(x);
+			System.out.println(cname);
 			//System.out.println(size);
 			
 			if(!c1i[0].equals("") || !c1i[1].equals("")){  //////FIRST INVENTORY
