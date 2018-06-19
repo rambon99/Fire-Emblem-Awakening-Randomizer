@@ -239,4 +239,64 @@ public class ClassSwapper{
 		
 		bin.writeStatic(str);
 	}
+	
+	public void adjustClasses(ArrayList <ACharacter> c, ArrayList <AClasses> cl, StringBuilder str) throws Exception{
+		System.out.println("Start Char Adjus");
+		BinFiles bin =  new BinFiles();
+		
+		for (int x = 0; x < 49; x++){
+			System.out.println(c.get(x).getName());
+			System.out.println(c.get(x).isPromoted());
+			String fid = c.get(x).getFid();
+			///System.out.println(fid);
+			String nfid = fid.substring(2,4)+fid.substring(0,2);
+			int ind = str.lastIndexOf(("00" + nfid.toLowerCase() + "0000")) + 2;
+			
+			String[] cla = c.get(x).getClasses();
+			String[] tmp;
+			int y = 0;
+			while (!cl.get(y).getName().equals(cla[0])){
+				y = y + 1;
+			}
+			if (cl.get(y).getName().matches("Dancer|Villager|Merchant|Manakete|Conqueror|Soldier|Lodestar|Taguel") && c.get(x).isPromoted()){
+				//System.out.println("Morgan?");
+				String lvs = str.substring(ind + 114, ind + 116);
+				int lvn = 19 + Integer.parseInt(lvs, 16);
+				if (lvn > 30){
+					str.replace(ind + 114, ind + 116, Integer.toHexString(30));
+				}
+				else{
+					str.replace(ind + 114, ind + 116, Integer.toHexString(lvn));
+				}
+			}
+			else if (c.get(x).isPromoted() != cl.get(y).isPromoted()){
+				int z = 0;
+				//System.out.println("Panne?");
+				//System.out.println(cl.get(y).getName());
+				//System.out.println(cl.get(y).getBase());
+				if (c.get(x).isPromoted()){
+					//System.out.println("promoted");
+					while (cl.get(z).isMale() != c.get(x).isMale() || cl.get(z).isPromoted() != c.get(x).isPromoted() || !cl.get(z).getBase().equals(cl.get(y).getName())){
+						z = z + 1;
+						//System.out.println(cl.get(z).getName());
+					}
+				}
+				else {
+					while (cl.get(z).isMale() != c.get(x).isMale() || cl.get(z).isPromoted() != c.get(x).isPromoted() || !cl.get(z).getName().equals(cl.get(y).getBase())){
+						z = z + 1;
+						//System.out.println(cl.get(z).getName());
+					}
+				}
+				//System.out.println(cl.get(z).getName());
+				//System.out.println(cl.get(z).getCid());
+				tmp = new String[] {cl.get(z).getName(), "", ""};
+				c.get(x).setClasses(tmp);
+				String cid = cl.get(z).getCid();
+				String ncid = cid.substring(2,4)+ cid.substring(0,2)+"0";
+				str.replace(ind + 8, ind + 13, ncid);
+			}
+		}
+		System.out.println("End Char Adjus");
+		bin.writeStatic(str);
+	}
 }

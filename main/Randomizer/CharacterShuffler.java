@@ -31,6 +31,13 @@ public class CharacterShuffler{
 			}
 		}
 		
+		for (ACharacter chari : c){
+			try{
+			updated.add((ACharacter)((ACharacter)chari).clone());}
+			catch (CloneNotSupportedException e) {
+				System.out.println("cloning");
+			}
+		}
 		
 		updated.addAll(c);
 		c.clear();
@@ -42,8 +49,14 @@ public class CharacterShuffler{
 		//updated.addAll(children);
 		
 		for (int y = 0; y < 49; y++){
+			//System.out.println(c.get(y).getName());
+			//System.out.println(c.get(y).isPromoted());
+			//System.out.println(updated.get(y).getName());
+			//System.out.println(updated.get(y).isPromoted());
 			c.get(y).setActual(updated.get(y).getName());
 			c.get(y).setPromoted(updated.get(y).isPromoted());
+			//System.out.println(c.get(y).getName());
+			//System.out.println(c.get(y).isPromoted());
 		}
 		
 		

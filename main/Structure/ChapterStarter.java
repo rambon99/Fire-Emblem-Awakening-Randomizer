@@ -35,7 +35,7 @@ public class ChapterStarter{
 				cx.setC3i(eElement.getAttribute("c3i"));
 				String[] tmp1;
 				String[] tmp2;
-				if (x == 8 || x == 11 || x == 14){
+				if (x == 9 || x == 12 || x == 14){
 					tmp1 = new String[] {eElement.getAttribute("c1i"), eElement.getAttribute("c1i2"), eElement.getAttribute("c1i3")};
 					tmp2 = new String[] {eElement.getAttribute("c2i"), eElement.getAttribute("c2i2")};
 				}
@@ -48,6 +48,11 @@ public class ChapterStarter{
 				cx.setCb1(Integer.parseInt(eElement.getAttribute("cb1")));
 				cx.setCb2(Integer.parseInt(eElement.getAttribute("cb2")));
 				cx.setCb3(Integer.parseInt(eElement.getAttribute("cb3")));
+					
+				System.out.println(Arrays.toString(tmp1));
+				System.out.println(Arrays.toString(tmp2));
+				//System.out.println(c3i);
+				
 				c.add(cx);
 			}
 			}

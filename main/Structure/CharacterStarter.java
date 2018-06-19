@@ -33,6 +33,9 @@ public class CharacterStarter{
 			cx.setPid(eElement.getAttribute("cid"));
 			cx.setFid(eElement.getAttribute("fid"));
 			
+			String[] tmp = new String[] {eElement.getAttribute("class"), "", ""};
+			cx.setClasses(tmp);
+			
 			cx.setPpid(eElement.getAttribute("parent"));
 			cx.setHpid(eElement.getAttribute("hpid"));
 			//System.out.println(eElement.getAttribute("male"));

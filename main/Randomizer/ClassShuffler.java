@@ -75,7 +75,13 @@ public class ClassShuffler{
 		 }
 		 }
 		 c.get(x).setClasses(tmp);
-		}}
+			}
+			//for(ACharacter classes : c) {
+			//System.out.println(classes.getName());
+			//System.out.println(classes.isPromoted());
+			//System.out.println(Arrays.toString(classes.getClasses()));
+        //}
+		}
 		catch (IOException e){
 			System.out.println("In main IOException");
 		}
