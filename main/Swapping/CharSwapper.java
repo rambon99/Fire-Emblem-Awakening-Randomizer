@@ -30,10 +30,10 @@ public class CharSwapper{
 			z = z + 1;
 		}
 		
-		for (int x = 0; x < 35; x++){
+		for (int x = 0; x < 36; x++){
 			StringBuilder chap = new StringBuilder();
 			int size = 0; 
-			
+			System.out.println("here?");
 			size = bin.getDispos(chap, ch.get(x).getName(), size);
 			System.out.println(ch.get(x).getName());
 			
@@ -42,6 +42,7 @@ public class CharSwapper{
 				int y2 = 0;
 				int block = ch.get(x).getCb1();
 				//System.out.println(block);
+				
 				while (!ch.get(x).getC1().equals(c.get(y).getActual())){
 					y = y + 1;
 				}
@@ -60,9 +61,23 @@ public class CharSwapper{
 				stat.replace(ind1 + 96, ind1 + 100, tstat.substring(ind2 + 96, ind2 + 100));
 				stat.replace(ind1 + 120, ind1 + 140, tstat.substring(ind2 + 120, ind2 + 140));
 				
-				//if (!c.get(y).getPpid().equals("")){
-				//	stat.replace(ind1 + 240, ind1 + 248, c.get(y).getPpid());
-				//}
+				if (!c.get(y).getPpid().equals("")){
+					System.out.println(c.get(y).getName());
+					System.out.println(c.get(y).getPpid());
+					if(!c.get(y).getActual().equals("MorganM")){
+						int pi = 0;
+						while (!c.get(y).getPpid().equals(c.get(pi).getPid())){
+							pi = pi + 1;
+						}
+						int pi2 = 0;
+						while (!c.get(pi).getName().equals(c.get(pi2).getActual())){
+							pi2 = pi2 + 1;
+						}
+						c.get(y).setPpid(c.get(pi2).getPid());
+					}
+					stat.replace(ind1 + 240, ind1 + 244, c.get(y).getPpid().substring(2, 4) + c.get(y).getPpid().substring(0, 2));
+				}
+				
 				if (c. get(y).getName().equals("Chrom")){
 					stat.delete(ind1 - 24, ind1 - 22);
 					stat.insert(ind1 - 24, "00");
@@ -82,10 +97,14 @@ public class CharSwapper{
 				
 				size = size + (c.get(y).getHpid().length()/2);
 				
-				if (c.get(y).getActual().matches("Kellam|Libra|Say'ri|Anna|Gangrel|Tiki") || !c.get(y).getPpid().equals("")){ //Say'ri, Anna|Gangrel
+				if (c.get(y).getActual().matches("Kellam|Panne|Nowi|Libra|Henry|Say'ri|Anna|Gangrel|Tiki") || !c.get(y).getPpid().equals("")){ //Say'ri, Anna|Gangrel
 					script.fixScript(c.get(y), c.get(y2), ch.get(x));
 					script.fixScript(c.get(0), c.get(z), ch.get(x));
 				}
+				if (c.get(y).getActual().matches("Sully|Miriel|Panne|Cordelia|Nowi|Olivia|Cherche")){
+					script.adjustChildrenChaps(c.get(y), c.get(y2));
+				}
+				
 			}
 			if (!ch.get(x).getC2().equals("")){
 				int y = 0;
@@ -120,9 +139,29 @@ public class CharSwapper{
 				chap.replace(block, block + 4, pa);
 				size = size + (c.get(y).getHpid().length()/2);
 				
-				if (c.get(y).getActual().matches("Sumia|Gaius|Tharja")){
+				if (!c.get(y).getPpid().equals("")){
+					System.out.println(c.get(y).getName());
+					System.out.println(c.get(y).getPpid());
+					if(!c.get(y).getActual().equals("MorganF")){
+						int pi = 0;
+						while (!c.get(y).getPpid().equals(c.get(pi).getPid())){
+							pi = pi + 1;
+						}
+						int pi2 = 0;
+						while (!c.get(pi).getName().equals(c.get(pi2).getActual())){
+							pi2 = pi2 + 1;
+						}
+						c.get(y).setPpid(c.get(pi2).getPid());
+					}
+					stat.replace(ind1 + 240, ind1 + 244, c.get(y).getPpid().substring(2, 4) + c.get(y).getPpid().substring(0, 2));
+				}
+				
+				if (c.get(y).getActual().matches("Sumia|Gaius|Gregor|Tharja")){
 					script.fixScript(c.get(y), c.get(y2), ch.get(x));
 					script.fixScript(c.get(0), c.get(z), ch.get(x));
+				}
+				if (c.get(y).getActual().matches("Lissa|Sumia|Maribelle|Tharja")){
+					script.adjustChildrenChaps(c.get(y), c.get(y2));
 				}
 			}
 			if (!ch.get(x).getC3().equals("")){
@@ -163,6 +202,7 @@ public class CharSwapper{
 			String enda = end.substring(end.length() - 2,end.length())+ end.substring(end.length() - 4, end.length() - 2) + "0";
 			chap.replace(0, 5, enda);
 			bin.writeDispos(chap, ch.get(x).getName());
+			
 		}
 		System.out.println("End Char Swapper");
 		bin.writeStatic(stat);
@@ -342,4 +382,42 @@ public class CharSwapper{
 		System.out.println("Chrom replace end");
 	}
 	
+	public void adjustChildrenChaps(ACharacter c1, ACharacter c2){
+		System.out.println("children chaps begin");
+		BinFiles bin = new BinFiles();
+		StringBuilder str = new StringBuilder();
+		int size = 69;
+		
+		
+		size = bin.getGamedata(str);
+		System.out.println(size);
+		//System.out.println(name1);
+		String name1 = c1.getHpid().substring(8, c1.getHpid().length());
+		String name2 = "00" + c2.getHpid().substring(8, c2.getHpid().length());
+		int ind = (str.indexOf(name2.toLowerCase())+2)/2;
+		
+		System.out.println(name2);
+		String add = String.format("%06x", (size - 32));
+		String add2 = add.substring(4, 6) + add.substring(2, 4) + add.substring(0, 2);
+		System.out.println(add);
+		String ad = String.format("%06x", (ind - 32));
+		String ad2 = "00" + ad.substring(4, 6) + ad.substring(2, 4) + ad.substring(0, 2) + "00";
+		System.out.println(ad);
+		int ind2 = (str.indexOf(ad2.toLowerCase())+2);
+		
+		str.replace(ind2, ind2 + 6, add2);
+		
+		str.append(name1);
+		size = size + (name1.length()/2);
+		
+		String end = String.format("%06x", size);
+		String enda =  end.substring(4, 6) + end.substring(2, 4) + end.substring(0, 2);
+		System.out.println(enda);
+		str.replace(0, 6, enda);
+		
+		
+		bin.writeGamedata(str);
+		System.out.println("children chaps end");
+	}
+
 }

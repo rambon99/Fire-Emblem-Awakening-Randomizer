@@ -43,8 +43,8 @@
 		<Character name = "Cynthia" gender = "female" cid = "B98E" promoted = "0" parent = "B866" list ="41" fid="C26A" hpid = "5049445F835683938356834100" class = "Pegasus Knight"/>
 		<Character name = "Severa" gender = "female" cid = "B99B" promoted = "0" parent = "B8B2" list ="42" fid="C295" hpid = "5049445F835A838C836900" class = "Mercenary"/>
 		<Character name = "Gerome" gender = "male" cid = "B9A6" promoted = "0" parent = "B8FA" list ="43" fid="C2BA" hpid = "5049445F83578346838D815B838000" class = "Wyvern Rider"/>
-		<Character name = "Morgan" gender = "male" cid = "B9B5" promoted = "0" parent = "B7D5" list ="44" fid="C2EB" hpid = "5049445F837D815B834E926A00" class = "Tactician"/>
-		<Character name = "Morgan" gender = "female" cid = "B9C2" promoted = "0" parent = "B7C4" list ="45" fid="C312" hpid = "5049445F837D815B834E8F9700" class = "Tactician"/>
+		<Character name = "MorganM" gender = "male" cid = "B9B5" promoted = "0" parent = "B7D5" list ="44" fid="C2EB" hpid = "5049445F837D815B834E926A00" class = "Tactician"/>
+		<Character name = "MorganF" gender = "female" cid = "B9C2" promoted = "0" parent = "B7C4" list ="45" fid="C312" hpid = "5049445F837D815B834E8F9700" class = "Tactician"/>
 		<Character name = "Yarne" gender = "male" cid = "B9CF" promoted = "0" parent = "B898" list ="46" fid="C31F" hpid = "5049445F8356838383938375838C815B00" class = "Taguel"/>
 		<Character name = "Laurent" gender = "male" cid = "B9E0" promoted = "0" parent = "B84E" list ="47" fid="C356" hpid = "5049445F838D8389839300" class = "Mage"/>
 		<Character name = "Noire" gender = "female" cid = "B9EB" promoted = "0" parent = "B8DE" list ="48" fid="C37B" hpid = "5049445F836D838F815B838B00" class = "Archer"/>

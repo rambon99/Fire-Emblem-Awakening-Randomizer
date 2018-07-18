@@ -62,6 +62,69 @@ public class BinFiles{
 		}
 		}
 		
+	public int getGamedata(StringBuilder str){
+		try {
+		//GUI folder = new GUI();
+		File currentDir = main.Program.GUI.folder;
+		//System.out.println(currentDir);
+		File file = new File(currentDir, "/data/GameData.bin");
+		FileInputStream fis = new FileInputStream(file);
+		DataInputStream din1 = new DataInputStream(fis);
+		DataInputStream din2 = new DataInputStream(fis);
+		int size = 0;
+		
+	
+		byte[] bytes = new byte[3]; 
+		
+		din1.read(bytes);
+		StringBuilder bsize = new StringBuilder();
+
+		for (int x = 0; x < bytes.length; x++) {
+			//String str  = Integer.toHexString((b & 0xff)+256).substring(1);
+			bsize.append(Integer.toHexString((bytes[x] & 0xff)+256).substring(1));	
+		}
+		
+		String asize = bsize.substring(4,6) + bsize.substring(2,4)+ bsize.substring(0,2);
+		//System.out.println(asize);
+		size = Integer.decode("0x" + asize);
+		//System.out.println(size);
+		str.append(bsize);
+		byte[] b2 = new byte [size - 3];
+		din2.read(b2);
+		for (int y = 0; y < b2.length; y++) {
+			//String str  = Integer.toHexString((b & 0xff)+256).substring(1);
+			str.append(Integer.toHexString((b2[y] & 0xff)+256).substring(1));	
+		}
+		return size;
+		}
+		catch (Exception e){
+			System.out.println("Read gamedata fucked");
+			return 0;
+		}
+		
+	}
+	
+	public void writeGamedata(StringBuilder str){
+		try{
+		//System.out.print(str);
+		int len = str.length();
+		byte[] data = new byte[len / 2];
+		for (int i = 0; i < len; i += 2) {
+			data[i / 2] = (byte) ((Character.digit(str.charAt(i), 16) << 4)
+								+ Character.digit(str.charAt(i+1), 16));
+		}
+		GUI folder = new GUI();
+		File currentDir = main.Program.GUI.folder;
+		File file = new File(currentDir, "/data/GameData.bin");
+		FileOutputStream fooStream = new FileOutputStream(file, false);
+		fooStream.write(data);
+		fooStream.close();
+				}
+		catch (Exception e){
+			System.out.println("gamedaata write");
+		}
+		}
+		
 	public int getDispos(StringBuilder str, String cname, int size){
 		try{
 		GUI folder = new GUI();

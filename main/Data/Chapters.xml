@@ -24,6 +24,7 @@
 		<Chapter name = "X009.bin" c1 = "Cynthia" c2 = "" c3 = "" cb1 = "5008" cb2 = "0" cb3 = "0" c1i = "Steel" c1i2 = "" c2i = "" c3i = ""/>
 		<Chapter name = "X010.bin" c1 = "Severa" c2 = "" c3 = "" cb1 = "12134" cb2 = "0" cb3 = "0" c1i = "Steel" c1i2 = "" c2i = "" c3i = ""/>
 		<Chapter name = "X011.bin" c1 = "Gerome" c2 = "" c3 = "" cb1 = "12272" cb2 = "0" cb3 = "0" c1i = "Steel" c1i2 = "" c2i = "" c3i = ""/>
+		<Chapter name = "X012.bin" c1 = "MorganM" c2 = "MorganF" c3 = "" cb1 = "12576" cb2 = "12344" cb3 = "0" c1i = "Steel" c1i2 = "" c2i = "Steel" c3i = ""/>
 		<Chapter name = "X013.bin" c1 = "Yarne" c2 = "" c3 = "" cb1 = "3480" cb2 = "0" cb3 = "0" c1i = "BStone" c1i2 = "" c2i = "" c3i = ""/>
 		<Chapter name = "X014.bin" c1 = "Laurent" c2 = "" c3 = "" cb1 = "11672" cb2 = "0" cb3 = "0" c1i = "Effective" c1i2 = "" c2i = "" c3i = ""/>
 		<Chapter name = "X015.bin" c1 = "Noire" c2 = "" c3 = "" cb1 = "17304" cb2 = "0" cb3 = "0" c1i = "Steel" c1i2 = "" c2i = "" c3i = ""/>

@@ -23,7 +23,7 @@ public class ChapterStarter{
 			Document doc = dBuilder.parse(inputFile);
 			doc.getDocumentElement().normalize();
 			NodeList nList = doc.getElementsByTagName("Chapter");
-			for (int x = 0; x < 35; x ++){
+			for (int x = 0; x < 36; x ++){
 				Node nNode = nList.item(x);
 				//System.out.println("\nCurrent Element :" + nNode.getNodeName());
 				Element eElement = (Element) nNode;

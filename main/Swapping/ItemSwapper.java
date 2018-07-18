@@ -31,7 +31,7 @@ public class ItemSwapper{
 		
 		ItemSwapper is = new ItemSwapper();
 		
-		for (int x = 0; x < 35; x++){ //35
+		for (int x = 0; x < 36; x++){ //36
 			String[] c1i = ch.get(x).getC1i();  ///CRASHES ON X18
 			String[] c2i = ch.get(x).getC2i();
 			String c3i = ch.get(x).getC3i();
@@ -203,10 +203,9 @@ public class ItemSwapper{
 						chap.replace(12832, 12840, "010D010D");
 					}
 				}
-				if (c.get(y).getActual().equals("Henry")){
-					chap.replace(10056, 10064, "09130913"); //0913
-					
-				}
+				//if (c.get(y).getActual().equals("Henry")){
+				//	chap.replace(10056, 10064, "09130913"); //0913
+				//}
 				
 				//System.out.println(c.get(y).getName());
 				//System.out.println(c.get(y).isPromoted());

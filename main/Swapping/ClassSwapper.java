@@ -33,7 +33,7 @@ public class ClassSwapper{
 			///System.out.println(fid);
 			String nfid = fid.substring(2,4)+fid.substring(0,2);
 			int ind = str.lastIndexOf(("00" + nfid.toLowerCase() + "0000")) + 2;
-			if (x == 24 || x == 35 || x == 15){
+			if (x == 24 || x == 35 || x == 15 || x == 39){
 				ind = str.indexOf(nfid.toLowerCase());
 			}
 			boolean gen = c.get(x).isMale();
@@ -134,7 +134,7 @@ public class ClassSwapper{
 					if (cn != 0 && !c.get(x).getPpid().equals("")){
 						mcid = "0000";
 					}				
-					if (c.get(x).getName().equals("Morgan")){
+					if (c.get(x).getName().equals("MorganM")){
 						mcid = "0000";
 					}
 				}
@@ -220,7 +220,7 @@ public class ClassSwapper{
 					if (cn != 0 && !c.get(x).getPpid().equals("")){
 						fcid = "0000";
 					}				
-					if (c.get(x).getName().equals("Morgan")){
+					if (c.get(x).getName().equals("MorganF")){
 						fcid = "0000";
 					}
 				}

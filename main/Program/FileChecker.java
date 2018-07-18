@@ -19,11 +19,12 @@ public class FileChecker{
 	
 	public void checkFiles(File f) throws Exception{
 		File statc = new File(f, "/data/person/static.bin");
+		File gamed = new File(f, "data/GameData.bin");
 		File dp1 = new File(f, "/data/dispos/P001.bin");
 		File dp2 = new File(f, "/data/dispos/P002.bin");
 		File sp1 = new File(f, "/scripts/P001.cmb");
 		File sp2 = new File(f, "/scripts/P002.cmb");
-		if (!statc.exists() || !dp1.exists() || !dp2.exists() || !sp1.exists() || !sp2.exists()){
+		if (!statc.exists() || !gamed.exists() || !dp1.exists() || !dp2.exists() || !sp1.exists() || !sp2.exists()){
 			throw new Exception();
 		}
 		for (int x = 0; x < 27; x++){
