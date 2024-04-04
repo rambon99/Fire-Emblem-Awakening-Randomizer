@@ -16,12 +16,14 @@ public class TextFile{
 	}
 	
 	public void makeTextFile(ArrayList <ACharacter> c) throws Exception{
-		PrintWriter writer = new PrintWriter("Swaps.txt", "UTF-8");
+		String path = DebugBuilder.GenerateNewFilename("Swaps", ".txt");
+		PrintWriter writer = new PrintWriter(path, "UTF-8");
 		
 		for(ACharacter classes : c) {
 			writer.println("Character: " + classes.getName());
 			writer.println("Old: " + classes.getActual());
 			writer.println("Classes: " + Arrays.toString(classes.getClasses()));
+			writer.println("Skills: " + Arrays.toString(classes.getSkills()));
 			writer.println("");
        }
 	   writer.close();

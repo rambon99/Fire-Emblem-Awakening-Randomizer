@@ -6,6 +6,8 @@ import java.util.*;
 import java.util.Collections;
 import java.util.Arrays;
 import javax.xml.parsers.*;
+
+import main.Output.DebugBuilder;
 import org.w3c.dom.*;
 import org.xml.sax.*;
 
@@ -35,7 +37,7 @@ public class CharacterShuffler{
 			try{
 			updated.add((ACharacter)((ACharacter)chari).clone());}
 			catch (CloneNotSupportedException e) {
-				System.out.println("cloning");
+				DebugBuilder.DebugOutput("cloning");
 			}
 		}
 		

@@ -11,6 +11,8 @@ public class AClasses {
 	private String wa;
 	private String wb;
 	private String wc;
+	private String fSkill;
+	private String sSkill;
 	
 	private Boolean male;
 	private Boolean promoted;
@@ -50,6 +52,14 @@ public class AClasses {
 		this.wc = wc;
 	}
 	
+	public void setFSkill(String fSkill){
+		this.fSkill = fSkill;
+	}
+	
+	public void setSSkill(String sSkill){
+		this.sSkill = sSkill;
+	}
+	
 	public void setMale(boolean male){
 		this.male = male;
 	}
@@ -84,6 +94,14 @@ public class AClasses {
 	
 	public String getWc(){
 		return this.wc;	
+	}
+	
+	public String getFSkill(){
+		return this.fSkill;	
+	}
+	
+	public String getSSkill(){
+		return this.sSkill;	
 	}
 	
 	public boolean isMale(){

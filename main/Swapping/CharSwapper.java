@@ -3,6 +3,8 @@ package main.Swapping;
 import java.io.*;
 import java.util.*;
 import javax.xml.parsers.*;
+
+import main.Output.DebugBuilder;
 import org.w3c.dom.*;
 import org.xml.sax.*;
 
@@ -16,27 +18,40 @@ public class CharSwapper{
 	public CharSwapper(){
 		
 	}
-	
-	public void swapChars(ArrayList <ACharacter> c, StringBuilder stat, ArrayList <AChapter> ch){
-		CharacterShuffler chash = new CharacterShuffler();
-		chash.randomizeCharacters(c);
+	public boolean storyBoolean;
+	public void swapChars(ArrayList <ACharacter> c, StringBuilder stat, ArrayList <AChapter> ch, boolean story){
 		BinFiles bin = new BinFiles();
 		StringBuilder tstat = new StringBuilder(stat);
 		CharSwapper script = new CharSwapper();
-		System.out.println("CharSwapper begin");
-		
+		DebugBuilder.DebugOutput("CharSwapper begin");
+		storyBoolean = story;
+		//hash map for characters that will make looking for them easier
+		Map<String, ACharacter> actualMap = new HashMap<>();
+		Map<String, ACharacter> nameMap = new HashMap<>();
+		ArrayList<ACharacter> tempList = new ArrayList<>(c);
+		for (ACharacter character : c){
+			nameMap.put(character.getName(), character);
+			for (int i = 0; i < tempList.size(); i++){
+				if (character.getActual().equals(tempList.get(i).getName())){
+					actualMap.put(character.getActual(), tempList.get(i));
+					tempList.remove(tempList.get(i));
+				}
+			}
+		}
+
+		//finds chrom cus he gets used for like everything
+		ACharacter chrom = nameMap.get("Chrom");
+
 		int z = 0;
 		while (!c.get(z).getName().equals("Chrom")){
 			z = z + 1;
 		}
-		
+
 		for (int x = 0; x < 36; x++){
 			StringBuilder chap = new StringBuilder();
 			int size = 0; 
-			System.out.println("here?");
 			size = bin.getDispos(chap, ch.get(x).getName(), size);
-			System.out.println(ch.get(x).getName());
-			
+			DebugBuilder.DebugOutput("Replacing characters in chapter: " + ch.get(x).getName());
 			if (!ch.get(x).getC1().equals("")){
 				int y = 0;
 				int y2 = 0;
@@ -62,8 +77,6 @@ public class CharSwapper{
 				stat.replace(ind1 + 120, ind1 + 140, tstat.substring(ind2 + 120, ind2 + 140));
 				
 				if (!c.get(y).getPpid().equals("")){
-					System.out.println(c.get(y).getName());
-					System.out.println(c.get(y).getPpid());
 					if(!c.get(y).getActual().equals("MorganM")){
 						int pi = 0;
 						while (!c.get(y).getPpid().equals(c.get(pi).getPid())){
@@ -86,7 +99,6 @@ public class CharSwapper{
 					stat.replace(ind1 - 24, ind1 - 22, "22");
 				}
 				
-				//System.out.println("Crash");
 				chap.append(c.get(y).getHpid());
 				
 				String p = "0" + Integer.toHexString(size - 32);
@@ -98,11 +110,11 @@ public class CharSwapper{
 				size = size + (c.get(y).getHpid().length()/2);
 				
 				if (c.get(y).getActual().matches("Kellam|Panne|Nowi|Libra|Henry|Say'ri|Anna|Gangrel|Tiki") || !c.get(y).getPpid().equals("")){ //Say'ri, Anna|Gangrel
-					script.fixScript(c.get(y), c.get(y2), ch.get(x));
-					script.fixScript(c.get(0), c.get(z), ch.get(x));
+					fixScript(c.get(y), c.get(y2), ch.get(x));
+					fixScript(c.get(0), c.get(z), ch.get(x));
 				}
 				if (c.get(y).getActual().matches("Sully|Miriel|Panne|Cordelia|Nowi|Olivia|Cherche")){
-					script.adjustChildrenChaps(c.get(y), c.get(y2));
+					adjustChildrenChaps(c.get(y), c.get(y2));
 				}
 				
 			}
@@ -140,8 +152,6 @@ public class CharSwapper{
 				size = size + (c.get(y).getHpid().length()/2);
 				
 				if (!c.get(y).getPpid().equals("")){
-					System.out.println(c.get(y).getName());
-					System.out.println(c.get(y).getPpid());
 					if(!c.get(y).getActual().equals("MorganF")){
 						int pi = 0;
 						while (!c.get(y).getPpid().equals(c.get(pi).getPid())){
@@ -157,11 +167,11 @@ public class CharSwapper{
 				}
 				
 				if (c.get(y).getActual().matches("Sumia|Gaius|Gregor|Tharja")){
-					script.fixScript(c.get(y), c.get(y2), ch.get(x));
-					script.fixScript(c.get(0), c.get(z), ch.get(x));
+					fixScript(c.get(y), c.get(y2), ch.get(x));
+					fixScript(c.get(0), c.get(z), ch.get(x));
 				}
 				if (c.get(y).getActual().matches("Lissa|Sumia|Maribelle|Tharja")){
-					script.adjustChildrenChaps(c.get(y), c.get(y2));
+					adjustChildrenChaps(c.get(y), c.get(y2));
 				}
 			}
 			if (!ch.get(x).getC3().equals("")){
@@ -204,14 +214,82 @@ public class CharSwapper{
 			bin.writeDispos(chap, ch.get(x).getName());
 			
 		}
-		System.out.println("End Char Swapper");
+		DebugBuilder.DebugOutput("End Char Swapper");
 		bin.writeStatic(stat);
 		script.forceChromReplacement(c.get(0));
-		System.out.println("Write main");
+		DebugBuilder.DebugOutput("Write main");
 	}
+
+	/* maybe one day I'll fix the clusterfuck that is charswapper. Maybe one day...
+	private void CharSwapRedo(int chapterCodeBlock, String mapChar, Map<String, ACharacter> nameMap, Map<String, ACharacter> actualMap, StringBuilder newStatic, StringBuilder oldStatic){
+		int y = 0;
+		int y2 = 0;
+		int block = chapterCodeBlock;
+		//System.out.println(block);
+
+		//this will get the character that is the replacement
+		ACharacter replacementChar = actualMap.get(mapChar);
+		//gets old char to be replaced
+		ACharacter oldChar = nameMap.get(mapChar);
+
+		String fid1 = replacementChar.getFid();
+		String nfid1 = fid1.substring(2,4)+fid1.substring(0,2);
+		int ind1 = oldStatic.lastIndexOf(("00" + nfid1.toLowerCase() + "0000")) + 2;
+		String fid2 = oldChar.getFid();
+		String nfid2 = fid2.substring(2,4)+fid2.substring(0,2);
+		//i actually dont know the difference between old and new statics
+		int ind2 = oldStatic.lastIndexOf(("00" + nfid2.toLowerCase() + "0000")) + 2;
+		oldStatic.replace(ind1 + 32, ind1 + 48, newStatic.substring(ind2 + 32, ind2 + 48));
+		oldStatic.replace(ind1 + 114, ind1 + 116, newStatic.substring(ind2 + 114, ind2 + 116));
+		oldStatic.replace(ind1 + 96, ind1 + 100, newStatic.substring(ind2 + 96, ind2 + 100));
+		oldStatic.replace(ind1 + 120, ind1 + 140, newStatic.substring(ind2 + 120, ind2 + 140));
+
+		if (!replacementChar.getPpid().isEmpty()){
+			System.out.println("Child character: " + replacementChar.getName() + " has a parentID of " + replacementChar.getPpid());
+			//excpetion for the morgans, have to look into this
+			if(!replacementChar.getActual().equals("MorganM") || !replacementChar.getActual().equals("MorganF")){
+				int pi = 0;
+				while (!c.get(y).getPpid().equals(c.get(pi).getPid())){
+					pi = pi + 1;
+				}
+				int pi2 = 0;
+				while (!c.get(pi).getName().equals(c.get(pi2).getActual())){
+					pi2 = pi2 + 1;
+				}
+				c.get(y).setPpid(c.get(pi2).getPid());
+			}
+			stat.replace(ind1 + 240, ind1 + 244, c.get(y).getPpid().substring(2, 4) + c.get(y).getPpid().substring(0, 2));
+		}
+
+		if (c. get(y).getName().equals("Chrom")){
+			stat.delete(ind1 - 24, ind1 - 22);
+			stat.insert(ind1 - 24, "00");
+		}
+		if (c.get(y).getActual().equals("Chrom")){
+			stat.replace(ind1 - 24, ind1 - 22, "22");
+		}
+
+		chap.append(c.get(y).getHpid());
+
+		String p = "0" + Integer.toHexString(size - 32);
+		String pa = p.substring(p.length() - 2, p.length())+ p.substring(p.length() - 4, p.length() - 2);
+		//System.out.println(pa);
+		//System.out.println(chap);
+		chap.replace(block, block + 4, pa); ///this line
+
+		size = size + (c.get(y).getHpid().length()/2);
+
+		if (c.get(y).getActual().matches("Kellam|Panne|Nowi|Libra|Henry|Say'ri|Anna|Gangrel|Tiki") || !c.get(y).getPpid().equals("")){ //Say'ri, Anna|Gangrel
+			fixScript(c.get(y), c.get(y2), ch.get(x));
+			fixScript(c.get(0), c.get(z), ch.get(x));
+		}
+		if (c.get(y).getActual().matches("Sully|Miriel|Panne|Cordelia|Nowi|Olivia|Cherche")){
+			adjustChildrenChaps(c.get(y), c.get(y2));
+		}
+	}*/
 	
 	public void fixScript(ACharacter chr1, ACharacter chr2, AChapter chp){
-		
+		if (storyBoolean) return;
 		String cname = chp.getName().substring(0, chp.getName().length() - 3) + "cmb";
 		StringBuilder cstring =  new StringBuilder();
 		BinFiles script = new BinFiles();
@@ -219,7 +297,7 @@ public class CharSwapper{
 		size = script.getScript(cstring, cname, size);
 		String table = cstring.substring(66, 68) + cstring.substring(64, 66);
 		int enc = Integer.parseInt(table, 16);
-		System.out.println(table);
+		//System.out.println(table);
 		//System.out.println(size);
 		String ad11t = "000" + Integer.toHexString(size - enc);
 		String ad11 = ad11t.substring(ad11t.length()-4, ad11t.length());
@@ -243,7 +321,7 @@ public class CharSwapper{
 		size = size + (chr1.getHpid().length()/2);
 		
 		while ( ind1!= -1 ||  ind2!= -1){
-			System.out.println(cstring.indexOf(ad21)+ " " + cstring.indexOf(ad22));
+			//System.out.println(cstring.indexOf(ad21)+ " " + cstring.indexOf(ad22));
 			//System.out.println(cstring.substring(ind1, ind1+4));
 			//System.out.println(cstring.substring(ind2, ind2+4));
 			if (ind1 != -1){
@@ -286,7 +364,7 @@ public class CharSwapper{
 			//System.out.println(ad41);
 			//System.out.println(ad42);
 			while ( ind3!= -1 ||  ind3!= -1){
-				System.out.println(cstring.indexOf(ad41)+ " " + cstring.indexOf(ad42));
+				//System.out.println(cstring.indexOf(ad41)+ " " + cstring.indexOf(ad42));
 				//System.out.println(cstring.substring(ind1, ind1+4));
 				//System.out.println(cstring.substring(ind2, ind2+4));
 				if (ind3 != -1){
@@ -316,9 +394,11 @@ public class CharSwapper{
 		cstring.replace(0, 6, "636d62");
 		script.writeScript(cstring, cname);
 	}
+
+
 	
 	public void forceChromReplacement(ACharacter c){
-		System.out.println("Chrom replace begin");
+		DebugBuilder.DebugOutput("Chrom replace begin");
 		for (int x = 1; x < 27; x++){
 			String cname = String.format("%03d", x) + ".bin";
 			int size = 0;
@@ -333,14 +413,14 @@ public class CharSwapper{
 			String a2 = String.format("%04x", ind2);
 			String na2 = a2.substring(2,4)+ a2.substring(0,2);
 			int nind1 = chp.indexOf(na1.toLowerCase() + "0000");
-			System.out.println(cname);
+			//System.out.println(cname);
 			//System.out.println(ind1);
 			//System.out.println(ind2);
 			//System.out.println(nind1);
 			//System.out.println(a1);
 			//System.out.println(na1);
 			//System.out.println(a2);
-			System.out.println(c.getHpid());
+			//System.out.println(c.getHpid());
 			while (nind1 != -1){
 				chp.replace(nind1, nind1 + 4, na2);
 				nind1 = chp.indexOf(na1.toLowerCase() + "0000");
@@ -379,30 +459,30 @@ public class CharSwapper{
 				bin.writeDispos(chpx, cnamex);
 			}
 		}
-		System.out.println("Chrom replace end");
+		DebugBuilder.DebugOutput("Chrom replace end");
 	}
 	
 	public void adjustChildrenChaps(ACharacter c1, ACharacter c2){
-		System.out.println("children chaps begin");
+		DebugBuilder.DebugOutput(c1.getName() + " has replaced " + c2.getName() + " as parent in chapter activation.");
 		BinFiles bin = new BinFiles();
 		StringBuilder str = new StringBuilder();
 		int size = 69;
 		
 		
 		size = bin.getGamedata(str);
-		System.out.println(size);
+		//System.out.println(size);
 		//System.out.println(name1);
 		String name1 = c1.getHpid().substring(8, c1.getHpid().length());
 		String name2 = "00" + c2.getHpid().substring(8, c2.getHpid().length());
 		int ind = (str.indexOf(name2.toLowerCase())+2)/2;
 		
-		System.out.println(name2);
+		//System.out.println(name2);
 		String add = String.format("%06x", (size - 32));
 		String add2 = add.substring(4, 6) + add.substring(2, 4) + add.substring(0, 2);
-		System.out.println(add);
+		//System.out.println(add);
 		String ad = String.format("%06x", (ind - 32));
 		String ad2 = "00" + ad.substring(4, 6) + ad.substring(2, 4) + ad.substring(0, 2) + "00";
-		System.out.println(ad);
+		//System.out.println(ad);
 		int ind2 = (str.indexOf(ad2.toLowerCase())+2);
 		
 		str.replace(ind2, ind2 + 6, add2);
@@ -412,12 +492,12 @@ public class CharSwapper{
 		
 		String end = String.format("%06x", size);
 		String enda =  end.substring(4, 6) + end.substring(2, 4) + end.substring(0, 2);
-		System.out.println(enda);
+		//System.out.println(enda);
 		str.replace(0, 6, enda);
 		
 		
 		bin.writeGamedata(str);
-		System.out.println("children chaps end");
+		//System.out.println("children chaps end");
 	}
 
 }

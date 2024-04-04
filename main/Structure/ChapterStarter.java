@@ -4,6 +4,11 @@ import java.util.Arrays;
 import java.io.*;
 import java.util.*;
 import javax.xml.parsers.*;
+
+import main.Main;
+import main.Output.DebugBuilder;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.w3c.dom.*;
 import org.xml.sax.*;
 
@@ -16,8 +21,10 @@ public class ChapterStarter{
 	
 	public void setChapters(ArrayList<AChapter> c){
 		try{
-			File currentDir = new File(".");
-			File inputFile = new File (currentDir, "/main/Data/Chapters.xml");
+			InputStream inputStream = Main.class.getResourceAsStream("Data/Chapters.xml");
+			File inputFile =  File.createTempFile("temp", ".xml");;
+			FileOutputStream outputStream = new FileOutputStream(inputFile);
+			IOUtils.copy(inputStream, outputStream);
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			Document doc = dBuilder.parse(inputFile);
@@ -49,15 +56,15 @@ public class ChapterStarter{
 				cx.setCb2(Integer.parseInt(eElement.getAttribute("cb2")));
 				cx.setCb3(Integer.parseInt(eElement.getAttribute("cb3")));
 					
-				System.out.println(Arrays.toString(tmp1));
-				System.out.println(Arrays.toString(tmp2));
+				//System.out.println(Arrays.toString(tmp1));
+				//System.out.println(Arrays.toString(tmp2));
 				//System.out.println(c3i);
 				
 				c.add(cx);
 			}
 			}
 		catch (Exception e){
-			System.out.println("Chapter fucked up");
+			DebugBuilder.DebugOutput("Chapter starter fucked up");
 		}
 	}
 }

@@ -3,6 +3,8 @@ package main.Swapping;
 import java.io.*;
 import java.util.*;
 import javax.xml.parsers.*;
+
+import main.Output.DebugBuilder;
 import org.w3c.dom.*;
 import org.xml.sax.*;
 import java.util.zip.GZIPInputStream;
@@ -22,9 +24,8 @@ public class ClassSwapper{
 	}
 	
 	public void swapClasses(ArrayList <ACharacter> c, ArrayList <AClasses> cl, StringBuilder str) throws Exception{
-		ClassShuffler ran = new ClassShuffler();
-		ran.RandomizeClasses(c);
-		
+
+
 		BinFiles bin = new BinFiles();
 		//System.out.println(str);
 		
@@ -42,7 +43,7 @@ public class ClassSwapper{
 			//System.out.println(ind);
 			for (int cn = 0; cn < 3; cn ++){
 			//System.out.println(cla[cn]);
-			if (cla[cn] == null){
+			if (cla[cn] == null || cla[cn].equals("null")){
 				break;
 			}
 			int y = 0;
@@ -235,18 +236,18 @@ public class ClassSwapper{
 			//sSystem.out.println(ncid);
 			//str.replace(ind + 8, ind + 13, ncid);
 			//str.replace(ind + 192, ind + 197, ncid);
+			DebugBuilder.DebugOutput("Randomized all of " + c.get(x).getName() + "'s classes!");
 		}
 		
 		bin.writeStatic(str);
 	}
 	
 	public void adjustClasses(ArrayList <ACharacter> c, ArrayList <AClasses> cl, StringBuilder str) throws Exception{
-		System.out.println("Start Char Adjus");
+		DebugBuilder.DebugOutput("Start Char Adjus");
 		BinFiles bin =  new BinFiles();
 		
 		for (int x = 0; x < 49; x++){
-			System.out.println(c.get(x).getName());
-			System.out.println(c.get(x).isPromoted());
+			DebugBuilder.DebugOutput("Adjusting classes for " + c.get(x).getName());
 			String fid = c.get(x).getFid();
 			///System.out.println(fid);
 			String nfid = fid.substring(2,4)+fid.substring(0,2);
@@ -296,7 +297,7 @@ public class ClassSwapper{
 				str.replace(ind + 8, ind + 13, ncid);
 			}
 		}
-		System.out.println("End Char Adjus");
+		DebugBuilder.DebugOutput("End Char Adjus");
 		bin.writeStatic(str);
 	}
 }

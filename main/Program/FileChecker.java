@@ -3,6 +3,9 @@ package main.Program;
 import java.io.*;
 import java.util.*;
 import javax.xml.parsers.*;
+
+import main.Output.DebugBuilder;
+import main.Swapping.TextSwapper;
 import org.w3c.dom.*;
 import org.xml.sax.*;
 import java.util.zip.GZIPInputStream;
@@ -42,6 +45,18 @@ public class FileChecker{
 			File dis = new File(f, dispos);
 			File scr = new File(f, script);
 			if (!dis.exists() || !scr.exists()){
+				throw new Exception();
+			}
+		}
+		//checks the text files
+		TextSwapper texts = new TextSwapper();
+		ArrayList<String> textList = texts.ReturnStory();
+		textList.addAll(texts.ReturnSupportsExtra());
+		for (String text : textList){
+			String textFilename = "/m/E/" + text;
+			File textFile = new File(f, textFilename);
+			if (!textFile.exists()){
+				DebugBuilder.DebugOutput("Missing: " + textFilename);
 				throw new Exception();
 			}
 		}

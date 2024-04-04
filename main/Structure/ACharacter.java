@@ -9,7 +9,10 @@ public class ACharacter implements Cloneable{
 	private String ppid;
 	private String fid;
 	private String actual;
+	private String jName;
+	private String voice;
 	private String[] classes;
+	private String[] skills;
 	private String hpid;
 	
 	private Boolean male;
@@ -53,11 +56,19 @@ public class ACharacter implements Cloneable{
 		this.classes = classes;
 		//System.out.println(Arrays.toString(classes));
 	}
+
+	public void setSkills(String[] skills){
+		this.skills = skills;
+	}
 	
 	public void setHpid(String hpid){
 		this.hpid = hpid;
 		//System.out.println( list );
 	}
+
+	public void setjName(String jName){this.jName = jName;}
+
+	public void setVoice(String voice){this.voice = voice;}
 	
 	public void setMale(boolean male){
 		this.male = male;
@@ -86,10 +97,13 @@ public class ACharacter implements Cloneable{
 	public String getPpid(){
 		return this.ppid;
 	}
+	public String getjName(){ return this.jName;}
+	public String getVoice(){return this.voice;}
 	
 	public String[] getClasses(){
 		return this.classes;
 	}
+	public String[] getSkills() {return this.skills;}
 	
 	public String getHpid(){
 		return this.hpid;

@@ -3,6 +3,10 @@ package main.Swapping;
 import java.io.*;
 import java.util.*;
 import javax.xml.parsers.*;
+
+import main.Main;
+import main.Output.DebugBuilder;
+import org.apache.commons.io.IOUtils;
 import org.w3c.dom.*;
 import org.xml.sax.*;
 
@@ -20,9 +24,12 @@ public class ItemSwapper{
 	
 	public void swapItems(ArrayList <ACharacter> c, ArrayList <AClasses> cl, StringBuilder stat, ArrayList<AChapter> ch) throws Exception{
 		BinFiles bin = new BinFiles();
-		
-		File currentDir = new File(".");
-		File inputFile = new File (currentDir, "/main/Data/Item.xml");
+
+
+		InputStream inputStream = Main.class.getResourceAsStream("Data/Item.xml");
+		File inputFile =  File.createTempFile("temp", ".xml");
+		FileOutputStream outputStream = new FileOutputStream(inputFile);
+		IOUtils.copy(inputStream, outputStream);
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document doc = dBuilder.parse(inputFile);
@@ -161,8 +168,8 @@ public class ItemSwapper{
 			
 			Node nNode = nList.item(0);
 			Element eElement = (Element) nNode;
-			
-			System.out.println(cname);
+
+			DebugBuilder.DebugOutput("Replacing items for chapter " + cname);
 			//System.out.println(size);
 			
 			if(!c1i[0].equals("") || !c1i[1].equals("")){  //////FIRST INVENTORY
