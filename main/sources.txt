@@ -1,0 +1,16 @@
+C:\Users\infin\OneDrive\OnlineStories\Romhacking\AwakeningHacking\Fire-Emblem-Awakening-Randomizer-master\main\Main.java
+C:\Users\infin\OneDrive\OnlineStories\Romhacking\AwakeningHacking\Fire-Emblem-Awakening-Randomizer-master\main\Output\TextFile.java
+C:\Users\infin\OneDrive\OnlineStories\Romhacking\AwakeningHacking\Fire-Emblem-Awakening-Randomizer-master\main\Program\FileChecker.java
+C:\Users\infin\OneDrive\OnlineStories\Romhacking\AwakeningHacking\Fire-Emblem-Awakening-Randomizer-master\main\Program\GUI.java
+C:\Users\infin\OneDrive\OnlineStories\Romhacking\AwakeningHacking\Fire-Emblem-Awakening-Randomizer-master\main\Randomizer\CharacterShuffler.java
+C:\Users\infin\OneDrive\OnlineStories\Romhacking\AwakeningHacking\Fire-Emblem-Awakening-Randomizer-master\main\Randomizer\ClassShuffler.java
+C:\Users\infin\OneDrive\OnlineStories\Romhacking\AwakeningHacking\Fire-Emblem-Awakening-Randomizer-master\main\Structure\AChapter.java
+C:\Users\infin\OneDrive\OnlineStories\Romhacking\AwakeningHacking\Fire-Emblem-Awakening-Randomizer-master\main\Structure\ACharacter.java
+C:\Users\infin\OneDrive\OnlineStories\Romhacking\AwakeningHacking\Fire-Emblem-Awakening-Randomizer-master\main\Structure\AClasses.java
+C:\Users\infin\OneDrive\OnlineStories\Romhacking\AwakeningHacking\Fire-Emblem-Awakening-Randomizer-master\main\Structure\BinFiles.java
+C:\Users\infin\OneDrive\OnlineStories\Romhacking\AwakeningHacking\Fire-Emblem-Awakening-Randomizer-master\main\Structure\ChapterStarter.java
+C:\Users\infin\OneDrive\OnlineStories\Romhacking\AwakeningHacking\Fire-Emblem-Awakening-Randomizer-master\main\Structure\CharacterStarter.java
+C:\Users\infin\OneDrive\OnlineStories\Romhacking\AwakeningHacking\Fire-Emblem-Awakening-Randomizer-master\main\Structure\ClassStarter.java
+C:\Users\infin\OneDrive\OnlineStories\Romhacking\AwakeningHacking\Fire-Emblem-Awakening-Randomizer-master\main\Swapping\CharSwapper.java
+C:\Users\infin\OneDrive\OnlineStories\Romhacking\AwakeningHacking\Fire-Emblem-Awakening-Randomizer-master\main\Swapping\ClassSwapper.java
+C:\Users\infin\OneDrive\OnlineStories\Romhacking\AwakeningHacking\Fire-Emblem-Awakening-Randomizer-master\main\Swapping\ItemSwapper.java
