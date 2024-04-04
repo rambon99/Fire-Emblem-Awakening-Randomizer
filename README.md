@@ -23,8 +23,8 @@ had any features, so I was thinking it would be good to improve it. So here it i
 - Nah: Nah :3
 
 ## Requirements
-[Java 18] (https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html)
-[FEAT] (https://github.com/VelouriasMoon/FEAT/releases/tag/v2.6) (Comes packed with the zip)
+[Java 18](https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html)
+[FEAT](https://github.com/VelouriasMoon/FEAT/releases/tag/v2.6) (Comes packed with the zip)
 
 ## Known Issues
 
