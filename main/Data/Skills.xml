@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>	
+	<Skill name = "HP +5" id = "01"/>
+	<Skill name = "Strength +2" id = "02"/>
+	<Skill name = "Magic +2" id = "03"/>
+	<Skill name = "Skill +2" id = "04"/>
+	<Skill name = "Speed +2" id = "05"/>
+	<Skill name = "Defence +2" id = "06"/>
+	<Skill name = "Resistance +2" id = "07"/>
+	<Skill name = "Hit rate +10" id = "08"/>
+	<Skill name = "Hit rate +20" id = "09"/>
+	<Skill name = "Avoid +10" id = "0A"/>
+	<Skill name = "Movement +1" id = "0B"/>
+	<Skill name = "Locktouch" id = "0C"/>
+	<Skill name = "Veteran" id = "0D"/>
+	<Skill name = "Aptitude" id = "0E"/>
+	<Skill name = "Discipline" id = "0F"/>
+	<Skill name = "Armsthrift" id = "10"/>
+	<Skill name = "Dual Support+" id = "11"/>
+	<Skill name = "Dual Strike+" id = "12"/>
+	<Skill name = "Dual Guard+" id = "13"/>
+	<Skill name = "Rightful King" id = "14"/>
+	<Skill name = "Odd Rhythm" id = "15"/>
+	<Skill name = "Even Rhythm" id = "16"/>
+	<Skill name = "Quick Start" id = "17"/>
+	<Skill name = "Slow Start" id = "18"/>
+	<Skill name = "Lucky 7" id = "19"/>
+	<Skill name = "Zeal" id = "1A"/>
+	<Skill name = "Outdoor Fighter" id = "1B"/>
+	<Skill name = "Indoor Fighter" id = "1C"/>
+	<Skill name = "Tantivy " id = "1D"/>
+	<Skill name = "Focus" id = "1E"/>
+	<Skill name = "Gamble" id = "1F"/>
+	<Skill name = "Wrath" id = "20"/>
+	<Skill name = "Prescience" id = "21"/>
+	<Skill name = "Patience" id = "22"/>
+	<Skill name = "Underdog" id = "23"/>
+	<Skill name = "Charm" id = "24"/>
+	<Skill name = "Solidarity" id = "25"/>
+	<Skill name = "Demoiselle" id = "26"/>
+	<Skill name = "Hex" id = "27"/>
+	<Skill name = "Anathema" id = "28"/>
+	<Skill name = "Healtouch" id = "29"/>
+	<Skill name = "Relief" id = "2A"/>
+	<Skill name = "Renewal" id = "2B"/>
+	<Skill name = "Deliverer" id = "2C"/>
+	<Skill name = "Defender" id = "2D"/>
+	<Skill name = "Acrobat" id = "2E"/>
+	<Skill name = "Pass" id = "2F"/>
+	<Skill name = "Swordfaire" id = "30"/>
+	<Skill name = "Lancefaire" id = "31"/>
+	<Skill name = "Axefaire" id = "32"/>
+	<Skill name = "Bowfaire" id = "33"/>
+	<Skill name = "Tomefaire" id = "34"/>
+	<Skill name = "Dance" id = "35"/> <!-- this is actually luck+4 -->
+	<Skill name = "Special Dance" id = "36"/>
+	<Skill name = "Rally Strength" id = "37"/>
+	<Skill name = "Rally Magic" id = "38"/>
+	<Skill name = "Rally Skill" id = "39"/>
+	<Skill name = "Rally Speed" id = "3A"/>
+	<Skill name = "Rally Luck" id = "3B"/><!-- error outrealm skill -->
+	<Skill name = "Rally Defence" id = "3C"/>
+	<Skill name = "Rally Resistance" id = "3D"/>
+	<Skill name = "Rally Movement" id = "3E"/>
+	<Skill name = "Rally Spectrum" id = "3F"/>
+	<Skill name = "Swordbreaker" id = "40"/>
+	<Skill name = "Lancebreaker" id = "41"/>
+	<Skill name = "Axebreaker" id = "42"/>
+	<Skill name = "Bowbreaker" id = "43"/>
+	<Skill name = "Tomebreaker" id = "44"/>
+	<Skill name = "Wyrmsbane" id = "45"/>
+	<Skill name = "Beastbane" id = "46"/>
+	<Skill name = "Lethality" id = "47"/>
+	<Skill name = "Aether" id = "48"/>
+	<Skill name = "Astra" id = "49"/>
+	<Skill name = "Sol" id = "4A"/>
+	<Skill name = "Luna" id = "4B"/>
+	<Skill name = "Ignis" id = "4C"/>
+	<Skill name = "Vengeance" id = "4D"/>
+	<Skill name = "Vantage" id = "4E"/>
+	<Skill name = "Pavise" id = "4F"/>
+	<Skill name = "Aegis" id = "50"/>
+	<Skill name = "Counter" id = "51"/>
+	<Skill name = "Miracle" id = "52"/>
+	<Skill name = "Despoil" id = "53"/>
+	<Skill name = "Galeforce" id = "54"/>
+	<Skill name = "Lifetaker" id = "55"/>
+	<Skill name = "Conquest" id = "56"/>
+	<Skill name = "Shadowgift" id = "57"/>
+	<Skill name = "Luck +4" id = "5A"/>
+</root>

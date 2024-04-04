@@ -1,79 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-		<Class name = "Tactician" gender = "m" cid = "BA9E" promoted = "0" base ="" og = "Tactician" wa = "Tome" wb = "Sword" wc = ""/>
-		<Class name = "Tactician" gender = "f" cid = "BABD" promoted = "0" base ="" og = "Tactician" wa = "Tome" wb = "Sword" wc = ""/>
-		<Class name = "Lord" gender = "m" cid = "BAEB" promoted = "0" base ="" og = "Lord" wa = "Sword" wb = "" wc = ""/>
-		<Class name = "Cavalier" gender = "m" cid = "BB12" promoted = "0" base ="" og = "Cavalier" wa = "Lance" wb = "Sword" wc = ""/>
-		<Class name = "Archer" gender = "m" cid = "BB27" promoted = "0" base ="" og = "Archer" wa = "Bow" wb = "" wc = ""/>
-		<Class name = "Lord" gender = "f" cid = "BB38" promoted = "0" base ="" og = "Lord" wa = "Sword" wb = "" wc = ""/>
-		<Class name = "Cavalier" gender = "f" cid = "BB45" promoted = "0" base ="" og = "Cavalier" wa = "Lance" wb = "Sword" wc = ""/>
-		<Class name = "Archer" gender = "f" cid = "BB5A" promoted = "0" base ="" og = "Archer" wa = "Bow" wb = "" wc = ""/>
-		<Class name = "Cleric" gender = "f" cid = "BB74" promoted = "0" base ="" og = "Priest" wa = "Staff" wb = "" wc = ""/>
-		<Class name = "Priest" gender = "m" cid = "BB99" promoted = "0" base ="" og = "Cleric" wa = "Staff" wb = "" wc = ""/>
-		<Class name = "Myrmidon" gender = "m" cid = "BBA4" promoted = "0" base ="" og = "Myrmidon" wa = "Sword" wb = "" wc = ""/>
-		<Class name = "Barbarian" gender = "m" cid = "BBAF" promoted = "0" base ="" og = "Pegasus Knight" wa = "Axe" wb = "" wc = ""/>
-		<Class name = "Pegasus Knight" gender = "f" cid = "BBBA" promoted = "0" base ="" og = "Barbarian" wa = "Lance" wb = "" wc = ""/>
-		<Class name = "Troubadour" gender = "f" cid = "BBCF" promoted = "0" base ="" og = "Fighter" wa = "Staff" wb = "" wc = ""/>
-		<Class name = "Knight" gender = "m" cid = "BC28" promoted = "0" base ="" og = "Knight" wa = "Lance" wb = "" wc = ""/>
-		<Class name = "Wyvern Rider" gender = "m" cid = "BC3D" promoted = "0" base ="" og = "Wyvern Rider" wa = "Axe" wb = "" wc = ""/>
-		<Class name = "Knight" gender = "f" cid = "BC52" promoted = "0" base ="" og = "Knight" wa = "Lance" wb = "" wc = ""/>
-		<Class name = "Wyvern Rider" gender = "f" cid = "BC67" promoted = "0" base ="" og = "Wyvern Rider" wa = "Lance" wb = "" wc = ""/>
-		<Class name = "Mage" gender = "m" cid = "BCAD" promoted = "0" base ="" og = "Mage" wa = "Tome" wb = "" wc = ""/>
-		<Class name = "Mage" gender = "f" cid = "BCBA" promoted = "0" base ="" og = "Mage" wa = "Tome" wb = "" wc = ""/>
-		<Class name = "Myrmidon" gender = "f" cid = "BCEC" promoted = "0" base ="" og = "Myrmidon" wa = "Sword" wb = "" wc = ""/>
-		<Class name = "Fighter" gender = "m" cid = "BD04" promoted = "0" base ="" og = "Troubadour" wa = "Axe" wb = "" wc = ""/>
-		<Class name = "Thief" gender = "m" cid = "BD2D" promoted = "0" base ="" og = "Thief" wa = "Sword" wb = "Sword" wc = ""/>
-		<Class name = "Mercenary" gender = "f" cid = "BD38" promoted = "0" base ="" og = "Mercenary" wa = "Sword" wb = "" wc = ""/>
-		<Class name = "Thief" gender = "f" cid = "BD43" promoted = "0" base ="" og = "Thief" wa = "Sword" wb = "" wc = ""/>
-		<Class name = "Dark Mage" gender = "m" cid = "BD9E" promoted = "0" base ="" og = "Dark Mage" wa = "Dark" wb = "Tome" wc = ""/>
-		<Class name = "Dark Mage" gender = "f" cid = "BDB1" promoted = "0" base ="" og = "Dark Mage" wa = "Dark" wb = "Tome" wc = ""/>
-		<Class name = "Taguel" gender = "f" cid = "BE9E" promoted = "0" base ="" og = "Taguel" wa = "BStone" wb = "" wc = ""/>
-		<Class name = "Taguel" gender = "m" cid = "BECD" promoted = "0" base ="" og = "Taguel" wa = "BStone" wb = "" wc = ""/>
-		<Class name = "Mercenary" gender = "m" cid = "BF35" promoted = "0" base ="" og = "Mercenary" wa = "Sword" wb = "" wc = ""/>
-		<Class name = "Manakete" gender = "f" cid = "BF63" promoted = "0" base ="" og = "" wa = "DStone" wb = "" wc = ""/>
-		<Class name = "War Monk" gender = "m" cid = "BF95" promoted = "1" base ="Priest" og = "War Cleric" wa = "Staff" wb = "Axe" wc = ""/>
-		<Class name = "Dancer" gender = "f" cid = "BFFC" promoted = "0" base ="" og = "" wa = "Sword" wb = "" wc = ""/>
-		<Class name = "Swordmaster" gender = "f" cid = "C0B1" promoted = "1" base ="Myrmidon" og = "Swordmaster" wa = "Sword" wb = "" wc = ""/>
-		<Class name = "Warrior" gender = "m" cid = "C0EF" promoted = "1" base ="Fighter" og = "Valkyrie" wa = "Axe" wb = "Bow" wc = ""/>
-		<Class name = "Hero" gender = "f" cid = "C133" promoted = "1" base ="Mercenary" og = "Hero" wa = "Sword" wb = "Axe" wc = ""/>
-		<Class name = "Villager" gender = "m" cid = "C169" promoted = "0" base ="" og = "" wa = "Lance" wb = "" wc = ""/>
-		<Class name = "Conqueror" gender = "m" cid = "C43B" promoted = "0" base ="" og = "" wa = "Axe" wb = "Lance" wc = "Sword"/>
-		<Class name = "Sage" gender = "f" cid = "C483" promoted = "1" base ="Mage" og = "Sage" wa = "Tome" wb = "Staff" wc = ""/>
-		<Class name = "Swordmaster" gender = "m" cid = "C4B7" promoted = "1" base ="Myrmidon" og = "Swordmaster" wa = "Sword" wb = "" wc = ""/>
-		<Class name = "Hero" gender = "m" cid = "C537" promoted = "1" base ="Mercenary" og = "Hero" wa = "Sword" wb = "Axe" wc = ""/>
-		<Class name = "Lodestar" gender = "m" cid = "C55C" promoted = "0" base ="" og = "" wa = "Sword" wb = "" wc = ""/>
-		<Class name = "Merchant" gender = "f" cid = "C592" promoted = "0" base ="" og = "" wa = "Lance" wb = "" wc = ""/> 
-		<Class name = "Great Lord" gender = "m" cid = "C5B3" promoted = "1" base ="Lord" og = "Great Lord" wa = "Sword" wb = "Lance" wc = ""/>
-		<Class name = "Great Lord" gender = "f" cid = "C5C8" promoted = "1" base ="Lord" og = "Great Lord" wa = "Sword" wb = "Lance" wc = ""/>
-		<Class name = "Grandmaster" gender = "m" cid = "C5DD" promoted = "1" base ="Tactician" og = "Grandmaster" wa = "Tome" wb = "Sword" wc = ""/>
-		<Class name = "Grandmaster" gender = "f" cid = "C5EA" promoted = "1" base ="Tactician" og = "Grandmaster" wa = "Tome" wb = "Sword" wc = ""/>
-		<Class name = "Paladin" gender = "m" cid = "C5F7" promoted = "1" base ="Cavalier" og = "Paladin" wa = "Lance" wb = "Sword" wc = ""/>
-		<Class name = "Paladin" gender = "f" cid = "C608" promoted = "1" base ="Cavalier" og = "Paladin" wa = "Lance" wb = "Sword" wc = ""/>
-		<Class name = "Great Knight" gender = "m" cid = "BBF1" promoted = "1" base ="Cavalier" og = "Great Knight" wa = "Lance" wb = "Sword" wc = "Axe"/>
-		<Class name = "Great Knight" gender = "f" cid = "C619" promoted = "1" base ="Cavalier" og = "Great Knight" wa = "Lance" wb = "Sword" wc = "Axe"/>
-		<Class name = "General" gender = "m" cid = "C62E" promoted = "1" base ="Knight" og = "General" wa = "Lance" wb = "Axe" wc = ""/>
-		<Class name = "General" gender = "f" cid = "C63F" promoted = "1" base ="Knight" og = "General" wa = "Lance" wb = "Axe" wc = ""/>
-		<Class name = "Berserker" gender = "m" cid = "C650" promoted = "1" base ="Barbarian" og = "Falcon Knight" wa = "Axe" wb = "" wc = ""/>
-		<Class name = "Sniper" gender = "m" cid = "C685" promoted = "1" base ="Archer" og = "Sniper" wa = "Bow" wb = "" wc = ""/>
-		<Class name = "Sniper" gender = "f" cid = "C696" promoted = "1" base ="Archer" og = "Sniper" wa = "Bow" wb = "" wc = ""/>
-		<Class name = "Bow Knight" gender = "m" cid = "C663" promoted = "1" base ="Archer" og = "Bow Knight" wa = "Bow" wb = "Sword" wc = ""/>
-		<Class name = "Bow Knight" gender = "f" cid = "C674" promoted = "1" base ="Archer" og = "Bow Knight" wa = "Bow" wb = "Sword" wc = ""/>
-		<Class name = "Assassin" gender = "m" cid = "C6A7" promoted = "1" base ="Thief" og = "Assassin" wa = "Sword" wb = "Bow" wc = ""/>
-		<Class name = "Assassin" gender = "f" cid = "C6B6" promoted = "1" base ="Thief" og = "Assassin" wa = "Sword" wb = "Bow" wc = ""/>
-		<Class name = "Trickster" gender = "f" cid = "C195" promoted = "1" base ="Thief" og = "Trickster" wa = "Sword" wb = "Staff" wc = ""/>
-		<Class name = "Trickster" gender = "m" cid = "C3F3" promoted = "1" base ="Thief" og = "Trickster" wa = "Sword" wb = "Staff" wc = ""/>
-		<Class name = "Falcon Knight" gender = "f" cid = "C6C5" promoted = "1" base ="Pegasus Knight" og = "Warrior" wa = "Lance" wb = "Staff" wc = ""/>
-		<Class name = "Dark Flier" gender = "f" cid = "C4F5" promoted = "1" base ="Pegasus Knight" og = "Warrior" wa = "Lance" wb = "Tome" wc = ""/>
-		<Class name = "Wyvern Lord" gender = "m" cid = "C6D6" promoted = "1" base ="Wyvern Rider" og = "Wyvern Lord" wa = "Axe" wb = "Lance" wc = ""/>
-		<Class name = "Wyvern Lord" gender = "f" cid = "C6F3" promoted = "1" base ="Wyvern Rider" og = "Wyvern Lord" wa = "Axe" wb = "Lance" wc = ""/>
-		<Class name = "Griffon Rider" gender = "m" cid = "C70A" promoted = "1" base ="Wyvern Rider" og = "Griffon Rider" wa = "Axe" wb = "" wc = ""/>
-		<Class name = "Griffon Rider" gender = "f" cid = "C721" promoted = "1" base ="Wyvern Rider" og = "Griffon Rider" wa = "Axe" wb = "" wc = ""/>
-		<Class name = "Valkyrie" gender = "f" cid = "C738" promoted = "1" base ="Troubadour" og = "Berserker" wa = "Staff" wb = "Tome" wc = ""/>
-		<Class name = "War Cleric" gender = "f" cid = "C74D" promoted = "1" base ="Cleric" og = "War Monk" wa = "Staff" wb = "Axe" wc = ""/>
-		<Class name = "Sage" gender = "m" cid = "C762" promoted = "1" base ="Mage" og = "Sage" wa = "Tome" wb = "Staff" wc = ""/>
-		<Class name = "Dark Knight" gender = "m" cid = "C76D" promoted = "1" base ="Mage" og = "Dark Knight" wa = "Tome" wb = "Sword" wc = ""/>
-		<Class name = "Dark Knight" gender = "f" cid = "C780" promoted = "1" base ="Mage" og = "Dark Knight" wa = "Tome" wb = "Sword" wc = ""/>
-		<Class name = "Sorcerer" gender = "m" cid = "C793" promoted = "1" base ="Dark Mage" og = "Sorcerer" wa = "Dark" wb = "Tome" wc = ""/>
-		<Class name = "Sorcerer" gender = "f" cid = "C7A4" promoted = "1" base ="Dark Mage" og = "Sorcerer" wa = "Dark" wb = "Tome" wc = ""/>
-		<Class name = "Soldier" gender = "m" cid = "C7B5" promoted = "0" base ="" og = "" wa = "Lance" wb = "" wc = ""/>
+		<Class name = "Tactician" gender = "m" jid = "4A49445F90ED8F708E74926A" promoted = "0" base ="" og = "Tactician" wa = "Tome" wb = "Sword" wc = "" firstSkill = "Veteran" secondSkill = "Solidarity"/>
+		<Class name = "Tactician" gender = "f" jid = "4A49445F90ED8F708E748F97" promoted = "0" base ="" og = "Tactician" wa = "Tome" wb = "Sword" wc = "" firstSkill = "Veteran" secondSkill = "Solidarity"/>
+		<Class name = "Lord" gender = "m" jid = "4A49445F838D815B8368926A" promoted = "0" base ="" og = "Lord" wa = "Sword" wb = "" wc = "" firstSkill = "Dual Strike+" secondSkill = "Charm"/>
+		<Class name = "Cavalier" gender = "m" jid = "4A49445F835C83568341838B836983438367926A" promoted = "0" base ="" og = "Cavalier" wa = "Lance" wb = "Sword" wc = "" firstSkill = "Discipline" secondSkill = "Outdoor Fighter"/>
+		<Class name = "Archer" gender = "m" jid = "4A49445F8341815B83608383815B926A" promoted = "0" base ="" og = "Archer" wa = "Bow" wb = "" wc = "" firstSkill = "Skill +2" secondSkill = "Prescience"/>
+		<Class name = "Lord" gender = "f" jid = "4A49445F838D815B83688F97" promoted = "0" base ="" og = "Lord" wa = "Sword" wb = "" wc = "" firstSkill = "Dual Strike+" secondSkill = "Charm"/>
+		<Class name = "Cavalier" gender = "f" jid = "4A49445F835C83568341838B8369834383678F97" promoted = "0" base ="" og = "Cavalier" wa = "Lance" wb = "Sword" wc = "" firstSkill = "Discipline" secondSkill = "Outdoor Fighter"/>
+		<Class name = "Archer" gender = "f" jid = "4A49445F8341815B83608383815B8F97" promoted = "0" base ="" og = "Archer" wa = "Bow" wb = "" wc = "" firstSkill = "Skill +2" secondSkill = "Prescience"/>
+		<Class name = "Cleric" gender = "f" jid = "4A49445F83568358835E815B8F97" promoted = "0" base ="" og = "Priest" wa = "Staff" wb = "" wc = "" firstSkill = "Miracle" secondSkill = "Healtouch"/>
+		<Class name = "Priest" gender = "m" jid = "4A49445F916D97B5926A" promoted = "0" base ="" og = "Cleric" wa = "Staff" wb = "" wc = "" firstSkill = "Miracle" secondSkill = "Healtouch"/>
+		<Class name = "Myrmidon" gender = "m" jid = "4A49445F8C958E6D926A" promoted = "0" base ="" og = "Myrmidon" wa = "Sword" wb = "" wc = "" firstSkill = "Avoid +10" secondSkill = "Vantage"/>
+		<Class name = "Barbarian" gender = "m" jid = "4A49445F94D891B0926A" promoted = "0" base ="" og = "Pegasus Knight" wa = "Axe" wb = "" wc = "" firstSkill = "Despoil" secondSkill = "Gamble"/>
+		<Class name = "Pegasus Knight" gender = "f" jid = "4A49445F8379834B835483588369834383678F97" promoted = "0" base ="" og = "Barbarian" wa = "Lance" wb = "" wc = "" firstSkill = "Speed +2" secondSkill = "Relief"/>
+		<Class name = "Troubadour" gender = "f" jid = "4A49445F8367838B836F8368815B838B8F97" promoted = "0" base ="" og = "Fighter" wa = "Staff" wb = "" wc = "" firstSkill = "Resistance +2" secondSkill = "Demoiselle"/>
+		<Class name = "Knight" gender = "m" jid = "4A49445F8341815B837D815B836983438367926A" promoted = "0" base ="" og = "Knight" wa = "Lance" wb = "" wc = "" firstSkill = "Defence +2" secondSkill = "Indoor Fighter"/>
+		<Class name = "Wyvern Rider" gender = "m" jid = "4A49445F8368838983538393836983438367926A" promoted = "0" base ="" og = "Wyvern Rider" wa = "Axe" wb = "" wc = "" firstSkill = "Strength +2" secondSkill = "Tantivy"/>
+		<Class name = "Knight" gender = "f" jid = "4A49445F8341815B837D815B8369834383678F97" promoted = "0" base ="" og = "Knight" wa = "Lance" wb = "" wc = "" firstSkill = "Defence +2" secondSkill = "Indoor Fighter"/>
+		<Class name = "Wyvern Rider" gender = "f" jid = "4A49445F83688389835383938369834383678F97" promoted = "0" base ="" og = "Wyvern Rider" wa = "Lance" wb = "" wc = "" firstSkill = "Strength +2" secondSkill = "Tantivy"/>
+		<Class name = "Mage" gender = "m" jid = "4A49445F968293B98E6D926A" promoted = "0" base ="" og = "Mage" wa = "Tome" wb = "" wc = "" firstSkill = "Magic +2" secondSkill = "Focus"/>
+		<Class name = "Mage" gender = "f" jid = "4A49445F968293B98E6D8F97" promoted = "0" base ="" og = "Mage" wa = "Tome" wb = "" wc = "" firstSkill = "Magic +2" secondSkill = "Focus"/>
+		<Class name = "Myrmidon" gender = "f" jid = "4A49445F8C958E6D8F97" promoted = "0" base ="" og = "Myrmidon" wa = "Sword" wb = "" wc = "" firstSkill = "Avoid +10" secondSkill = "Vantage"/>
+		<Class name = "Fighter" gender = "m" jid = "4A49445F90ED8E6D926A" promoted = "0" base ="" og = "Troubadour" wa = "Axe" wb = "" wc = "" firstSkill = "HP +5" secondSkill = "Zeal"/>
+		<Class name = "Thief" gender = "m" jid = "4A49445F939091AF926A" promoted = "0" base ="" og = "Thief" wa = "Sword" wb = "Sword" wc = "" firstSkill = "Locktouch" secondSkill = "Movement +1"/>
+		<Class name = "Mercenary" gender = "f" jid = "4A49445F976295BA8F97" promoted = "0" base ="" og = "Mercenary" wa = "Sword" wb = "" wc = "" firstSkill = "Armsthrift" secondSkill = "Patience"/>
+		<Class name = "Thief" gender = "f" jid = "4A49445F939091AF8F97" promoted = "0" base ="" og = "Thief" wa = "Sword" wb = "" wc = "" firstSkill = "Locktouch" secondSkill = "Movement +1"/>
+		<Class name = "Dark Mage" gender = "m" jid = "4A49445F835F815B834E837D815B8357926A" promoted = "0" base ="" og = "Dark Mage" wa = "Dark" wb = "Tome" wc = "" firstSkill = "Hex" secondSkill = "Anathema"/>
+		<Class name = "Dark Mage" gender = "f" jid = "4A49445F835F815B834E837D815B83578F97" promoted = "0" base ="" og = "Dark Mage" wa = "Dark" wb = "Tome" wc = "" firstSkill = "Hex" secondSkill = "Anathema"/>
+		<Class name = "Taguel" gender = "f" jid = "4A49445F8389834F83598F97" promoted = "0" base ="" og = "Taguel" wa = "BStone" wb = "" wc = "" firstSkill = "Even Rhythm" secondSkill = "Beastbane"/>
+		<Class name = "Taguel" gender = "m" jid = "4A49445F8389834F8359926A" promoted = "0" base ="" og = "Taguel" wa = "BStone" wb = "" wc = "" firstSkill = "Even Rhythm" secondSkill = "Beastbane"/>
+		<Class name = "Mercenary" gender = "m" jid = "4A49445F976295BA926A" promoted = "0" base ="" og = "Mercenary" wa = "Sword" wb = "" wc = "" firstSkill = "Armsthrift" secondSkill = "Patience"/>
+		<Class name = "Manakete" gender = "f" jid = "4A49445F837D8380834E815B83678F97" promoted = "0" base ="" og = "" wa = "DStone" wb = "" wc = "" firstSkill = "Odd Rhythm" secondSkill = "Wyrmsbane"/>
+		<Class name = "War Monk" gender = "m" jid = "4A49445F836F8367838B83828393834E926A" promoted = "1" base ="Priest" og = "War Cleric" wa = "Staff" wb = "Axe" wc = "" firstSkill = "Rally Luck" secondSkill = "Renewal"/>
+		<Class name = "Dancer" gender = "f" jid = "4A49445F977882E88E718F97" promoted = "0" base ="" og = "" wa = "Sword" wb = "" wc = "" firstSkill = "Dance" secondSkill = "Special Dance"/>
+		<Class name = "Swordmaster" gender = "f" jid = "4A49445F835C815B8368837D8358835E815B8F97" promoted = "1" base ="Myrmidon" og = "Swordmaster" wa = "Sword" wb = "" wc = "" firstSkill = "Astra" secondSkill = "Swordfaire"/>
+		<Class name = "Warrior" gender = "m" jid = "4A49445F83458348815B838A8341815B926A" promoted = "1" base ="Fighter" og = "Valkyrie" wa = "Axe" wb = "Bow" wc = "" firstSkill = "Rally Strength" secondSkill = "Counter"/>
+		<Class name = "Hero" gender = "f" jid = "4A49445F97458ED28F97" promoted = "1" base ="Mercenary" og = "Hero" wa = "Sword" wb = "Axe" wc = "" firstSkill = "Sol" secondSkill = "Axebreaker"/>
+		<Class name = "Villager" gender = "m" jid = "4A49445F91BA906C926A" promoted = "0" base ="" og = "" wa = "Lance" wb = "" wc = "" firstSkill = "Aptitude" secondSkill = "Underdog"/>
+		<Class name = "Conqueror" gender = "m" jid = "4A49445F8349815B836F815B838D815B8368926A" promoted = "0" base ="" og = "" wa = "Axe" wb = "Lance" wc = "Sword" firstSkill = "Conquest" secondSkill = "Rightful King"/>
+		<Class name = "Sage" gender = "f" jid = "4A49445F8CAB8ED28F97" promoted = "1" base ="Mage" og = "Sage" wa = "Tome" wb = "Staff" wc = "" firstSkill = "Rally Magic" secondSkill = "Tomefaire"/>
+		<Class name = "Swordmaster" gender = "m" jid = "4A49445F835C815B8368837D8358835E815B926A" promoted = "1" base ="Myrmidon" og = "Swordmaster" wa = "Sword" wb = "" wc = "" firstSkill = "Astra" secondSkill = "Swordfaire"/>
+		<Class name = "Hero" gender = "m" jid = "4A49445F97458ED2926A" promoted = "1" base ="Mercenary" og = "Hero" wa = "Sword" wb = "Axe" wc = "" firstSkill = "Sol" secondSkill = "Axebreaker"/>
+		<Class name = "Lodestar" gender = "m" jid = "4A49445F8358835E815B838D815B8368926A" promoted = "0" base ="" og = "" wa = "Sword" wb = "" wc = "" firstSkill = "Dual Strike+" secondSkill = "Aether"/>
+		<Class name = "Merchant" gender = "f" jid = "4A49445F8FA4906C8F97" promoted = "0" base ="" og = "" wa = "Lance" wb = "" wc = "" firstSkill = "Despoil" secondSkill = "Armsthrift"/> 
+		<Class name = "Great Lord" gender = "m" jid = "4A49445F837D8358835E815B838D815B8368926A" promoted = "1" base ="Lord" og = "Great Lord" wa = "Sword" wb = "Lance" wc = "" firstSkill = "Aether" secondSkill = "Rightful King"/>
+		<Class name = "Great Lord" gender = "f" jid = "4A49445F837D8358835E815B838D815B83688F97" promoted = "1" base ="Lord" og = "Great Lord" wa = "Sword" wb = "Lance" wc = "" firstSkill = "Aether" secondSkill = "Rightful King"/>
+		<Class name = "Grandmaster" gender = "m" jid = "4A49445F905F8C528E74926A" promoted = "1" base ="Tactician" og = "Grandmaster" wa = "Tome" wb = "Sword" wc = "" firstSkill = "Ignis" secondSkill = "Rally Spectrum"/>
+		<Class name = "Grandmaster" gender = "f" jid = "4A49445F905F8C528E748F97" promoted = "1" base ="Tactician" og = "Grandmaster" wa = "Tome" wb = "Sword" wc = "" firstSkill = "Ignis" secondSkill = "Rally Spectrum"/>
+		<Class name = "Paladin" gender = "m" jid = "4A49445F83708389836683428393926A" promoted = "1" base ="Cavalier" og = "Paladin" wa = "Lance" wb = "Sword" wc = "" firstSkill = "Defender" secondSkill = "Aegis"/>
+		<Class name = "Paladin" gender = "f" jid = "4A49445F837083898366834283938F97" promoted = "1" base ="Cavalier" og = "Paladin" wa = "Lance" wb = "Sword" wc = "" firstSkill = "Defender" secondSkill = "Aegis"/>
+		<Class name = "Great Knight" gender = "m" jid = "4A49445F834F838C815B8367836983438367926A" promoted = "1" base ="Cavalier" og = "Great Knight" wa = "Lance" wb = "Sword" wc = "Axe" firstSkill = "Luna" secondSkill = "Dual Guard+"/>
+		<Class name = "Great Knight" gender = "f" jid = "4A49445F834F838C815B83678369834383678F97" promoted = "1" base ="Cavalier" og = "Great Knight" wa = "Lance" wb = "Sword" wc = "Axe" firstSkill = "Luna" secondSkill = "Dual Guard+"/>
+		<Class name = "General" gender = "m" jid = "4A49445F83578346836C8389838B926A" promoted = "1" base ="Knight" og = "General" wa = "Lance" wb = "Axe" wc = "" firstSkill = "Rally Defence" secondSkill = "Pavise"/>
+		<Class name = "General" gender = "f" jid = "4A49445F83578346836C8389838B8F97" promoted = "1" base ="Knight" og = "General" wa = "Lance" wb = "Axe" wc = "" firstSkill = "Rally Defence" secondSkill = "Pavise"/>
+		<Class name = "Berserker" gender = "m" jid = "4A49445F836F815B8354815B834A815B926A" promoted = "1" base ="Barbarian" og = "Falcon Knight" wa = "Axe" wb = "" wc = "" firstSkill = "Wrath" secondSkill = "Axefaire"/>
+		<Class name = "Sniper" gender = "m" jid = "4A49445F8358836983438370815B926A" promoted = "1" base ="Archer" og = "Sniper" wa = "Bow" wb = "" wc = "" firstSkill = "Hit rate +20" secondSkill = "Bowfaire"/>
+		<Class name = "Sniper" gender = "f" jid = "4A49445F8358836983438370815B8F97" promoted = "1" base ="Archer" og = "Sniper" wa = "Bow" wb = "" wc = "" firstSkill = "Hit rate +20" secondSkill = "Bowfaire"/>
+		<Class name = "Bow Knight" gender = "m" jid = "4A49445F837B8345836983438367926A" promoted = "1" base ="Archer" og = "Bow Knight" wa = "Bow" wb = "Sword" wc = "" firstSkill = "Rally Skill" secondSkill = "Bowbreaker"/>
+		<Class name = "Bow Knight" gender = "f" jid = "4A49445F837B83458369834383678F97" promoted = "1" base ="Archer" og = "Bow Knight" wa = "Bow" wb = "Sword" wc = "" firstSkill = "Rally Skill" secondSkill = "Bowbreaker"/>
+		<Class name = "Assassin" gender = "m" jid = "4A49445F8341835483568393926A" promoted = "1" base ="Thief" og = "Assassin" wa = "Sword" wb = "Bow" wc = "" firstSkill = "Lethality" secondSkill = "Pass"/>
+		<Class name = "Assassin" gender = "f" jid = "4A49445F83418354835683938F97" promoted = "1" base ="Thief" og = "Assassin" wa = "Sword" wb = "Bow" wc = "" firstSkill = "Lethality" secondSkill = "Pass"/>
+		<Class name = "Trickster" gender = "f" jid = "4A49445F8367838A8362834E8358835E815B8F97" promoted = "1" base ="Thief" og = "Trickster" wa = "Sword" wb = "Staff" wc = "" firstSkill = "Lucky 7" secondSkill = "Acrobat"/>
+		<Class name = "Trickster" gender = "m" jid = "4A49445F8367838A8362834E8358835E815B926A" promoted = "1" base ="Thief" og = "Trickster" wa = "Sword" wb = "Staff" wc = "" firstSkill = "Lucky 7" secondSkill = "Acrobat"/>
+		<Class name = "Falcon Knight" gender = "f" jid = "4A49445F83748340838B835283938369834383678F97" promoted = "1" base ="Pegasus Knight" og = "Warrior" wa = "Lance" wb = "Staff" wc = "" firstSkill = "Rally Speed" secondSkill = "Lancefaire"/>
+		<Class name = "Dark Flier" gender = "f" jid = "4A49445F835F815B834E8379834B835483588F97" promoted = "1" base ="Pegasus Knight" og = "Warrior" wa = "Lance" wb = "Tome" wc = "" firstSkill = "Rally Movement" secondSkill = "Galeforce"/>
+		<Class name = "Wyvern Lord" gender = "m" jid = "4A49445F8368838983538393837D8358835E815B926A" promoted = "1" base ="Wyvern Rider" og = "Wyvern Lord" wa = "Axe" wb = "Lance" wc = "" firstSkill = "Quick Burn" secondSkill = "Swordbreaker"/>
+		<Class name = "Wyvern Lord" gender = "f" jid = "4A49445F8368838983538393837D8358835E815B8F97" promoted = "1" base ="Wyvern Rider" og = "Wyvern Lord" wa = "Axe" wb = "Lance" wc = "" firstSkill = "Quick Burn" secondSkill = "Swordbreaker"/>
+		<Class name = "Griffon Rider" gender = "m" jid = "4A49445F834F838A837483488393836983438367926A" promoted = "1" base ="Wyvern Rider" og = "Griffon Rider" wa = "Axe" wb = "" wc = "" firstSkill = "Deliverer" secondSkill = "Lancebreaker"/>
+		<Class name = "Griffon Rider" gender = "f" jid = "4A49445F834F838A8374834883938369834383678F97" promoted = "1" base ="Wyvern Rider" og = "Griffon Rider" wa = "Axe" wb = "" wc = "" firstSkill = "Deliverer" secondSkill = "Lancebreaker"/>
+		<Class name = "Valkyrie" gender = "f" jid = "4A49445F83948340838B834C8385838A83418F97" promoted = "1" base ="Troubadour" og = "Berserker" wa = "Staff" wb = "Tome" wc = "" firstSkill = "Rally Resistance" secondSkill = "Dual Support+"/>
+		<Class name = "War Cleric" gender = "f" jid = "4A49445F836F8367838B83568358835E815B8F97" promoted = "1" base ="Cleric" og = "War Monk" wa = "Staff" wb = "Axe" wc = "" firstSkill = "Rally Luck" secondSkill = "Renewal"/>
+		<Class name = "Sage" gender = "m" jid = "4A49445F8CAB8ED2926A" promoted = "1" base ="Mage" og = "Sage" wa = "Tome" wb = "Staff" wc = "" firstSkill = "Rally Magic" secondSkill = "Tomefaire"/>
+		<Class name = "Dark Knight" gender = "m" jid = "4A49445F835F815B834E836983438367926A" promoted = "1" base ="Mage" og = "Dark Knight" wa = "Tome" wb = "Sword" wc = "" firstSkill = "Slow Burn" secondSkill = "Lifetaker"/>
+		<Class name = "Dark Knight" gender = "f" jid = "4A49445F835F815B834E8369834383678F97" promoted = "1" base ="Mage" og = "Dark Knight" wa = "Tome" wb = "Sword" wc = "" firstSkill = "Slow Burn" secondSkill = "Lifetaker"/>
+		<Class name = "Sorcerer" gender = "m" jid = "4A49445F835C815B83548389815B926A" promoted = "1" base ="Dark Mage" og = "Sorcerer" wa = "Dark" wb = "Tome" wc = "" firstSkill = "Vengeance" secondSkill = "Tomebreaker"/>
+		<Class name = "Sorcerer" gender = "f" jid = "4A49445F835C815B83548389815B8F97" promoted = "1" base ="Dark Mage" og = "Sorcerer" wa = "Dark" wb = "Tome" wc = "" firstSkill = "Vengeance" secondSkill = "Tomebreaker"/>
+		<Class name = "Soldier" gender = "m" jid = "4A49445F835C838B83578383815B926A" promoted = "0" base ="" og = "" wa = "Lance" wb = "" wc = "" firstSkill = "Veteran" secondSkill = "Aptitude" />
 </root>

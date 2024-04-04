@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Characters>
+    <Character Actual="Chrom" Classes="[Mercenary, Myrmidon, Fighter]" Male="true" Name="Priam" Promoted="false" Skills="[Armsthrift, null, null, null, null]"/>
+    <Character Actual="Lissa" Classes="[Pegasus Knight, Wyvern Rider, Dark Mage]" Male="false" Name="Aversa" Promoted="false" Skills="[Shadowgift, Speed +2, null, null, null]"/>
+    <Character Actual="Frederick" Classes="[Swordmaster, Wyvern Rider, Archer]" Male="true" Name="Yen'fay" Promoted="true" Skills="[Avoid +10, Vantage, null, null, null]"/>
+    <Character Actual="Virion" Classes="[Knight, Conqueror, Wyvern Rider]" Male="true" Name="Walhart" Promoted="false" Skills="[Conquest, Defence +2, null, null, null]"/>
+    <Character Actual="Sully" Classes="[Cleric, Pegasus Knight, Troubadour]" Male="false" Name="Emmeryn" Promoted="false" Skills="[Miracle, null, null, null, null]"/>
+    <Character Actual="Vaike" Classes="[Mercenary, Thief, Knight]" Male="false" Name="Flavia" Promoted="false" Skills="[Armsthrift, null, null, null, null]"/>
+    <Character Actual="Stahl" Classes="[Thief, Barbarian, Dark Mage]" Male="true" Name="Gangrel" Promoted="false" Skills="[Locktouch, null, null, null, null]"/>
+    <Character Actual="Miriel" Classes="[Fighter, Barbarian, Knight]" Male="true" Name="Basilio" Promoted="false" Skills="[HP +5, null, null, null, null]"/>
+    <Character Actual="Kellam" Classes="[Myrmidon, Pegasus Knight, Wyvern Rider]" Male="false" Name="Say'ri" Promoted="false" Skills="[Avoid +10, null, null, null, null]"/>
+    <Character Actual="Sumia" Classes="[Manakete, Wyvern Rider, Mage]" Male="false" Name="Tiki" Promoted="false" Skills="[Odd Rhythm, null, null, null, null]"/>
+    <Character Actual="Lon'qu" Classes="[Wyvern Rider, Troubadour, Cleric]" Male="false" Name="Cherche" Promoted="false" Skills="[Strength +2, null, null, null, null]"/>
+    <Character Actual="Ricken" Classes="[Dancer, Myrmidon, Pegasus Knight]" Male="false" Name="Olivia" Promoted="false" Skills="[Dance, null, null, null, null]"/>
+    <Character Actual="Maribelle" Classes="[Thief, Archer, Mage]" Male="false" Name="Anna" Promoted="false" Skills="[Locktouch, null, null, null, null]"/>
+    <Character Actual="Panne" Classes="[Dark Mage, Knight, Archer]" Male="false" Name="Tharja" Promoted="false" Skills="[Hex, null, null, null, null]"/>
+    <Character Actual="Gaius" Classes="[Priest, Mage, Dark Mage]" Male="true" Name="Libra" Promoted="false" Skills="[Miracle, null, null, null, null]"/>
+    <Character Actual="Cordelia" Classes="[Manakete, Mage, Wyvern Rider]" Male="false" Name="Nowi" Promoted="false" Skills="[Odd Rhythm, null, null, null, null]"/>
+    <Character Actual="Gregor" Classes="[Pegasus Knight, Mercenary, Dark Mage]" Male="false" Name="Cordelia" Promoted="false" Skills="[Speed +2, Relief, null, null, null]"/>
+    <Character Actual="Nowi" Classes="[Mercenary, Barbarian, Myrmidon]" Male="true" Name="Gregor" Promoted="false" Skills="[Armsthrift, null, null, null, null]"/>
+    <Character Actual="Libra" Classes="[Assassin, Fighter, Myrmidon]" Male="true" Name="Gaius" Promoted="true" Skills="[Locktouch, Movement +1, null, null, null]"/>
+    <Character Actual="Tharja" Classes="[Taguel, Thief, Wyvern Rider]" Male="false" Name="Panne" Promoted="false" Skills="[Even Rhythm, null, null, null, null]"/>
+    <Character Actual="Olivia" Classes="[Mage, Cavalier, Archer]" Male="true" Name="Ricken" Promoted="false" Skills="[Magic +2, null, null, null, null]"/>
+    <Character Actual="Cherche" Classes="[Myrmidon, Thief, Wyvern Rider]" Male="true" Name="Lon'qu" Promoted="false" Skills="[Avoid +10, Vantage, null, null, null]"/>
+    <Character Actual="Henry" Classes="[Villager, Fighter, Mercenary]" Male="true" Name="Donnel" Promoted="false" Skills="[Aptitude, Underdog, null, null, null]"/>
+    <Character Actual="Say'ri" Classes="[General, Thief, Priest]" Male="true" Name="Kellam" Promoted="true" Skills="[Defence +2, Indoor Fighter, null, null, null]"/>
+    <Character Actual="Basilio" Classes="[Sage, Troubadour, Dark Mage]" Male="false" Name="Miriel" Promoted="true" Skills="[Magic +2, Focus, Rally Magic, null, null]"/>
+    <Character Actual="Flavia" Classes="[Warrior, Thief, Barbarian]" Male="true" Name="Vaike" Promoted="true" Skills="[HP +5, Zeal, Rally Strength, null, null]"/>
+    <Character Actual="Donnel" Classes="[Dark Mage, Barbarian, Thief]" Male="true" Name="Henry" Promoted="false" Skills="[Hex, null, null, null, null]"/>
+    <Character Actual="Anna" Classes="[Valkyrie, Pegasus Knight, Mage]" Male="false" Name="Maribelle" Promoted="true" Skills="[Resistance +2, Demoiselle, null, null, null]"/>
+    <Character Actual="Tiki" Classes="[Falcon Knight, Knight, Cleric]" Male="false" Name="Sumia" Promoted="true" Skills="[Speed +2, Relief, Rally Speed, null, null]"/>
+    <Character Actual="Gangrel" Classes="[Paladin, Archer, Myrmidon]" Male="true" Name="Stahl" Promoted="true" Skills="[Discipline, Outdoor Fighter, Defender, Aegis, null]"/>
+    <Character Actual="Walhart" Classes="[Sniper, Wyvern Rider, Mage]" Male="true" Name="Virion" Promoted="true" Skills="[Skill +2, Prescience, Hit rate +20, Bowfaire, Counter]"/>
+    <Character Actual="Emmeryn" Classes="[Great Knight, Myrmidon, Wyvern Rider]" Male="false" Name="Sully" Promoted="true" Skills="[Defence +2, Indoor Fighter, Luna, null, null]"/>
+    <Character Actual="Yen'fay" Classes="[Great Knight, Knight, Wyvern Rider]" Male="true" Name="Frederick" Promoted="true" Skills="[Discipline, Outdoor Fighter, Luna, Dual Guard+, null]"/>
+    <Character Actual="Aversa" Classes="[War Cleric, Pegasus Knight, Troubadour]" Male="false" Name="Lissa" Promoted="true" Skills="[Miracle, Healtouch, Rally Luck, Renewal, Axefaire]"/>
+    <Character Actual="Priam" Classes="[Great Lord, Cavalier, Archer]" Male="true" Name="Chrom" Promoted="true" Skills="[Aether, Rightful King, Sol, Luna, Swordfaire]"/>
+    <Character Actual="Lucina" Classes="[Manakete, null, null]" Male="false" Name="Nah" Promoted="false" Skills="[Odd Rhythm, null, null, null, null]"/>
+    <Character Actual="Owain" Classes="[Archer, null, null]" Male="false" Name="Noire" Promoted="false" Skills="[Skill +2, Prescience, null, null, null]"/>
+    <Character Actual="Inigo" Classes="[Mage, null, null]" Male="true" Name="Laurent" Promoted="false" Skills="[Magic +2, Focus, null, null, null]"/>
+    <Character Actual="Brady" Classes="[Taguel, null, null]" Male="true" Name="Yarne" Promoted="false" Skills="[Even Rhythm, null, null, null, null]"/>
+    <Character Actual="Kjelle" Classes="[Wyvern Rider, null, null]" Male="true" Name="Gerome" Promoted="false" Skills="[Strength +2, Tantivy, null, null, null]"/>
+    <Character Actual="Cynthia" Classes="[Mercenary, null, null]" Male="false" Name="Severa" Promoted="false" Skills="[Armsthrift, Patience, null, null, null]"/>
+    <Character Actual="Severa" Classes="[Pegasus Knight, null, null]" Male="false" Name="Cynthia" Promoted="false" Skills="[Speed +2, Relief, null, null, null]"/>
+    <Character Actual="Gerome" Classes="[Knight, null, null]" Male="false" Name="Kjelle" Promoted="false" Skills="[Defence +2, Indoor Fighter, null, null, null]"/>
+    <Character Actual="MorganM" Classes="[Tactician, null, null]" Male="false" Name="MorganF" Promoted="false" Skills="[Veteran, Solidarity, null, null, null]"/>
+    <Character Actual="MorganF" Classes="[Tactician, null, null]" Male="true" Name="MorganM" Promoted="false" Skills="[Veteran, Solidarity, null, null, null]"/>
+    <Character Actual="Yarne" Classes="[Priest, null, null]" Male="true" Name="Brady" Promoted="false" Skills="[Miracle, Healtouch, null, null, null]"/>
+    <Character Actual="Laurent" Classes="[Mercenary, null, null]" Male="true" Name="Inigo" Promoted="false" Skills="[Armsthrift, Patience, null, null, null]"/>
+    <Character Actual="Noire" Classes="[Myrmidon, null, null]" Male="true" Name="Owain" Promoted="false" Skills="[Avoid +10, Vantage, null, null, null]"/>
+    <Character Actual="Nah" Classes="[Lord, null, null]" Male="false" Name="Lucina" Promoted="false" Skills="[Dual Strike+, Charm, null, null, null]"/>
+    <AppBools Cutscenes="false" Supports="false"/>
+</Characters>
