@@ -73,11 +73,14 @@ This is the folder that we're going to use to randomize the game
 for ease of use, I reccommend just getting the american version. Tho if you don't care about texts, you can probably just rename your text folders
 to m and it should work?)
 - Your new romfs folder should look like this:
--romfs
+
+romfs
 |-----data
 |-----m
 |-----scripts
+
 No more! No less!
+
 - Open up FEAT (should be included in the download, if not here's a link). Drag both the data and m folders into FEAT
 - Like in the previous step, I recommend you keep a backup of this folder in case you want to randomize the game again or something goes wrong
 
