@@ -22,6 +22,10 @@ had any features, so I was thinking it would be good to improve it. So here it i
 - Other misc bug fixes
 - Nah: Nah :3
 
+## Requirements
+[Java 18] (https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html)
+[FEAT] (https://github.com/VelouriasMoon/FEAT/releases/tag/v2.6) (Comes packed with the zip)
+
 ## Known Issues
 
 - Some of the cutscenes are broken. Specifically ones featuring 'marth', as well as cutscenes that feature combat. The dialogues should play correctly, it's just the in game cutscene that might be weird
@@ -123,6 +127,10 @@ the parentheses to indicate your selection.
 1. Right click on Awakening on Citra
 2. Select "Open Mod Location"
 3. Place the romfs files in there
+
+# Contact
+If you have any sort of errors or whatever, please contact me on discord at rambon99. Will I respond? Maybe. Probably not. But I don't
+really check a lot of other sites, so realistically speaking that's probably the best place to reach out to me. Thanks.
 
 # Afterword
 
