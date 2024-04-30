@@ -8,19 +8,20 @@ had any features, so I was thinking it would be good to improve it. So here it i
 ## Features
 
 - Recruitment order randomization: Randomize the order in which you get characters! Get Nowi as your lord, and have Chrom become a spotpass character! The possibilities are limitless!
+- Reverse recruitment option: Instead of just randomizing the order of recruitment, reverse it and start with Priam as your lord, little sister Aversa and Jagen Yen'fay!
 - Class set randomization: Randomize the class set of each character, giving them new starting classes and reclass options!
-
-## NEW Features!
-
 - Skill implementation: Previously, each character just used the skills of the character they replaced (So whoever replaced Frederick would get Discipline and Outdoors Fighter). Now however, a character's skills are determined by their current class and level!
 - Cutscene and Support swapping: Bored of seeing Chrom and crew in every scene? Well, you can now choose to replace the characters in the cutscenes with their appropriate replacements!
-(NOTE: Currently, only the support conversations themselves are swapped. The actual supports will depend on mods or base awakening)
-- Reverse recruitment option: Instead of just randomizing the order of recruitment, reverse it and start with Priam as your lord, little sister Aversa and Jagen Yen'fay!
-- UGA Compatibility and general compatibility improvements: I've changed the way the app goes through game data, meaning it should (theoretically) work with every other mod. Probably won't work with new characters or if the characters have new FIDs.
+- UGA Compatibility and general compatibility improvements: I've changed the way the app goes through game data, meaning it should (theoretically) work with every other mod. IMPORTANT NOTE: I do not believe this works with Project Thabes, but I have not tested it.
+If the mod includes a lot of changes such as new classes or characters, it is very probable that the randomizer will only partially work or not work at all
 - File randomization: Create an xml file to record how the game was randomized, so that you can randomize it the same way in the future (either to share with friends, or for a new fixed version of the app) or you can change some of the settings and re-randomize the game to your liking!
 - Improved output: Added more info to the output, option to not generate any output at all, as well as new debug output in case you got an error and want to send it to me
 - Other misc bug fixes
 - Nah: Nah :3
+
+## NEW Features!
+
+- Stat modification: Adjust the stats of each character depending on their growths, base stats, or randomize them at your leisure!
 
 ## Requirements
 [Java 18](https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html)
@@ -29,8 +30,6 @@ had any features, so I was thinking it would be good to improve it. So here it i
 
 ## Known Issues
 
-- Some of the cutscenes are broken. Specifically ones featuring 'marth', as well as cutscenes that feature combat. The dialogues should play correctly, it's just the in game cutscene that might be weird
-- Of note is script of chapter 2, which skips the first intro in the barracks entirely. I'm probably gonna make a hotfix in order to resolve this one at least, but rn I'm too lazy so I'm just publishing it lol
 - Characters can sometimes replace themselves during randomization, meaning they are recruited at their exact same spot
 - Characters can obtain more than one version of the same class in their class set (essentially reducing their class set)
 - Sometimes even if supports are swapped, some base conversations will play. This will happen if two characters can support, but the characters they replace cannot.
@@ -38,21 +37,64 @@ had any features, so I was thinking it would be good to improve it. So here it i
 
 ## Future implementations
 
-- Change Falchion to be the weapon type of the base class of the Chrom replacement (unless it's a staff, probably(
-- Base stat changes: Currently characters just inherit the base stats of whoever they replace. I want to implement a level scale as well as a growth based base stat redistribution in the future. Also just fully random
-- Growth randomization: Randomize a character's growth (swap stats around, redistribute, etc). Also Randomize class growths
-- Strength/Magic based class randomization: Strength people inherit strengths classes, magic people inherit magic classes
-- Balanced class randomization: I had a run where like 5 people randomized into dark mages, not doing that again lol
-- Force Dancer & Max dancer options
+- Built-in FEAT implementation + non-destructive output: FEAT is a pain in the ass and I want to make the process be more smooth. Also want to be able to test things without having to delete and copy my files over and over
+- Randomize Premonition: Premonition chars are temp and don't affect the game as a whole but I'm tired of people complaining the randomizer didn't work cus they see Robin and Chrom in premonitions lol
+- Change Falchion and other character exclusive weapons to match their replacement/new class' weapon type
+- Randomize/change the skill learnset for classes
 
 ## Waaaayyyyy in the future implementations
 
+- Strength/Magic based class randomization: Strength people inherit strengths classes, magic people inherit magic classes
+- Balanced class randomization: I had a run where like 5 people randomized into dark mages, not doing that again lol
+- Force Dancer & Max dancer options
+- Randomize Robin's class
+- Exclude tactician from class randomization
+- Cross generation swaps
+- Growth randomization: Randomize a character's growth (swap stats around, redistribute, etc). Also Randomize class growths
+- Stat cap randomization
+- Support/Pair up stat randomization
 - NPC/Enemy randomization: Randomize generics and NPCs, but also have characters that have randomized appear as real enemies (Gangrel replacement instead of Gangrel, Walhart replacement instead of Walhart, etc.)
-- Randomize/change the skill learnset for classes
 - Replace a characters's support options with those they are replacing (not just conversations)
+- Improve compatibility with more mods
 - GUI tooltips
-- Nondestructive randomization: Make new files instead of overwriting existing files
+- Option to exclude spotpass chars from randomization
 - fully random weapon and weapon ranks
+
+## Options explanation
+I believe that most of the options in the randomizer are self explanatory, but in case you're not sure what each one does exactly here's a summary of what each button/option does
+
+### Recruitment Order
+* Randomize fully: Randomizes recruitment order for all characters, meaning you will encounter some much earlier and some much later. This includes spotpass characters. Currently, only gen 1 and gen 2 are randomized separately, 
+* Reverse recruitment: Reverses the recruitment order of all characters, starting with Chrom and ending with Priam. This means you will Priam instead of Chrom, Aversa instead of Priam, etc. Like before, gen 1 and gen 2 are reversed separately.
+* Swap Story & Cutscenes: This swaps all cutscenes and important dialogue in the game so that it matches whichever characters have been replaced. So whoever you recieved as your first character will appear in cutscenes and talk instead of Chrom. This works for all characters
+Voice lines are also swapped, but since everyone's voice lines are different and not ordered in any particular way, they will basically say random things. This is not planned on being fixed because it's funny and part of the charm. Another thing of note is that animations
+for female and male characters are different. So if a female character replaces a male character or vice versa, they will have funny animations in cutscenes. This again will not be fixed because it's funny.
+* Swap Supports Convos: This swaps all support conversations and other flavor text such as standing in glowing spots so characters match whoever they replaced. This only changes the support CONVERSATIONS, not the support options. This means that sometimes conversations won't
+appear swapped, like mentioned in the known issues section. In the future, it is planned to also swap the support options so that it doesn't feel as wonky.
+
+### Class Sets
+* Randomize: Randomizes the class sets of every character, including what class they start in. Some unique and enemy only classes are available, such as soldier, lodestar and merchant. Single tier classes are treated differently depending on how good they are. Both promoted and
+unpromoted units can randomize into Taguels and Manaketes. Only promoted units can randomize into Conqueror. Only unpromoted units can randomize into Soldier, Lodestar and Merchant. Promoted characters can be any promoted class in the game, but every class always has the same
+base class (Great Knights will always have Cavaliers as base, Heroes will always have Mercenaries as base, etc)
+
+### Stat Modification
+* Default: Most basic stat modification. Characters will keep the stats of the characters they replace (or their own stats if they only randomized classes). Simple but can be unbalanced, especially when magic and strength characters swap
+* Growth Redistribution: Takes the base stat total of the character being replaced and redistributes them using the new character's personal and class growths. Makes all characters a little bit better and focused around their strengths/current class	
+* Base Redistribution: Takes the original character's base stat total, and redistributes them using the new character's original base stats. Makes all characters function closer to how they appear originally, especially in cases where their bases do not match their growths. (A lot of chars have unnaturally high luck, for example)
+Do note that this works kinda bad for characters that have very low bases. Chrom has 2 base str and 1 base mag, meaning his magic will scale almost as much as his str. It can get very wacky, this is probably the most unbalanced stat distribution option. I would have removed it but I coded it already so.
+* Level Scaled: "Scales" characters up and down by calculating a character's average base stats after leveling up and down a certain amount of levels. This takes both growths and base stats into account, making it as close to the original character as possible
+NOTE: This is probably least objective type of stat distribution. There's actual internal level for any charcter, so I'm just guessing how much/little they get scaled. The spotpass chars in specific have crazy stats (priam especially had to get nerfed for this) so while I think it's an okay type of balancing it can be wonky.
+* Shuffle Base: Swaps the base stats of the character they are replacing around. So Lissa's 8 Luck base might be put in her replacement's Str, or her -1 Res base might be put in Def. A way of randomizing stats without going too crazy
+* Randomize from Base: Takes the base stat total of the character being replaced and distributes it randomly through all the stats. So you might get a nice even distribution or someone with 14 Lck and no Str or Mag.
+
+### Randomize from file
+This option will allow you to edit the gamefiles in order to match exactly what is in the given xml. For when you want to remake the files for a run you already had either because of errors or to share with a friend.
+You can also edit the parameters of randomization in order to make a more custom built experience. In order to see exactly what options to write for each field, check the GitHub and the data folder, where all the xmls containing data are held.
+
+### Other Options
+* Generate text file: Generates a text file that details all of the changes made to the rom, be it class recruitment to stats and skills.
+* Generate xml file: Generates an xml file with randomization information, that way it can be randomized in the same or similar manner again.
+* Generate debug file. Generates file that you can send me so that I can diagnose any potential problems with your run.
 
 # How to use/Install:
 
@@ -132,39 +174,37 @@ the parentheses to indicate your selection.
 2. Select "Open Mod Location"
 3. Place the romfs files in there
 
+#FAQ
+"It says I need java installed even though Java is installed!"
+For some reason, the NEWEST version of java doesn't seem to work. Don't ask me why, I barely understand why Java works at all. If you wanna
+use this randomizer, I recommend downgrading to 18, which is guaranteed to work. Although I've had it work with some older versions *shrug*
+
+"I randomized the game and Premonition (the tutorial chapter where Chrom and Robin fight Validar) is unchanged!"
+Yes, you are correct! That chapter uses fake versions of every character, that will not be part of your army in any meaningful manner.
+As such, I decided not to mess with them. I'll probably implement randomization of that chapter too at some point in the future. To see if
+randomization worked, you must reach the prologue (after you beat validar and save)
+
+"I try to open the program, but it says I have missing files"
+There's a number of reasons why this could happen. Here are some options:
+- You didn't decompress the files using FEAT. The m folder should have txt files and the data folder should have bin files.
+- You actually are missing files! Make sure you grabbed everything you need directly from the romfs. Mods like UGA will only have a few
+chapters and not data for the whole game.
+
+"I placed the files in the characters on the map are the same!"
+Make sure you recompress the files using FEAT. For the gameplay files to work, you have to pass the data folder through FEAT with the batch
+compression options turned on.
+
+"The text is completely unchanged!"
+Another compression issue. Remember to pass the m folder through FEAT WITHOUT the batch compression option on. Otherwise, it will turn the txt
+files into txt.lz instead of bin.lz which is what the game actually reads
 # Contact
 If you have any sort of errors or whatever, please contact me on discord at rambon99. Will I respond? Maybe. Probably not. But I don't
 really check a lot of other sites, so realistically speaking that's probably the best place to reach out to me. Thanks.
 
 # Afterword
 
-6 longs years ago, back when the skies were brighter and world was simpler, I released a shitty lil application into the world. 
-Back then I only had rudimentary programming knowledge, and god does it show. Looking at my code today, it's a complete mess dear lord.
-But for how simple and shitty my app was, it apparently worked. There were definitely a lot of more things I could have added. 
-Avenues to be improved. Even after this release, there's still features I would like added. But for the longest time, I just didn't have
-the drive or interest to keep at it. I guess I must have been satisfied with the absolutely rudimentary state in which the application found
-itself in. Honestly, a part of me kinda hoped that it would just be forgotten so that people would never see how awkward and dinky the app was
-So why is it, that after all these years, I somehow returned to finish the job? One simple reason. Pettiness.
-The other day I was talking to my friend about my 3DS hacking past, mentioning some of the cool projects I'd seen or worked on. Just your 
-average reminiscing in the past, the sort of casual conversation brought up with no deeper meaning, intended to occupy just a few moments
-of interpersonal connection and nothing more. In my search for examples, I ended up stumbling onto a channel that showcased a lot of these
-3DS FE mods. One in particular caught my mind, one of an Awakening Reverse Recruitment mod. I thought, "Hey! Reverse Recruitment is cool!
-I've always wanted to try doing that." Much to my horror however, when I opened the video instead of seeing Priam or Aversa, I was met
-with Basilio's worn face. In my opinion, Awakening Spotpass characters are some of the coolest things in the whole game. It's a shame that
-you can only unlock them AFTER you beat the game. That's why I thought a reverse recruitment would be the best place to finally use them.
-So then, why is it that Basilio's ugly mug is the first new thing you get in the game?!? Worst of all, Chrom was STILL Chrom. According to
-the vid, it was because it's not possible to swap Chrom out. But it is though! I've done it! My shitty randomizer does that, and I wrote
-that piece of trash in 2019. I strictly remember being able to go past chapter 11 or 13 with randomized units and even recruiting children
-(though those might be rose tinted glasses). Anyways, I was furious. Fuming. I couldn't let this stand. This wasn't the reverse recruitment
-I had always dreamed of. No, I had to rectify this. I had the tools to do so, so why didn't I? Like a man possessed, I suddenly started
-to delve into Java and Awakening hacking. Literally all my 3DS hacking files are gone by this point. If not for the GitHub, the whole app
-would have been lost forever. But I didn't let that stop me. I used whatever rudimentary Awakening hacking knowledge I still somehow retained
-and clawed myself back from the grave until I managed to pull out this release. As you might have seen, reverse recruitment is already
-Implemented, so at least some of that has been pacified in my mind. How long will this randomizer hyper obession last for? That I cannot
-say. I want to do more, but it's completely possible nay probably that I'll just up and disappear one day. Until then, here is this thing. 
-I hope someone finds it useful.
-
-IMPORTANT NOTE!!! Absolutely no hate or negativity to the creator of the Reverse Recruitment mod btw!! I'm sure you're a great person and worked
-hard to get that working! It's more of a reflection on me and how much of a shitty guy I am than anything else. If anything, the fact that
-you actually got something done and shared it with the world while I just sat on my ass doing nothing for 6 years is incredibly impressive.
-I just thought that after so many years of being dead and not caring about Awakening hacking, this was the thing that pulled me back in.
+I'm surprised I'm still working on this lol. In all honesty, this update could have been uploaded a while ago. There were just a couple of final
+bugs that weren't the most difficult to fix, just kinda annoying haha. This isn't a big update by any measure. Just added the stat stuff and bug fixing.
+That being said, I definitely have been working on this less and my interest is diminishing. I don't know how much lonver I'll bring myself to
+working on this, but I definitely wanna make it so that next update I remove the necessity to use FEAT alltogether. FEAT is the last thing holding
+back this app from being simple and intuitive. And frankly, I'm tired of it lol. If i can't accomplish anything else, at least I wanna do that.
