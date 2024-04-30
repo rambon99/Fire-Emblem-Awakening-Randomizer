@@ -29,6 +29,14 @@ public class CharacterStarter{
         Document doc = dBuilder.parse(inputFile);
 		doc.getDocumentElement().normalize();
 		NodeList nList = doc.getElementsByTagName("Character");
+
+		//gets the growth table from GameData. Thankfully, we don't have to modify anything
+		StringBuilder gameData = new StringBuilder();
+		BinFiles bin = new BinFiles();
+		bin.getGamedata(gameData);
+		int gameDataIndex = gameData.indexOf("5989d2d1");
+		//gets the whole ass growth table. It's big. 510 is 255 * 2, which comes from it being a hex length of 0xFF with two bytes of legnth
+		String growthTable = gameData.substring(gameDataIndex, gameDataIndex + 510);
 		for (int x =0; x < 49; x++){
 			Node nNode = nList.item(x);
 			//System.out.println("\nCurrent Element :" + nNode.getNodeName());
@@ -37,14 +45,24 @@ public class CharacterStarter{
 			cx.setName(eElement.getAttribute("name"));
 			cx.setActual(eElement.getAttribute("name"));
 			cx.setFid(GetRealFID(eElement.getAttribute("fid"), stat));
-			cx.setPid(GetRealPID(cx.getFid(), stat));
+			//puts fid in correct pointer form
+			String fidPointer = cx.getFid().substring(2, 4) + cx.getFid().substring(0,2);
+			//finds location of fid, then shifts forward 8 slots (4 in hex) to get pid
+			int index = stat.indexOf("0000" + fidPointer.toLowerCase() + "0000") + 4;
+			//reverses the pid we find because that's the format in which it is read by this program
+			cx.setPid(GetRealPID(index- 8, stat));
 			DebugBuilder.DebugOutput(cx.getName() + " loaded with an FID of: " + cx.getFid() + ", and a CID of: " + cx.getPid());
 			cx.setjName(eElement.getAttribute("jName"));
 			cx.setVoice(eElement.getAttribute("voice"));
-			
+			cx.setInternalLevel(Integer.parseInt(eElement.getAttribute("intLvl")));
+			cx.setStats(ReturnBaseStats(index, stat));
+			DebugBuilder.DebugOutput("Base stats: " + Arrays.toString(cx.getBaseStats()));
+			cx.setGrowths(ReturnRealGrowths(index,Integer.parseInt(eElement.getAttribute("charID")), stat, growthTable,  cx.getName()));
+			DebugBuilder.DebugOutput("Growths: " + Arrays.toString(cx.getGrowths()));
+
 			String[] tmp = new String[] {eElement.getAttribute("class"), "", ""};
 			cx.setClasses(tmp);
-			
+
 			cx.setPpid(eElement.getAttribute("parent").equals("") ? "" : ReturnParentPID(eElement.getAttribute("parent"), c, stat));
 			cx.setHpid(eElement.getAttribute("hpid"));
 			//System.out.println(eElement.getAttribute("male"));
@@ -78,12 +96,7 @@ public class CharacterStarter{
 	}
 	
 	//finds the real pid of each character by searching their FID in static.bin and finding the pid which is right next to it
-	public String GetRealPID(String fid, StringBuilder stat){
-		//puts fid in correct pointer form
-		String fidPointer = fid.substring(2, 4) + fid.substring(0,2);
-		//finds location of fid, then shifts forward 8 slots (4 in hex) to get pid
-		int index = stat.indexOf(fidPointer.toLowerCase()) - 8;
-		//reverses the pid we find because that's the format in which it is read by this program
+	public String GetRealPID(int index, StringBuilder stat){
 		return stat.substring(index + 2, index + 4) + stat.substring(index, index + 2);
 	}
 	
@@ -106,5 +119,40 @@ public class CharacterStarter{
 		}
 		DebugBuilder.DebugOutput("parent PID failed for "  + parentName + "'s child");
 		return "";
+	}
+
+	public int[] ReturnBaseStats(int index, StringBuilder staticBin){
+		int[] baseStats = new int[8];
+		int statIndex = index + 32;
+		for (int i = 0; i < 8; i++){
+			int stat = Integer.parseInt(staticBin.substring(statIndex, statIndex + 2), 16);
+			//really high numbers are used for negative stats, so we do the minus
+			baseStats[i] = stat < 100 ? stat : stat - 255;
+			statIndex += 2;
+		}
+		return baseStats;
+	}
+
+	//function that finds the correct growths for each character
+	public int[] ReturnRealGrowths(int index, int charID, StringBuilder staticBin, String gameData, String name){
+		int[] growths = new int[8];
+		int growthIndex = index + 48;
+		//a character's id is set before their skills and after their levels at 0x59 in front of their FID, which is 118 in terms of real length
+		//this method of char id doesnt work in uga for some reason?? I decided to do it manually
+		//int charID = Integer.parseInt(staticBin.substring(index + 118, index + 120), 16) + 1;
+		DebugBuilder.DebugOutput(name + " has a charID of " + charID);
+		for (int i = 0; i < 8; i++){
+			int encryptedGrowth = Integer.parseInt(staticBin.substring(growthIndex, growthIndex + 2), 16);
+			//Formula for growth calculation in hex
+			//INDEX = (ENCIPHERED[N]- (0x63 * ((CHARACTER_ID ^ 0xA7) - 0x21 * N) ^ 0xD9)) & 0xFF;
+			//GROWTH_RATE = LOOKUP_TABLE[INDEX];
+			//Formula for growth calculation in real numbers
+			//(encryptedGrowth - (99 * ((charID ^ 167) - 33 * i) ^ 217)) & 255
+			int realGrowthIndex = ((encryptedGrowth - (99 * ((charID ^ 167) - 33 * i) ^ 217)) & 255) * 2;
+			int realAssGrowth = Integer.parseInt(gameData.substring(realGrowthIndex, realGrowthIndex + 2), 16);
+			growths[i] = realAssGrowth;
+			growthIndex += 2;
+		}
+		return growths;
 	}
 }

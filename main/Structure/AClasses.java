@@ -16,6 +16,7 @@ public class AClasses {
 	
 	private Boolean male;
 	private Boolean promoted;
+	private int[] classGrowths;
 	
 	public AClasses()
 	{
@@ -67,6 +68,8 @@ public class AClasses {
 	public void setPromoted(boolean promoted){
 		this.promoted = promoted;
 	}
+
+	public void setClassGrowths(int[] classGrowths) {this.classGrowths = classGrowths;}
 	
 	public String getName(){
 		return this.name;
@@ -111,4 +114,6 @@ public class AClasses {
 	public boolean isPromoted(){
 		return this.promoted;
 	}
+
+	public int[] getClassGrowths() {return this.classGrowths;}
 }

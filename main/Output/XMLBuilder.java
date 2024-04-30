@@ -47,6 +47,7 @@ public class XMLBuilder {
                 newChar.setAttribute("Male", String.valueOf(character.isMale()));
                 newChar.setAttribute("Classes", Arrays.toString(character.getClasses()));
                 newChar.setAttribute("Skills", Arrays.toString(character.getSkills()));
+                newChar.setAttribute("Stats", Arrays.toString(character.getBaseStats()));
                 rootElement.appendChild(newChar);
             }
             DebugBuilder.DebugOutput("CharacterList imprinted onto xml");

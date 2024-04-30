@@ -29,6 +29,13 @@ public class GUI extends JPanel implements ActionListener{
 	JCheckBox createText;
 	JCheckBox createXML;
 	JCheckBox createDebug;
+	//Stat Checkboxes
+	JRadioButton statsUnchanged;
+	JRadioButton statsGrowthScale;
+	JRadioButton statsGrowthRed;
+	JRadioButton statsBaseRed;
+	JRadioButton statShuffle;
+	JRadioButton statRand;
 	
 	JLabel Finished;
 	JLabel Err;
@@ -106,7 +113,7 @@ public class GUI extends JPanel implements ActionListener{
 		Rando = new JFrame("Odd Rhythm - FEA Randomizer");
 		Rando.setIconImage(nahIcon.getImage());
 		Rando.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Rando.getContentPane().setLayout(new GridLayout(2,1));
+		Rando.getContentPane().setLayout(new BoxLayout(Rando.getContentPane(), BoxLayout.Y_AXIS));
 		
 		Main man = new Main();
 		//Initializes everything to do with the top part of the grid
@@ -114,7 +121,7 @@ public class GUI extends JPanel implements ActionListener{
 		 optionsPanel.setLayout(new GridLayout(2, 1));
 		 //top panel that will let me divide things better
 		 JPanel topOptions = new JPanel();
-		 topOptions.setLayout(new GridLayout(1, 2));
+		 topOptions.setLayout(new GridLayout(1, 3));
 		 //Character panel
 		 JPanel characterPanel = new JPanel();
 		 characterPanel.setBorder(new TitledBorder("Recruitment order"));
@@ -161,10 +168,10 @@ public class GUI extends JPanel implements ActionListener{
 
 		 //classes panel
 		 JPanel classesPanel = new JPanel();
-		 classesPanel.setBorder(new TitledBorder("Randomize Classes"));
+		 classesPanel.setBorder(new TitledBorder("Class Sets"));
 		 classesPanel.setLayout(new BoxLayout(classesPanel, BoxLayout.Y_AXIS));
 		 //Class panel elements
-		 Classes = new JCheckBox("Classes");
+		 Classes = new JCheckBox("Randomize");
 		 Classes.addActionListener(new ActionListener(){
 			 public void actionPerformed(ActionEvent a1){
                  cl = Classes.isSelected();
@@ -176,16 +183,34 @@ public class GUI extends JPanel implements ActionListener{
 		 classesPanel.add(Classes);
 		 classesPanel.add(Box.createVerticalGlue());
 		 topOptions.add(classesPanel);
-		 /* no need for reverse recruitment panel, will replace with different panel in the future
-		 //RR panel
-		 JPanel reversePanel = new JPanel();
-		 reversePanel.setLayout(new BoxLayout(reversePanel, BoxLayout.Y_AXIS));
-		 reversePanel.setBorder(new TitledBorder("Reverse Recruitment Mode"));
-		 //RR panel elements
+		 //stats panel
+		 JPanel statsPanel = new JPanel();
+		 statsPanel.setLayout(new BoxLayout(statsPanel, BoxLayout.Y_AXIS));
+		 statsPanel.setBorder(new TitledBorder("Stat Modification"));
+		 //stats panel elements
+		 statsUnchanged = new JRadioButton("Default", true);
+		 statsGrowthRed = new JRadioButton("Growth Redistribution", false);
+		 statsBaseRed = new JRadioButton("Base Stats Redistribution", false);
+		 statsGrowthScale = new JRadioButton("Level Scaled", false);
+		 statShuffle = new JRadioButton("Shuffle Base", false);
+		 statRand = new JRadioButton("Randomize from Base", false);
+		 ButtonGroup statGroup = new ButtonGroup();
+		 statGroup.add(statsUnchanged);
+		 statGroup.add(statsGrowthRed);
+		 statGroup.add(statsBaseRed);
+		 statGroup.add(statsGrowthScale);
+		 statGroup.add(statShuffle);
+		 statGroup.add(statRand);
 		 ///RR out text panel and add to options panel
-		 reversePanel.add(Box.createVerticalGlue());
-		 reversePanel.add(Box.createVerticalGlue());
-		 topOptions.add(reversePanel);*/
+		 statsPanel.add(Box.createVerticalGlue());
+		 statsPanel.add(statsUnchanged);
+		 statsPanel.add(statsGrowthRed);
+		 statsPanel.add(statsBaseRed);
+		 statsPanel.add(statsGrowthScale);
+		 statsPanel.add(statShuffle);
+		 statsPanel.add(statRand);
+		 statsPanel.add(Box.createVerticalGlue());
+		 topOptions.add(statsPanel);
 		 //top part of options is done, we add to the options panel
 		 optionsPanel.add(topOptions);
 
@@ -322,8 +347,8 @@ public class GUI extends JPanel implements ActionListener{
 		 //initializes randomization in false (mainly for UI purposes)
 		 ToggleFileRandomization(false);
 
-		Rando.setSize(650, 500);
-		Rando.setLocation(700, 300);
+		Rando.setSize(775, 550);
+		Rando.setLocation(600, 250);
 		Rando.setVisible(true);
 	 }
 
@@ -338,6 +363,13 @@ public class GUI extends JPanel implements ActionListener{
 		randoBools.newXml = createXML.isSelected();
 		randoBools.debugFile = createDebug.isSelected();
 		randoBools.reverseRecruitment = reverseRecruitment.isSelected();
+		int stats = 0;
+		if (statsGrowthRed.isSelected()) stats = 1;
+		else if (statsBaseRed.isSelected()) stats = 2;
+		else if (statsGrowthScale.isSelected()) stats = 3;
+		else if (statShuffle.isSelected()) stats = 4;
+		else if (statRand.isSelected()) stats = 5;
+		randoBools.statState = stats;
 		return randoBools;
 	 }
 
@@ -367,9 +399,19 @@ public class GUI extends JPanel implements ActionListener{
 		}
 	 }
 
+	 private void EnableStatButts(Boolean toggle){
+		statsGrowthScale.setEnabled(toggle);
+		statRand.setEnabled(toggle);
+		statShuffle.setEnabled(toggle);
+		statsBaseRed.setEnabled(toggle);
+		statsUnchanged.setEnabled(toggle);
+		statsGrowthRed.setEnabled(toggle);
+	 }
+
 	 private void ToggleFileRandomization(boolean toggle){
 		//disables/enables characters and classes depending on whether it's active
 		EnableCharsNClasses(!toggle);
+		EnableStatButts(!toggle);
 		//disables buttons and message depending on scenario
 		fileRandomButt.setVisible(!toggle);
 		cancelFile.setVisible(toggle);

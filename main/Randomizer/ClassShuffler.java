@@ -6,6 +6,7 @@ import javax.xml.parsers.*;
 
 import main.Main;
 import main.Output.DebugBuilder;
+import main.Structure.AClasses;
 import org.apache.commons.io.IOUtils;
 import org.w3c.dom.*;
 import org.xml.sax.*;
@@ -20,89 +21,74 @@ public class ClassShuffler{
 		
 	}
 	
-	public void RandomizeClasses(ArrayList<ACharacter> c) throws IOException{
-		try{
-			InputStream inputStream = Main.class.getResourceAsStream("Data/Classes.xml");
-			File inputFile =  File.createTempFile("temp", ".xml");;
-			FileOutputStream outputStream = new FileOutputStream(inputFile);
-			IOUtils.copy(inputStream, outputStream);
-		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder dBuilder = null;
-		Document doc =  null;
-		try {
-        dBuilder = dbFactory.newDocumentBuilder();
+	public void RandomizeClasses(ArrayList<ACharacter> charList, ArrayList<AClasses> classList) throws IOException{
+		ArrayList<AClasses> baseClasses = new ArrayList<>();
+		ArrayList<AClasses> promotedClasses = new ArrayList<>();
+
+		//takes the main list of classes and divides it into bases classes and promoted classes for easy randomization
+		for (AClasses aClass : classList){
+			if (aClass.isPromoted() | aClass.getName().matches("Conqueror|Manakete|Taguel")){
+				promotedClasses.add(aClass);
+			}
+			if (!aClass.isPromoted() & !aClass.getName().equals("Conqueror")){
+				baseClasses.add(aClass);
+			}
 		}
-		catch (ParserConfigurationException ep) {
-			DebugBuilder.DebugOutput("dbuilder error in class shuffler");
-		}
-		try {
-        doc = dBuilder.parse(inputFile);}
-		catch (SAXException es) {
-			DebugBuilder.DebugOutput("dbuilder error in cshuffler2");
-		}
-		doc.getDocumentElement().normalize();
-		NodeList nList = doc.getElementsByTagName("Class");
-		for (int x = 0; x < 49; x++)
-		{
-		 String [] tmp = new String[3];
-		 //exception for Tiki and  Walhart, who have different classes //might break walhart's level but who cares lol
-		 boolean promoException = c.get(x).getActual().equals("Tiki") || c.get(x).getActual().equals("Walhart");
-		 boolean pr = c.get(x).isPromoted() || promoException;
-		 for (int y=0; y<3; y++){
-			 Random rn = new Random();
-			 int rng = rn.nextInt(75);
-			 Node nNode = nList.item(rng);
-			 Element eElement = (Element) nNode;
-			//System.out.println("Student roll no : " + eElement.getAttribute("name"));
-			//System.out.println("\nCurrent Element :" + nNode.getNodeName());
-			//System.out.println(eElement.getAttribute("promoted"));
-			//System.out.println(pr);
-			 //this function sets the base promoted class for promoted units
-			if (pr && y==0){
-				//exceptions that allows promoted units to be manaketes, conquerors and taguels
-				boolean singleStageException = !eElement.getAttribute("name").equals("Conqueror") & !eElement.getAttribute("name").equals("Manakete") & !eElement.getAttribute("name").equals("Taguel");
-				while (eElement.getAttribute("promoted").equals("0") & singleStageException){
-				//System.out.println(eElement.getAttribute("promoted"));
-				//System.out.println(pr);
-				rn = new Random();
-				rng = rn.nextInt(75);
-				nNode = nList.item(rng);
-				eElement = (Element) nNode;
+
+		//loops through all the characters and gives them all different classes
+		for (ACharacter character : charList){
+			//Tiki and Walhart have tier 1 classes, but their replacements should be promoted so we promote them
+			boolean promotedBool = character.isPromoted() | character.getActual().equals("Tiki") | character.equals("Walhart");
+			//array of classes so that a character won't get a promoted class and also a base class separately
+			AClasses[] classSet = new AClasses[3];
+			//each character has three classes, so we loop/randomize three times
+			for (int cl = 0; cl < 3; cl++){
+				AClasses newClass;
+				//selects a promoted class for character if char is promoted and also if it's the first class, as only the first class can be promoted
+				if (cl == 0 & promotedBool){
+					newClass = RerollClass(promotedClasses, classSet, character.getClasses()[cl]);
+				}//otherwise, just picks a random class from the base classes
+				else{
+					newClass = RerollClass(baseClasses, classSet, character.getClasses()[cl]);
+				}
+				classSet[cl] = newClass;
+				//children chars only have their base class, so if detects that the char is a child it will only give them one class
+				//NOTE: This will give problem with future implementation of cross gen char swapping
+				if (!character.getPpid().isEmpty()){
+					cl = 3;
 				}
 			}
-			else {
-				//exception for non promoted units to not become Conquerors
-				//conqException will be true when: unit is NOT promoted, when the class is set to base and the class is conqueror. When conq esception is true, we keep looping to find a new class
-				boolean conqException = !pr && y == 0 && eElement.getAttribute("name").equals("Conqueror");
-				while (eElement.getAttribute("promoted").equals("1") || conqException){
-				//System.out.println(eElement.getAttribute("promoted"));
-				//System.out.println(pr);
-				rn = new Random();
-				rng = rn.nextInt(75);
-				nNode = nList.item(rng);
-				eElement = (Element) nNode;
+			//turns our classes into strings because that's what character saves
+			String[] classStrings = new String[3];
+			for (int n = 0; n < 3; n++){
+				if (classSet[n] == null){
+					classStrings[n] = "null";
+				}
+				else{
+					classStrings[n] = classSet[n].getName();
 				}
 			}
-			 tmp[y] = eElement.getAttribute("name");
-			 if (!c.get(x).getPpid().equals("")){
-				 y = 3;
-		 }
-		 }
-		 c.get(x).setClasses(tmp);
+			character.setClasses(classStrings);
+			DebugBuilder.DebugOutput("Character " + character.getName() + " given the following classes: ");
+			DebugBuilder.DebugOutput(Arrays.toString(character.getClasses()));
+		}
+	}
+
+	private AClasses RerollClass(ArrayList<AClasses> classList, AClasses[] classSet, String currentClass){
+		Random rng = new Random();
+		int randInd = rng.nextInt(classList.size());
+		while (IsInArray(classList.get(randInd).getName(), classSet) | classList.get(randInd).getName().equals(currentClass)){
+			randInd = rng.nextInt(classList.size());
+		}
+		return classList.get(randInd);
+	}
+
+	private boolean IsInArray(String newClass, AClasses[] classSet){
+		for (int i = 0; i < 3; i++){
+			if (classSet[i] != null) {
+				if (newClass.equals(classSet[i].getName()) | newClass.equals(classSet[i].getBase())) return true;
 			}
-			//for(ACharacter classes : c) {
-			//System.out.println(classes.getName());
-			//System.out.println(classes.isPromoted());
-			//System.out.println(Arrays.toString(classes.getClasses()));
-        //}
 		}
-		catch (IOException e){
-			DebugBuilder.DebugOutput("In main IOException");
-		}
-		
-//		for(ACharacter classes : c) {
-//			System.out.println(classes.getName());
-//			System.out.println(Arrays.toString(classes.getClasses()));
- //       }
+		return false;
 	}
 }

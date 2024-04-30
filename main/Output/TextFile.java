@@ -24,6 +24,7 @@ public class TextFile{
 			writer.println("Old: " + classes.getActual());
 			writer.println("Classes: " + Arrays.toString(classes.getClasses()));
 			writer.println("Skills: " + Arrays.toString(classes.getSkills()));
+			writer.println("Base stats: " + Arrays.toString(classes.getBaseStats()));
 			writer.println("");
        }
 	   writer.close();

@@ -64,6 +64,23 @@ public class XMLReader {
                 newChar.setFid(sameChar.getFid());
                 newChar.setHpid(sameChar.getHpid());
                 newChar.setVoice(sameChar.getVoice());
+                newChar.setInternalLevel(sameChar.getInternalLevel());
+                //growths will be different in the future
+                newChar.setGrowths(sameChar.getGrowths());
+                //this is the part where I have to update the xmls. Check if stuff is missing
+                if (eElement.hasAttribute("Stats")){
+                    String[] statArray = ReturnStringArray(eElement.getAttribute("Stats"), 8);
+                    int[] realStats = new int[8];
+                    for (int i = 0; i < 8; i++){
+                        realStats[i] = Integer.parseInt(statArray[i]);
+                    }
+                    newChar.setStats(realStats);
+                }
+                else{
+                    //stats of old character with growths of same one
+                    if (randomizationOptions.reverseRecruitment) newChar.setStats(newChar.getBaseStats());
+                    else newChar.setStats(oldChar.getBaseStats());
+                }
                 //removes from list to make search quicker
                 //charList.remove(sameChar);
                 newCharList.add(newChar);
@@ -76,6 +93,13 @@ public class XMLReader {
                 Element appBools = (Element) nude;
                 randomizationOptions.cutscenes = appBools.getAttribute("Cutscenes").equals("true");
                 randomizationOptions.supports = appBools.getAttribute("Supports").equals("true");
+                //start checking other bools for randomization
+                if (appBools.hasAttribute("Stats")){
+                    randomizationOptions.statState = Integer.parseInt(appBools.getAttribute("Stats"));
+                }
+                else{
+                    randomizationOptions.statState = 0;
+                }
             }
             return newCharList;
         }

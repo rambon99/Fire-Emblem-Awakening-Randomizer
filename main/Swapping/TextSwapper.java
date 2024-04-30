@@ -59,9 +59,13 @@ public class TextSwapper {
                 //like the other sections, we use a method of blank file and an edited file, that way the same chars are not replaced more than once
                 blankText = new StringBuilder(editedText);
                 //loops through all the characters every chapter to see if they can be replaced
+                if (scriptName.equals("009.cmb")){
+                    DebugBuilder.DebugOutput("This is where i check specific chapters");
+                }
                 for (ACharacter character : charList){
                     //checks that the HPID is in the script, meaning there is something to replace
-                    if (blankText.indexOf(charList.get(indexMap.get(character.getActual())).getHpid().toLowerCase()) != -1){
+                    String HPID = charList.get(indexMap.get(character.getActual())).getHpid().toLowerCase(); //puts HPID in its own thing so if statement doesnt suck
+                    if (blankText.indexOf(HPID) != -1 | blankText.indexOf(HPID.substring(8, HPID.length() - 2) + "96a195fb00") != -1){
                         DebugBuilder.DebugOutput("Replacing " + character.getActual() + " with " + character.getName() + " in script for chapter " + scriptName);
                         size = fixScript(character, charList.get(indexMap.get(character.getActual())), size);
                         edited = true;
@@ -103,7 +107,7 @@ public class TextSwapper {
                     ReplaceAllStrings(japaneseMap.get(character.getActual()), character.getjName());
                 }
                 //morgan exception
-                if (character.getName().equals("MorganM") || character.getName().equals("MorganF")){
+                if (character.getName().equals("MorganM") | character.getName().equals("MorganF")){
                     ReplaceAllStrings(character.getActual(), "Morgan");
                 }
                 else{
@@ -270,59 +274,37 @@ public class TextSwapper {
     public int fixScript(ACharacter chr1, ACharacter chr2, int size){
         String table = blankText.substring(66, 68) + blankText.substring(64, 66);
         int enc = Integer.parseInt(table, 16);
-        //System.out.println(table);
-        //System.out.println(size);
+        //the encoding table indicates where all the extra data for script files is stored
+        //it's basically a table of pointers, where 00 is the first pointer and then we use pointer math to determine where the info is
         String ad11t = "000" + Integer.toHexString(size - enc);
+        //size indicates the position in the file where we'll be appending the new character
+        //the reason why we subtract from enc, is because it's a table so we're getting the pointer based on its position on the table
         String ad11 = ad11t.substring(ad11t.length()-4, ad11t.length());
         String ad12 = ad11.substring(ad11.length() - 2, ad11.length()) + ad11.substring(ad11.length() - 4, ad11.length() - 2);
-        //System.out.println(chr1.getName());
+        //Finds the location of the PID of the character we'll be replacing in the file
         int tind = blankText.indexOf(chr2.getHpid().toLowerCase())/2;
-        //System.out.println(chr2.getName());
-        //System.out.println(chr2.getHpid());
-        //System.out.println(Integer.toHexString(tind));
+        //converts this into a pointer by subtracting the encoding table
         String ad21t = "000" + Integer.toHexString(tind - enc);
         String ad21 = ad21t.substring(ad21t.length()-4, ad21t.length());
-        //System.out.println(size);
         String ad22 = ad21.substring(ad21.length() - 2, ad21.length()) + ad21.substring(ad21.length() - 4, ad21.length() - 2);
-        int ind1 = blankText.indexOf("1d" + ad21.toLowerCase() + "47") + 2;
-        int ind2 = blankText.indexOf(ad22.toLowerCase()+"0000");
-        //System.out.println(ad11);
-        //System.out.println(ad12);
-        //System.out.println(ad21);
-        //System.out.println(ad22);
+        //searchs the pointers
+        int ind1 = blankText.lastIndexOf("1d" + ad21.toLowerCase() + "47");
+        int ind2 = blankText.lastIndexOf(ad22.toLowerCase()+"0000");
         editedText.append(chr1.getHpid());
         blankText.append(String.format("%0" + chr1.getHpid().length() + "d", 1));
         size = size + (chr1.getHpid().length()/2);
-
-        while ( ind1!= -1 ||  ind2!= -1){
-            //System.out.println(cstring.indexOf(ad21)+ " " + cstring.indexOf(ad22));
-            //System.out.println(cstring.substring(ind1, ind1+4));
-            //System.out.println(cstring.substring(ind2, ind2+4));
-            if (ind1 != -1){
-                //System.out.println(cstring.substring(ind1, ind1+4));
-                editedText.replace(ind1, ind1 + 4, ad11);
-                blankText.replace(ind1, ind1 + 4, "0000");
-                //System.out.println(cstring.substring(ind1, ind1+4));
-                ind1 = blankText.indexOf("1d" + ad21.toLowerCase() + "47");
-                if (ind1 != -1){
-                    ind1 = ind1 + 2;
-                }
-
-            }
-
-            if (ind2 != -1){
-                //System.out.println(cstring.substring(ind2, ind2+4));
-                editedText.replace(ind2, ind2 + 4, ad12);
-                blankText.replace(ind2, ind2 + 4, "0000");
-                //System.out.println(cstring.substring(ind2, ind2+4));
-                ind2 = blankText.indexOf(ad22.toLowerCase()+"0000");
-
-            }
-        }
+        //finds the point where the events start. Nothing before this point should be modified
+        int eventStart = blankText.indexOf("006265763a") + 2;
+        //function to loop and replace all corresponding instances
+        ScriptIndexLoop(eventStart, enc,2, "1d" + ad21.toLowerCase() + "47", ad11.toLowerCase());
+        ScriptIndexLoop(eventStart, enc,2, "1d" + ad21.toLowerCase() + "1d", ad11.toLowerCase());
+        ScriptIndexLoop(eventStart, enc,0, ad22.toLowerCase()+"0000", ad12.toLowerCase());
+        //1st loop corresponds to regular pid calls
+        //2nd loop corresponds to pid calls for combat situations
+        //3rd loop idk
         int tind2 = blankText.indexOf((chr2.getHpid().substring(8, chr2.getHpid().length()-2) + "96A195FB00").toLowerCase());
-        //System.out.println(chr2.getHpid().substring(8, chr2.getHpid().length()-2) + "96A195FB00");
-        //System.out.println(cstring.indexOf((chr2.getHpid().substring(8, chr2.getHpid().length()-2) + "96A195FB00").toLowerCase()));
         if (tind2 != -1){
+            //this corresponds to flag events that use 味方 instead of a regular PID call
             tind2 = tind2/2;
             String nname1 = chr1.getHpid().substring(8, chr1.getHpid().length()-2) + "96A195FB00";
             String ad31t = "000" + Integer.toHexString(size - enc);
@@ -332,46 +314,33 @@ public class TextSwapper {
             String ad41t = "000" + Integer.toHexString(tind2 - enc);
             String ad41 = ad41t.substring(ad41t.length()-4, ad41t.length());
             String ad42 = ad41.substring(ad41.length() - 2, ad41.length()) + ad41.substring(ad41.length() - 4, ad41.length() - 2);
-            int ind3 = blankText.indexOf("1d" + ad41.toLowerCase() + "47") + 2;
-            int ind4 = blankText.indexOf(ad42.toLowerCase() + "0000");
-
-            //System.out.println(ad31);
-            //System.out.println(ad32);
-            //System.out.println(ad41);
-            //System.out.println(ad42);
-            while ( ind3!= -1 ||  ind3!= -1){
-                //System.out.println(script.indexOf(ad41)+ " " + script.indexOf(ad42));
-                //System.out.println(cstring.substring(ind1, ind1+4));
-                //System.out.println(cstring.substring(ind2, ind2+4));
-                if (ind3 != -1){
-                    //System.out.println(cstring.substring(ind3, ind3+4));
-                    editedText.replace(ind3, ind3 + 4, ad31);
-                    blankText.replace(ind3, ind3 + 4, "0000");
-                    //System.out.println(cstring.substring(ind3, ind3+4));
-                    ind3 = blankText.indexOf("1d" + ad41.toLowerCase() + "47");
-                    if (ind3 != -1){
-                        ind3 = ind3 + 2;
-                    }
-                }
-
-                if (ind4 != -1){
-                    //System.out.println(cstring.substring(ind4, ind4+4));
-                    editedText.replace(ind4, ind4 + 4, ad32);
-                    blankText.replace(ind4, ind4 + 4, "0000");
-                    //System.out.println(cstring.substring(ind4, ind4+4));
-                    ind4 = blankText.indexOf(ad42.toLowerCase() + "0000");
-                }
-            }
+            ScriptIndexLoop(eventStart, enc,2, "1d" + ad41.toLowerCase() + "47", ad31.toLowerCase());
+            ScriptIndexLoop(eventStart, enc,2, "1d" + ad41.toLowerCase() + "1d", ad31.toLowerCase());
+            ScriptIndexLoop(eventStart, enc,0, ad42.toLowerCase()+"0000", ad32.toLowerCase());
+            //similar to the last loop, but I'm honestly not super sure exactly what these do or entail
             editedText.append(nname1);
             blankText.append(String.format("%0" + nname1.length() + "d", 1));
-            size = size + (nname1.length());
+            size = size + (nname1.length()/2);
         }
-        //if (c.getActual().equals("Tharja")){
-        //	cstring.replace(4790, 4794, "0A19")
-        //cstring.replace(5062, 5066, "0276")
-        //}
         editedText.replace(0, 6, "636d62");
         blankText.replace(0, 6, "636d62");
         return size;
+    }
+
+    private void ScriptIndexLoop(int scriptStart, int pointerTable, int extraLength, String original, String replacement){
+        int index = 0;
+        index = blankText.lastIndexOf(original);
+        while (index != - 1){
+            //script should not EVER edit things above the pointer table or below start of script. So we replace the blank (which we dont need to keep since we wont use it) and keep searching
+            if (index/2 > pointerTable | index < scriptStart | index % 2 == 1){
+                blankText.replace(index + extraLength, index + extraLength + 4, "ffff");
+            }
+            else{
+                //replaces text with corresponding value and blank
+                editedText.replace(index + extraLength, index + extraLength + 4, replacement);
+                blankText.replace(index + extraLength, index + extraLength + 4, "0000");
+            }
+            index = blankText.lastIndexOf(original);
+        }
     }
 }

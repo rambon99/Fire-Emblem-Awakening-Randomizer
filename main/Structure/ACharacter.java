@@ -13,6 +13,9 @@ public class ACharacter implements Cloneable{
 	private String voice;
 	private String[] classes;
 	private String[] skills;
+	private int internalLevel;
+	private int[] baseStats;
+	private int[] growths;
 	private String hpid;
 	
 	private Boolean male;
@@ -60,6 +63,8 @@ public class ACharacter implements Cloneable{
 	public void setSkills(String[] skills){
 		this.skills = skills;
 	}
+	public void setStats(int[] stats){baseStats = stats;}
+	public void setGrowths(int[] growths){this.growths = growths;}
 	
 	public void setHpid(String hpid){
 		this.hpid = hpid;
@@ -77,6 +82,8 @@ public class ACharacter implements Cloneable{
 	public void setPromoted(boolean promoted){
 		this.promoted = promoted;
 	}
+
+	public void setInternalLevel(int internalLevel) {this.internalLevel = internalLevel;}
 	
 	public String getName(){
 		return this.name;
@@ -104,6 +111,9 @@ public class ACharacter implements Cloneable{
 		return this.classes;
 	}
 	public String[] getSkills() {return this.skills;}
+	public int getInternalLevel() {return this.internalLevel;}
+	public int[] getGrowths(){return this.growths;}
+	public int[] getBaseStats(){return this.baseStats;}
 	
 	public String getHpid(){
 		return this.hpid;

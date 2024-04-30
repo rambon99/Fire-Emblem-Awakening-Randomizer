@@ -71,7 +71,6 @@ public class CharSwapper{
 				String fid2 = c.get(y2).getFid();
 				String nfid2 = fid2.substring(2,4)+fid2.substring(0,2);
 				int ind2 = stat.lastIndexOf(("00" + nfid2.toLowerCase() + "0000")) + 2;
-				stat.replace(ind1 + 32, ind1 + 48, tstat.substring(ind2 + 32, ind2 + 48));
 				stat.replace(ind1 + 114, ind1 + 116, tstat.substring(ind2 + 114, ind2 + 116));
 				stat.replace(ind1 + 96, ind1 + 100, tstat.substring(ind2 + 96, ind2 + 100));
 				stat.replace(ind1 + 120, ind1 + 140, tstat.substring(ind2 + 120, ind2 + 140));
@@ -136,7 +135,6 @@ public class CharSwapper{
 				String fid2 = c.get(y2).getFid();
 				String nfid2 = fid2.substring(2,4)+fid2.substring(0,2);
 				int ind2 = tstat.lastIndexOf(("00" + nfid2.toLowerCase() + "0000")) + 2;
-				stat.replace(ind1 + 32, ind1 + 48, tstat.substring(ind2 + 32, ind2 + 48));
 				stat.replace(ind1 + 114, ind1 + 116, tstat.substring(ind2 + 114, ind2 + 116));
 				stat.replace(ind1 + 96, ind1 + 100, tstat.substring(ind2 + 96, ind2 + 100));
 				stat.replace(ind1 + 120, ind1 + 140, tstat.substring(ind2 + 120, ind2 + 140));
@@ -192,7 +190,6 @@ public class CharSwapper{
 				String fid2 = c.get(y2).getFid();
 				String nfid2 = fid2.substring(2,4)+fid2.substring(0,2);
 				int ind2 = tstat.lastIndexOf(("00" + nfid2.toLowerCase() + "0000")) + 2;
-				stat.replace(ind1 + 32, ind1 + 48, tstat.substring(ind2 + 32, ind2 + 48));
 				stat.replace(ind1 + 114, ind1 + 116, tstat.substring(ind2 + 114, ind2 + 116));
 				stat.replace(ind1 + 96, ind1 + 100, tstat.substring(ind2 + 96, ind2 + 100));
 				stat.replace(ind1 + 120, ind1 + 140, tstat.substring(ind2 + 120, ind2 + 140));

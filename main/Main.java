@@ -51,14 +51,14 @@ public class Main{
 		SkillSwapper skill = new SkillSwapper();
 		TextSwapper ts = new TextSwapper();
 		XMLBuilder xml = new XMLBuilder();
+		StatSwapper statSwapper = new StatSwapper();
 		
 		StringBuilder statc = new StringBuilder();
 		bin.getStatic(statc);
-		
+
 		chars.setCharacter(c, statc);
 		cls.setClasses(cl, statc);
 		chaps.setChapters(ch);
-		
 		if (randomizedOptions.characters || randomizedOptions.xml){
 			if (randomizedOptions.xml){
 				XMLReader xmlReader = new XMLReader();
@@ -75,7 +75,7 @@ public class Main{
 		if (randomizedOptions.classes || randomizedOptions.xml){
 			if (randomizedOptions.classes) {
 				ClassShuffler ran = new ClassShuffler();
-				ran.RandomizeClasses(c);
+				ran.RandomizeClasses(c, cl);
 			}
 			cs.swapClasses(c, cl, statc);
 			DebugBuilder.DebugOutput("Classes Swapped");
@@ -91,6 +91,8 @@ public class Main{
 		ts.SwapTexts(c, randomizedOptions.cutscenes, randomizedOptions.supports);
 		DebugBuilder.DebugOutput("texts swapped");
 
+		statSwapper.SwapStats(statc, c, cl, randomizedOptions);
+		DebugBuilder.DebugOutput("Stats Swapped");
 		if (randomizedOptions.newXml){
 			xml.CreateXML(c, randomizedOptions);
 			DebugBuilder.DebugOutput("xml created");
