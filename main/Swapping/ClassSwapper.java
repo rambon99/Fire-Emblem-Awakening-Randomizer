@@ -24,11 +24,6 @@ public class ClassSwapper{
 	}
 	
 	public void swapClasses(ArrayList <ACharacter> c, ArrayList <AClasses> cl, StringBuilder str) throws Exception{
-
-
-		BinFiles bin = new BinFiles();
-		//System.out.println(str);
-		
 		for (int x = 0; x < 49; x++){
 			String fid = c.get(x).getFid();
 			///System.out.println(fid);
@@ -238,14 +233,11 @@ public class ClassSwapper{
 			//str.replace(ind + 192, ind + 197, ncid);
 			DebugBuilder.DebugOutput("Randomized all of " + c.get(x).getName() + "'s classes!");
 		}
-		
-		bin.writeStatic(str);
+		BinFiles.SetStatic(str);
 	}
 	
 	public void adjustClasses(ArrayList <ACharacter> c, ArrayList <AClasses> cl, StringBuilder str) throws Exception{
 		DebugBuilder.DebugOutput("Start Char Adjus");
-		BinFiles bin =  new BinFiles();
-		
 		for (int x = 0; x < 49; x++){
 			DebugBuilder.DebugOutput("Adjusting classes for " + c.get(x).getName());
 			String fid = c.get(x).getFid();
@@ -298,6 +290,6 @@ public class ClassSwapper{
 			}
 		}
 		DebugBuilder.DebugOutput("End Char Adjus");
-		bin.writeStatic(str);
+		BinFiles.SetStatic(str);
 	}
 }

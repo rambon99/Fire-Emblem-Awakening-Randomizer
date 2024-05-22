@@ -31,9 +31,7 @@ public class CharacterStarter{
 		NodeList nList = doc.getElementsByTagName("Character");
 
 		//gets the growth table from GameData. Thankfully, we don't have to modify anything
-		StringBuilder gameData = new StringBuilder();
-		BinFiles bin = new BinFiles();
-		bin.getGamedata(gameData);
+		StringBuilder gameData = BinFiles.GetGameData();
 		int gameDataIndex = gameData.indexOf("5989d2d1");
 		//gets the whole ass growth table. It's big. 510 is 255 * 2, which comes from it being a hex length of 0xFF with two bytes of legnth
 		String growthTable = gameData.substring(gameDataIndex, gameDataIndex + 510);
@@ -127,7 +125,7 @@ public class CharacterStarter{
 		for (int i = 0; i < 8; i++){
 			int stat = Integer.parseInt(staticBin.substring(statIndex, statIndex + 2), 16);
 			//really high numbers are used for negative stats, so we do the minus
-			baseStats[i] = stat < 100 ? stat : stat - 255;
+			baseStats[i] = stat < 100 ? stat : 0;
 			statIndex += 2;
 		}
 		return baseStats;

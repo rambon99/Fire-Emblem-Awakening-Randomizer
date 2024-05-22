@@ -22,7 +22,6 @@ public class SkillSwapper{
 	
 	public void SwapSkills(ArrayList <ACharacter> c, ArrayList <AClasses> cl, StringBuilder str, boolean setSkills){
 		try{
-		BinFiles bin = new BinFiles();
 		//reads the skill xml file
 			InputStream inputStream = Main.class.getResourceAsStream("Data/Skills.xml");
 			File inputFile =  File.createTempFile("temp", ".xml");
@@ -76,7 +75,7 @@ public class SkillSwapper{
 			str.replace(skillListIndex, skillListIndex + 20, skills.toString());
 		}
 		//actually writes string into file
-		bin.writeStatic(str);
+		BinFiles.SetStatic(str);
 		}
 		catch (Exception e){
 			DebugBuilder.DebugOutput("skills exploded");

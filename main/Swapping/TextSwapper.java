@@ -21,8 +21,6 @@ public class TextSwapper {
     StringBuilder editedName;
     public void SwapTexts(ArrayList<ACharacter> charList, boolean story, boolean supports){
         if (!story && !supports) return;
-
-        BinFiles binFiles = new BinFiles();
         //Create hash map for names and voices
         Map<String, String> japaneseMap = new HashMap<>();
         Map<String, String> voiceMap = new HashMap<>();
@@ -48,14 +46,13 @@ public class TextSwapper {
         if (story){
             textFiles.addAll(ReturnStory());
             //fixes script files for cutscenes
-            CharSwapper scriptSwapper = new CharSwapper();
-            //loops through all files in text files except the last 2, which do not correspond to chapters
-            for (int i = 0; i < textFiles.size() - 2; i++){
+            //loops through all files in text files except the last 3, which do not correspond to chapters
+            for (int i = 0; i < textFiles.size() - 3; i++){
                 boolean edited = false;
                 //gets the hex code for the script
-                editedText = new StringBuilder();
-                String scriptName = textFiles.get(i).substring(0, textFiles.get(i).length() - 3) + "cmb";
-                int size = binFiles.getScript(editedText, scriptName, 0);
+                String scriptName = textFiles.get(i) + ".cmb";
+                editedText = BinFiles.GetScript(scriptName);
+                int size = editedText.length()/2;
                 //like the other sections, we use a method of blank file and an edited file, that way the same chars are not replaced more than once
                 blankText = new StringBuilder(editedText);
                 //loops through all the characters every chapter to see if they can be replaced
@@ -72,7 +69,7 @@ public class TextSwapper {
                     }
                 }
                 if (edited){
-                    binFiles.writeScript(editedText, scriptName);
+                    BinFiles.SetScript(editedText, scriptName);
                 }
             }
         }
@@ -83,13 +80,10 @@ public class TextSwapper {
         //loops through all of the files in the textfile list to replace their contents
         for (String tf : textFiles){
             //we set the current textfile to a string. This is the file we will be searching through for references
-            String currentTextFile = binFiles.GetText(tf);
             //edited text file is the file we will actually be modifying. That way, there is no repeats or accidentally overwriting of characters
-            editedText = new StringBuilder();
-            editedText.append(currentTextFile);
+            editedText = BinFiles.GetText(tf);
             //create blank String builder that way characters who have been replaced won't be replaced more than once
-            blankText = new StringBuilder();
-            blankText.append(currentTextFile);
+            blankText = new StringBuilder(editedText);
             //loops through all characters
             for (ACharacter character : charList){
                 //checks if character's japanese or real name is called at any point, and replaces all instances of them if so
@@ -117,19 +111,16 @@ public class TextSwapper {
             }
 
             //writes the text file if it has been edited
-            binFiles.WriteText(tf, editedText.toString());
+            BinFiles.SetText(tf, editedText.toString());
         }
         //since we have to change the filenames for support convos, it get real annoying
         ArrayList<String> newFiles = new ArrayList<>();
         ArrayList<String> newContent = new ArrayList<>();
         for (String sf : supportFiles){
             //get the original text file
-            String currentTextFile = binFiles.GetText(sf);
             //we use the same system as before with the blank/edited text files
-            editedText = new StringBuilder();
-            editedText.append(currentTextFile);
-            blankText = new StringBuilder();
-            blankText.append(currentTextFile);
+            editedText = BinFiles.GetText(sf);
+            blankText = new StringBuilder(editedText);
             //we use two new variables for the name of the file. Since this replacement will only happen
             StringBuilder blankName = new StringBuilder();
             blankName.append(sf);
@@ -172,8 +163,9 @@ public class TextSwapper {
         }
 
         for (int n = 0; n < newFiles.size(); n++){
-            binFiles.WriteText(newFiles.get(n), newContent.get(n));
+            BinFiles.SetText(newFiles.get(n), newContent.get(n));
         }
+        DebugBuilder.DebugOutput("texts swapped");
     }
 
     //EXCEPTIONS: Lucina uses マルス for the name of her support conversations, gameData
@@ -189,7 +181,6 @@ public class TextSwapper {
     }
 
     public ArrayList<String> ReturnSupports(ArrayList<ACharacter> charList){
-        BinFiles bin = new BinFiles();
         ArrayList<String> supportList = new ArrayList<>();
         //have to add male and female Robin to the conversations
         ArrayList<ACharacter> fullList = new ArrayList<>(charList);
@@ -212,23 +203,23 @@ public class TextSwapper {
                 //.out.println("Checking if " + jNameC2 + " can support " + jNameC1);
                 ArrayList<String> possibleConvos =  new ArrayList<>();
                 //regular conversation check
-                possibleConvos.add(jNameC1 + "_" + jNameC2 + ".txt");
-                possibleConvos.add(jNameC2 + "_" + jNameC1 + ".txt");
+                possibleConvos.add(jNameC1 + "_" + jNameC2 );
+                possibleConvos.add(jNameC2 + "_" + jNameC1);
                 //parent child conversation check
-                possibleConvos.add(jNameC1 + "_" + jNameC2 + "_親子.txt");
-                possibleConvos.add(jNameC2 + "_" + jNameC1 + "_親子.txt");
+                possibleConvos.add(jNameC1 + "_" + jNameC2 + "_親子");
+                possibleConvos.add(jNameC2 + "_" + jNameC1 + "_親子");
                 //sibling conversation check
-                possibleConvos.add(jNameC1 + "_" + jNameC2 + "_兄弟.txt");
-                possibleConvos.add(jNameC2 + "_" + jNameC1 + "_兄弟.txt");
+                possibleConvos.add(jNameC1 + "_" + jNameC2 + "_兄弟");
+                possibleConvos.add(jNameC2 + "_" + jNameC1 + "_兄弟");
                 for (String convo : possibleConvos){
-                    if (bin.TextExists(convo)){
+                    if (BinFiles.TextExists(convo)){
                         supportList.add(convo);
                     }
                 }
             }
             //adds all four paired up special spot conversations
             for (int n = 0; n < 4; n++){
-                supportList.add("様子_" + jNameC1 + (n + 1) + ".txt");
+                supportList.add("様子_" + jNameC1 + (n + 1));
             }
         }
 
@@ -238,34 +229,34 @@ public class TextSwapper {
     public ArrayList<String> ReturnSupportsExtra(){
         ArrayList<String> extra = new ArrayList<>();
         //adds other random files for randomization
-        extra.add("撤退.txt"); //File for retreats
-        extra.add("死亡.txt"); //Files for deaths
-        extra.add("独り言.txt"); //base dialogue
-        extra.add("様子_能力.txt"); //special spot dialogue
-        extra.add("様子_経験.txt"); //specal spot dialogue 2
-        extra.add("様子_武器経験.txt"); //special spot dialogue 3
-        extra.add("様子_拾得.txt"); //special spot dialogue 4
+        extra.add("撤退"); //File for retreats
+        extra.add("死亡"); //Files for deaths
+        extra.add("独り言"); //base dialogue
+        extra.add("様子_能力"); //special spot dialogue
+        extra.add("様子_経験"); //specal spot dialogue 2
+        extra.add("様子_武器経験"); //special spot dialogue 3
+        extra.add("様子_拾得"); //special spot dialogue 4
         return  extra;
     }
 
     //returns an array with the name of all the story arrays
     public ArrayList<String> ReturnStory(){
         ArrayList<String> storyArray = new ArrayList<>();
-        storyArray.add("P002.txt");
+        storyArray.add("P002");
         //for loop that adds all the main story chapter and paralogues
         //there's 26 chapters and 23 paralogues
         for (int i = 0; i < 26; i++){
             String chapterString = String.format("%03d", i + 1);
-            storyArray.add(chapterString + ".txt");
+            storyArray.add(chapterString);
             //there's a total of 23 paralogues so qe add those. They all begin with x and have three digits
             if (i < 23){
-                storyArray.add("X" + chapterString + ".txt");
+                storyArray.add("X" + chapterString);
             }
         }
         //adds other random files for randomization
-        storyArray.add("遭遇戦.txt"); // file for skirmishes
-        storyArray.add("紹介文.txt"); // barracks character info
-        storyArray.add("GameData.txt"); // file with character info
+        storyArray.add("遭遇戦"); // file for skirmishes
+        storyArray.add("紹介文"); // barracks character info
+        storyArray.add("GameData"); // file with character info
 
         return storyArray;
     }

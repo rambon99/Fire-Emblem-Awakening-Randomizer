@@ -43,8 +43,6 @@ public class Main{
 		ClassSwapper cs = new ClassSwapper();
 		CharacterStarter chars = new CharacterStarter();
 		ItemSwapper is = new ItemSwapper();
-		BinFiles bin = new BinFiles();
-		bin.SetFolder(folder);
 		ChapterStarter chaps = new ChapterStarter();
 		CharSwapper chs = new CharSwapper();
 		TextFile tf = new TextFile();
@@ -52,12 +50,14 @@ public class Main{
 		TextSwapper ts = new TextSwapper();
 		XMLBuilder xml = new XMLBuilder();
 		StatSwapper statSwapper = new StatSwapper();
-		
-		StringBuilder statc = new StringBuilder();
-		bin.getStatic(statc);
 
-		chars.setCharacter(c, statc);
-		cls.setClasses(cl, statc);
+		//initializes binfiles static
+		BinFiles.InitiateBin(folder);
+		StringBuilder staticBin = new StringBuilder();
+		staticBin = BinFiles.GetStatic();
+
+		chars.setCharacter(c, staticBin);
+		cls.setClasses(cl, staticBin);
 		chaps.setChapters(ch);
 		if (randomizedOptions.characters || randomizedOptions.xml){
 			if (randomizedOptions.xml){
@@ -69,7 +69,7 @@ public class Main{
 				chash.randomizeCharacters(c);
 			}
 			//change story bool to fit whichever option is picked
-			chs.swapChars(c, statc, ch, randomizedOptions.cutscenes);
+			chs.swapChars(c, staticBin, ch, randomizedOptions.cutscenes);
 			DebugBuilder.DebugOutput("Chars Swapped");
 		}
 		if (randomizedOptions.classes || randomizedOptions.xml){
@@ -77,21 +77,20 @@ public class Main{
 				ClassShuffler ran = new ClassShuffler();
 				ran.RandomizeClasses(c, cl);
 			}
-			cs.swapClasses(c, cl, statc);
+			cs.swapClasses(c, cl, staticBin);
 			DebugBuilder.DebugOutput("Classes Swapped");
 		}
 		else {
-			cs.adjustClasses(c, cl, statc);
+			cs.adjustClasses(c, cl, staticBin);
 			DebugBuilder.DebugOutput("Classes Adjusted");
 		}
-		is.swapItems(c, cl, statc, ch);
+		is.swapItems(c, cl, staticBin, ch);
 		DebugBuilder.DebugOutput("Items Swapped");
-		skill.SwapSkills(c, cl, statc, randomizedOptions.xml && !randomizedOptions.classes);
+		skill.SwapSkills(c, cl, staticBin, randomizedOptions.xml && !randomizedOptions.classes);
 		DebugBuilder.DebugOutput("Skills Swapped");
 		ts.SwapTexts(c, randomizedOptions.cutscenes, randomizedOptions.supports);
-		DebugBuilder.DebugOutput("texts swapped");
 
-		statSwapper.SwapStats(statc, c, cl, randomizedOptions);
+		statSwapper.SwapStats(staticBin, c, cl, randomizedOptions);
 		DebugBuilder.DebugOutput("Stats Swapped");
 		if (randomizedOptions.newXml){
 			xml.CreateXML(c, randomizedOptions);
@@ -100,6 +99,10 @@ public class Main{
 		if (randomizedOptions.textFile) {
 			tf.makeTextFile(c);
 		}
+		DebugBuilder.DebugOutput("Starting write");
+		//writes all files now that randomization is finished
+		BinFiles.WriteAll();
+		//BinFiles.ListAllFiles();
 		DebugBuilder.DebugOutput("End main");
 	}
 	

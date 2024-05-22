@@ -23,9 +23,6 @@ public class ItemSwapper{
 	}
 	
 	public void swapItems(ArrayList <ACharacter> c, ArrayList <AClasses> cl, StringBuilder stat, ArrayList<AChapter> ch) throws Exception{
-		BinFiles bin = new BinFiles();
-
-
 		InputStream inputStream = Main.class.getResourceAsStream("Data/Item.xml");
 		File inputFile =  File.createTempFile("temp", ".xml");
 		FileOutputStream outputStream = new FileOutputStream(inputFile);
@@ -42,11 +39,10 @@ public class ItemSwapper{
 			String[] c1i = ch.get(x).getC1i();  ///CRASHES ON X18
 			String[] c2i = ch.get(x).getC2i();
 			String c3i = ch.get(x).getC3i();
-			
-			StringBuilder chap = new StringBuilder();
+
 			String cname = ch.get(x).getName();
-			int size = 0;
-			size = bin.getDispos(chap, cname, size);
+			StringBuilder chap = BinFiles.GetDispos(cname);
+			int size = chap.length()/2;
 			
 			int ind3 = 0;
 			int ind2 = 0;
@@ -304,9 +300,8 @@ public class ItemSwapper{
 					size = size + (w1.length()/2);
 					
 					if (c.get(y).getActual().equals("Tiki")){  ///ADD TIKI'S ITEM
-						StringBuilder script = new StringBuilder();
-						int ssize = 0;
-						ssize = bin.getScript(script, "X017.cmb", ssize);
+						StringBuilder script = BinFiles.GetScript("X017.cmb");
+						int ssize = script.length()/2;
 						
 						String table = script.substring(66, 68) + script.substring(64, 66);
 						int enc = Integer.parseInt(table, 16);
@@ -337,7 +332,7 @@ public class ItemSwapper{
 						}
 						script.append(w1);
 						ssize = ssize + (w1.length()/2);
-						bin.writeScript(script, "X017.cmb");
+						BinFiles.SetScript(script, "X017.cmb");
 
 					}
 					
@@ -908,8 +903,8 @@ public class ItemSwapper{
 				String enda = end.substring(end.length() - 2,end.length())+ end.substring(end.length() - 4, end.length() - 2) + "0";
 				chap.replace(0, 5, enda);
 				}
-			bin.writeStatic(stat);
-			bin.writeDispos(chap, cname);
+				BinFiles.SetStatic(stat);
+				BinFiles.SetDispos(chap, cname);
 			}
 		}
 		

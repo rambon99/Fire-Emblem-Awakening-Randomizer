@@ -78,7 +78,7 @@ public class XMLReader {
                 }
                 else{
                     //stats of old character with growths of same one
-                    if (randomizationOptions.reverseRecruitment) newChar.setStats(newChar.getBaseStats());
+                    if (randomizationOptions.reverseRecruitment) newChar.setStats(sameChar.getBaseStats());
                     else newChar.setStats(oldChar.getBaseStats());
                 }
                 //removes from list to make search quicker

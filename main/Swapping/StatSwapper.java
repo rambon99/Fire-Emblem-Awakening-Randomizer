@@ -77,9 +77,8 @@ public class StatSwapper {
             DebugBuilder.DebugOutput(aCharacter.getName() + " has the following base stats");
             DebugBuilder.DebugOutput(Arrays.toString(aCharacter.getBaseStats()));
         }
-        //function is over so we write to gamedata
-        BinFiles binFiles = new BinFiles();
-        binFiles.writeStatic(staticBin);
+        //function is over so set gamedata
+        BinFiles.SetStatic(staticBin);
     }
 
     private int[] GrowthScale(int[] replaceStats, int replaceLvl, int origLvl, int[] charGrowths, int[] classGrowths){

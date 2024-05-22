@@ -21,10 +21,11 @@ public class FileChecker{
 	}
 	
 	public void checkFiles(File f) throws Exception{
-		File statc = new File(f, "/data/person/static.bin");
-		File gamed = new File(f, "data/GameData.bin");
-		File dp1 = new File(f, "/data/dispos/P001.bin");
-		File dp2 = new File(f, "/data/dispos/P002.bin");
+
+		File statc = new File(f, "/data/person/static.bin.lz");
+		File gamed = new File(f, "data/GameData.bin.lz");
+		File dp1 = new File(f, "/data/dispos/P001.bin.lz");
+		File dp2 = new File(f, "/data/dispos/P002.bin.lz");
 		File sp1 = new File(f, "/scripts/P001.cmb");
 		File sp2 = new File(f, "/scripts/P002.cmb");
 		if (!statc.exists() || !gamed.exists() || !dp1.exists() || !dp2.exists() || !sp1.exists() || !sp2.exists()){
@@ -32,19 +33,21 @@ public class FileChecker{
 		}
 		for (int x = 0; x < 27; x++){
 			if (x < 24 && x >0){
-				String disposx = "/data/dispos/X" + String.format("%03d", x) + ".bin";
+				String disposx = "/data/dispos/X" + String.format("%03d", x) + ".bin.lz";
 				String scriptx = "/scripts/X" + String.format("%03d", x) + ".cmb";
 				File disx = new File(f, disposx);
 				File scrx = new File(f, scriptx);
 				if (!disx.exists() || !scrx.exists()){
+					DebugBuilder.DebugOutput("Missing: " + disx + " or " + scrx);
 					throw new Exception();
 				}
 			}
-			String dispos = "/data/dispos/" + String.format("%03d", x) + ".bin";
+			String dispos = "/data/dispos/" + String.format("%03d", x) + ".bin.lz";
 			String script = "/scripts/" + String.format("%03d", x) + ".cmb";
 			File dis = new File(f, dispos);
 			File scr = new File(f, script);
 			if (!dis.exists() || !scr.exists()){
+				DebugBuilder.DebugOutput("Missing: " + dis + " or " + scr);
 				throw new Exception();
 			}
 		}
@@ -53,7 +56,7 @@ public class FileChecker{
 		ArrayList<String> textList = texts.ReturnStory();
 		textList.addAll(texts.ReturnSupportsExtra());
 		for (String text : textList){
-			String textFilename = "/m/E/" + text;
+			String textFilename = "/m/E/" + text + ".bin.lz";
 			File textFile = new File(f, textFilename);
 			if (!textFile.exists()){
 				DebugBuilder.DebugOutput("Missing: " + textFilename);

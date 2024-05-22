@@ -53,6 +53,7 @@ public class GUI extends JPanel implements ActionListener{
 	public ImageIcon nahSelect = new ImageIcon(Main.class.getResource("Resources/NahSelect.gif"));
 	public ImageIcon nahDead = new ImageIcon(Main.class.getResource("Resources/NahDead.png"));
 	public ImageIcon evilNah = new ImageIcon(Main.class.getResource("Resources/NahKnightEvil.gif"));
+	public ImageIcon evilNah2 = new ImageIcon(Main.class.getResource("Resources/NahMerc2.gif"));
 	public ImageIcon evilNahLeft = new ImageIcon(Main.class.getResource("Resources/NahKnightEvilFlip.gif"));
 
 
@@ -96,9 +97,13 @@ public class GUI extends JPanel implements ActionListener{
 		DebugBuilder.DebugOutput("getCurrentDirectory(): "
 				+  main.Program.GUI.folder);
 		try {
-			fc.checkFiles(main.Program.GUI.folder);
-			((JFrame) SwingUtilities.getWindowAncestor(this)).dispose();
-			secondWindow();
+			//checks that its not named romfs
+			if (!GUI.folder.getName().equals("romfs")) {
+				fc.checkFiles(main.Program.GUI.folder);
+				((JFrame) SwingUtilities.getWindowAncestor(this)).dispose();
+				secondWindow();
+			}
+			else FourthWinodow();
 		}
 		catch (Exception e1){
 			thirdWindow();
@@ -445,6 +450,29 @@ public class GUI extends JPanel implements ActionListener{
 		Windo.setLocation(500, 415);
 		Windo.setVisible(true);
 	 }
+	public void FourthWinodow(){
+		JFrame Windo = new JFrame("Error");
+		Windo.setIconImage(nahOops.getImage());
+		//Windo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Windo.getContentPane().setLayout(new BoxLayout(Windo.getContentPane(), BoxLayout.Y_AXIS));
+
+		JPanel panel = new JPanel();
+		panel.setLayout(new FlowLayout());
+		//panel.setBounds(15, 40, 1250, 200);
+		JLabel text = new JLabel("Error: Please do not name your input folder romfs. NAME IT LITERALLY ANYTHING ELSE");
+
+		panel.add(text);
+		//nah gif
+		JLabel nahLost = new JLabel(ResizeImage(evilNah2, 128));
+		panel.add(nahLost);
+
+		Windo.add(Box.createVerticalGlue());
+		Windo.getContentPane().add(panel);
+		Windo.add(Box.createVerticalGlue());
+		Windo.setSize(810, 200);
+		Windo.setLocation(500, 415);
+		Windo.setVisible(true);
+	}
 
 	 public void UpdateRandomizeButton(){
 		for(ActionListener al :Randomize.getActionListeners()){

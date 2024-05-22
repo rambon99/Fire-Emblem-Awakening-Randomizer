@@ -20,7 +20,6 @@ public class CharSwapper{
 	}
 	public boolean storyBoolean;
 	public void swapChars(ArrayList <ACharacter> c, StringBuilder stat, ArrayList <AChapter> ch, boolean story){
-		BinFiles bin = new BinFiles();
 		StringBuilder tstat = new StringBuilder(stat);
 		CharSwapper script = new CharSwapper();
 		DebugBuilder.DebugOutput("CharSwapper begin");
@@ -48,9 +47,8 @@ public class CharSwapper{
 		}
 
 		for (int x = 0; x < 36; x++){
-			StringBuilder chap = new StringBuilder();
-			int size = 0; 
-			size = bin.getDispos(chap, ch.get(x).getName(), size);
+			StringBuilder chap = BinFiles.GetDispos(ch.get(x).getName());
+			int size = chap.length()/2;
 			DebugBuilder.DebugOutput("Replacing characters in chapter: " + ch.get(x).getName());
 			if (!ch.get(x).getC1().equals("")){
 				int y = 0;
@@ -208,11 +206,11 @@ public class CharSwapper{
 			String end = "0" + Integer.toHexString(size);
 			String enda = end.substring(end.length() - 2,end.length())+ end.substring(end.length() - 4, end.length() - 2) + "0";
 			chap.replace(0, 5, enda);
-			bin.writeDispos(chap, ch.get(x).getName());
+			BinFiles.SetDispos(chap, ch.get(x).getName());
 			
 		}
 		DebugBuilder.DebugOutput("End Char Swapper");
-		bin.writeStatic(stat);
+		BinFiles.SetStatic(stat);
 		script.forceChromReplacement(c.get(0));
 		DebugBuilder.DebugOutput("Write main");
 	}
@@ -288,10 +286,8 @@ public class CharSwapper{
 	public void fixScript(ACharacter chr1, ACharacter chr2, AChapter chp){
 		if (storyBoolean) return;
 		String cname = chp.getName().substring(0, chp.getName().length() - 3) + "cmb";
-		StringBuilder cstring =  new StringBuilder();
-		BinFiles script = new BinFiles();
-		int size = 0;
-		size = script.getScript(cstring, cname, size);
+		StringBuilder cstring =  BinFiles.GetScript(cname);
+		int size = cstring.length()/2;
 		String table = cstring.substring(66, 68) + cstring.substring(64, 66);
 		int enc = Integer.parseInt(table, 16);
 		//System.out.println(table);
@@ -389,7 +385,7 @@ public class CharSwapper{
 			//cstring.replace(5062, 5066, "0276")
 		//}
 		cstring.replace(0, 6, "636d62");
-		script.writeScript(cstring, cname);
+		BinFiles.SetScript(cstring, cname);
 	}
 
 
@@ -398,10 +394,8 @@ public class CharSwapper{
 		DebugBuilder.DebugOutput("Chrom replace begin");
 		for (int x = 1; x < 27; x++){
 			String cname = String.format("%03d", x) + ".bin";
-			int size = 0;
-			StringBuilder chp = new StringBuilder();
-			BinFiles bin = new BinFiles();
-			size = bin.getDispos(chp, cname, size);
+			StringBuilder chp = BinFiles.GetDispos(cname);
+			int size = chp.length()/2;
 			
 			int ind1 = chp.indexOf("5049445f834e838d838000")/2 - 32;
 			String a1 = String.format("%04x", ind1);
@@ -430,12 +424,11 @@ public class CharSwapper{
 			String end = "0" + Integer.toHexString(size);
 			String enda = end.substring(end.length() - 2,end.length())+ end.substring(end.length() - 4, end.length() - 2) + "0";
 			chp.replace(0, 5, enda);
-			bin.writeDispos(chp, cname);
+			BinFiles.SetDispos(chp, cname);
 			if (x < 24){
 				String cnamex = "X" + String.format("%03d", x) + ".bin";
-				int sizex = 0;
-				StringBuilder chpx = new StringBuilder();
-				sizex = bin.getDispos(chpx, cnamex, sizex);
+				StringBuilder chpx = BinFiles.GetDispos(cnamex);
+				int sizex = chpx.length()/2;
 			
 				int ind1x = chpx.indexOf("5049445f834e838d838000")/2 - 32;
 				String a1x = String.format("%04x", ind1x);
@@ -453,7 +446,7 @@ public class CharSwapper{
 				String endx = "0" + Integer.toHexString(sizex);
 				String endax = endx.substring(endx.length() - 2,endx.length())+ endx.substring(endx.length() - 4, endx.length() - 2) + "0";
 				chpx.replace(0, 5, endax);
-				bin.writeDispos(chpx, cnamex);
+				BinFiles.SetDispos(chpx, cnamex);
 			}
 		}
 		DebugBuilder.DebugOutput("Chrom replace end");
@@ -461,12 +454,8 @@ public class CharSwapper{
 	
 	public void adjustChildrenChaps(ACharacter c1, ACharacter c2){
 		DebugBuilder.DebugOutput(c1.getName() + " has replaced " + c2.getName() + " as parent in chapter activation.");
-		BinFiles bin = new BinFiles();
-		StringBuilder str = new StringBuilder();
-		int size = 69;
-		
-		
-		size = bin.getGamedata(str);
+		StringBuilder str = BinFiles.GetGameData();
+		int size = str.length()/2;
 		//System.out.println(size);
 		//System.out.println(name1);
 		String name1 = c1.getHpid().substring(8, c1.getHpid().length());
@@ -492,8 +481,7 @@ public class CharSwapper{
 		//System.out.println(enda);
 		str.replace(0, 6, enda);
 		
-		
-		bin.writeGamedata(str);
+		BinFiles.SetGameData(str);
 		//System.out.println("children chaps end");
 	}
 
